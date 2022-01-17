@@ -6,7 +6,8 @@
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="1000">
+        motion:duration="1000"
+        motion:motionInterpolator="cubic(0,16,0,68,0,8,0,8)">
        <KeyFrameSet>
        </KeyFrameSet>
     </Transition>
@@ -32,6 +33,7 @@
             motion:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="104dp"
             android:layout_marginStart="104dp"
-            android:id="@+id/imageView2" />
+            android:id="@+id/imageView2"
+            android:alpha="0.1" />
     </ConstraintSet>
 </MotionScene>

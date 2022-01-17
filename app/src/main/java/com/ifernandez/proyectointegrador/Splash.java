@@ -16,7 +16,7 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        logo = (ImageView) findViewById(R.id.iv1);
+        logo = (ImageView) findViewById(R.id.imageView2);
 
         Animation scale = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
         logo.startAnimation(scale);
