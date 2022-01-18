@@ -8,21 +8,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="627dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="bottom">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:orientation="horizontal">
+
             <TextView
+                android:id="@+id/tv_monday"
                 android:layout_width="205dp"
                 android:layout_height="match_parent"
                 android:text="Lunes"></TextView>
+
             <TextView
+                android:id="@+id/tv_tuesday"
                 android:layout_width="205dp"
                 android:layout_height="match_parent"
                 android:text="Martes"></TextView>
@@ -30,16 +35,18 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="180dp"
             android:orientation="horizontal">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_monday"
                 android:layout_width="205dp"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
             </androidx.recyclerview.widget.RecyclerView>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_tueday"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
@@ -48,11 +55,15 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:orientation="horizontal">
+
             <TextView
+                android:id="@+id/tv_wednesday"
                 android:layout_width="205dp"
                 android:layout_height="match_parent"
                 android:text="Miercoles"></TextView>
+
             <TextView
+                android:id="@+id/tv_thursday"
                 android:layout_width="205dp"
                 android:layout_height="match_parent"
                 android:text="Jueves"></TextView>
@@ -60,14 +71,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="180dp"
             android:orientation="horizontal">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_wednesday"
                 android:layout_width="205dp"
                 android:layout_height="match_parent" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_thursday"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
@@ -76,11 +89,15 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:orientation="horizontal">
+
             <TextView
+                android:id="@+id/tv_friday"
                 android:layout_width="205dp"
                 android:layout_height="match_parent"
                 android:text="Viernes"></TextView>
+
             <TextView
+                android:id="@+id/tv_weekend"
                 android:layout_width="205dp"
                 android:layout_height="match_parent"
                 android:text="Sábado/Domigo"></TextView>
@@ -88,10 +105,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="180dp"
             android:orientation="horizontal">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_friday"
                 android:layout_width="205dp"
                 android:layout_height="match_parent">
 
@@ -103,12 +121,14 @@
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_saturday"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"/>
+                    android:layout_height="85dp" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_sunday"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent" />
             </LinearLayout>
 
         </LinearLayout>
