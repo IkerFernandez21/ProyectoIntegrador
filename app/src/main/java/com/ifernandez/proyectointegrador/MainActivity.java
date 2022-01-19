@@ -145,12 +145,12 @@ public class MainActivity extends AppCompatActivity {
 
         List<Date> showingWeekList = getWeekDateList(showingWeek);
 
-        monday.setText("Lunes " + showingWeekList.get(0).getDate());
-        tuesday.setText("Martes " + showingWeekList.get(1).getDate());
-        wednesday.setText("Miercoles " + showingWeekList.get(2).getDate());
-        thursday.setText("Jueves " + showingWeekList.get(3).getDate());
-        friday.setText("Viernes " + showingWeekList.get(4).getDate());
-        weekend.setText("Sabado/domingo " + showingWeekList.get(5).getDate() + "/" + showingWeekList.get(6).getDate());
+        monday.setText(getString(R.string.monday) + " " + showingWeekList.get(0).getDate());
+        tuesday.setText(getString(R.string.tuesday) + " " + showingWeekList.get(1).getDate());
+        wednesday.setText(getString(R.string.wednesday) + " " + showingWeekList.get(2).getDate());
+        thursday.setText(getString(R.string.thursday) + " " + showingWeekList.get(3).getDate());
+        friday.setText(getString(R.string.friday) + " " + showingWeekList.get(4).getDate());
+        weekend.setText(getString(R.string.weekend) + " " + showingWeekList.get(5).getDate() + "/" + showingWeekList.get(6).getDate());
 
     }
 

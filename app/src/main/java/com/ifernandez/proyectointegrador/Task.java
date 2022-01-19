@@ -10,11 +10,23 @@ public class Task {
     public Task() {
     }
 
+    public Task(String tittle, String description) {
+        this.tittle = tittle;
+        this.description = description;
+        this.completed = false;
+    }
+
+    public Task(String tittle, String description, boolean completed) {
+        this.tittle = tittle;
+        this.description = description;
+        this.completed = completed;
+    }
+
+    //Setters and getters
     public String getTittle() {
         return tittle;
     }
 
-    //Setters and getters
     public void setTittle(String tittle) {
         this.tittle = tittle;
     }
