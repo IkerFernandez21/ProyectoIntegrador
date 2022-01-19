@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         rvMonday = findViewById(R.id.rv_monday);
         LinearLayoutManager mLayout = new LinearLayoutManager(this);
         rvMonday.setLayoutManager(mLayout);
-        RecyclerView.Adapter adapter = new MiAdaptador(this,list);
+        RecyclerView.Adapter adapter = new MyAdapter(this,list);
         rvMonday.setAdapter(adapter);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvMonday.getContext(),
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         rvTuesday = findViewById(R.id.rv_tueday);
         mLayout = new LinearLayoutManager(this);
         rvTuesday.setLayoutManager(mLayout);
-        adapter = new MiAdaptador(this,list);
+        adapter = new MyAdapter(this,list);
         rvTuesday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvTuesday.getContext(),
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         rvWednesday = findViewById(R.id.rv_wednesday);
         mLayout = new LinearLayoutManager(this);
         rvWednesday.setLayoutManager(mLayout);
-        adapter = new MiAdaptador(this,list);
+        adapter = new MyAdapter(this,list);
         rvWednesday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvWednesday.getContext(),
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         rvThursday = findViewById(R.id.rv_thursday);
         mLayout = new LinearLayoutManager(this);
         rvThursday.setLayoutManager(mLayout);
-        adapter = new MiAdaptador(this,list);
+        adapter = new MyAdapter(this,list);
         rvThursday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvThursday.getContext(),
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         rvFriday = findViewById(R.id.rv_friday);
         mLayout = new LinearLayoutManager(this);
         rvFriday.setLayoutManager(mLayout);
-        adapter = new MiAdaptador(this,list);
+        adapter = new MyAdapter(this,list);
         rvFriday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvFriday.getContext(),
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         rvSaturday = findViewById(R.id.rv_saturday);
         mLayout = new LinearLayoutManager(this);
         rvSaturday.setLayoutManager(mLayout);
-        adapter = new MiAdaptador(this,list);
+        adapter = new MyAdapter(this,list);
         rvSaturday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvSaturday.getContext(),
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         rvSunday = findViewById(R.id.rv_sunday);
         mLayout = new LinearLayoutManager(this);
         rvSunday.setLayoutManager(mLayout);
-        adapter = new MiAdaptador(this,list);
+        adapter = new MyAdapter(this,list);
         rvSunday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvSunday.getContext(),

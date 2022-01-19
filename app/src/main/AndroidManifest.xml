@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoIntegrador">
         <activity
-            android:name=".ActivityDia"
+            android:name=".ActivityDay"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

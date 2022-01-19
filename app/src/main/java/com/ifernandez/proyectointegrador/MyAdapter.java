@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.ViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<String> mData;
     private LayoutInflater mInflater;
 
@@ -21,7 +21,7 @@ public class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.ViewHolder> {
     public int getPos(){return this.pos;}
     public void decrementarPos(){this.pos --;};
 
-    MiAdaptador(Context context, List<String> data) {
+    MyAdapter(Context context, List<String> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
