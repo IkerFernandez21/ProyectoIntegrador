@@ -11,12 +11,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class Splash extends AppCompatActivity {
-
+    ImageView logo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        logo = (ImageView) findViewById(R.id.logoSplash);
+        logo = (ImageView) findViewById(R.id.imageView2);
+
         Animation scale = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
         logo.startAnimation(scale);
 
