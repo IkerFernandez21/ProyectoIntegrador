@@ -3,9 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3768518518518518" />
         <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/drawable/botones_redondos.xml" value="0.3828125" />
+        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/drawable/ic_launcher_background.xml" value="0.24814814814814815" />
+        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/drawable/iconoppal.xml" value="0.24814814814814815" />
         <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/layout/activity_dia.xml" value="0.2957427536231884" />
         <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.28940217391304346" />
+        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/layout/activity_splash.xml" value="0.2957427536231884" />
+        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3768518518518518" />
+        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/mipmap-anydpi-v26/iconoppal.xml" value="0.23796296296296296" />
+        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/mipmap-anydpi-v26/iconoppal_round.xml" value="0.24814814814814815" />
       </map>
     </option>
   </component>
