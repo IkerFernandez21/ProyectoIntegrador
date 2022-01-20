@@ -55,16 +55,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             }
         }
         );
-
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener(){
-            @Override
-            public boolean onLongClick(View view){
-                TextView myTV = view.findViewById(R.id.tvTareaNombre);
-                myTV.setBackgroundColor(Color.BLUE);
-                return false;
-            }
-        });
-
     }
 
     @Override

@@ -6,4 +6,6 @@
     <string name="thursday">Thursday</string>
     <string name="friday">Friday</string>
     <string name="weekend">Saturday/Sunday</string>
+    <string name="task_tittle">Task Tittle</string>
+    <string name="task_description">Task description</string>
 </resources>

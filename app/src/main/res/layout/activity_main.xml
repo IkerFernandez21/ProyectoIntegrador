@@ -41,14 +41,16 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_monday"
                 android:layout_width="205dp"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:onClick="mondayClick">
 
             </androidx.recyclerview.widget.RecyclerView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_tueday"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="tuesdayClick"/>
         </LinearLayout>
 
         <LinearLayout
@@ -77,12 +79,14 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_wednesday"
                 android:layout_width="205dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="wednesdayClick"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_thursday"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="ThursdayClick"/>
         </LinearLayout>
 
         <LinearLayout
@@ -111,7 +115,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_friday"
                 android:layout_width="205dp"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:onClick="fridayClick">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -123,12 +128,14 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_saturday"
                     android:layout_width="match_parent"
-                    android:layout_height="85dp" />
+                    android:layout_height="85dp"
+                    android:onClick="saturdayClick"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_sunday"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:onClick="sundayClick"/>
             </LinearLayout>
 
         </LinearLayout>

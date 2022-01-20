@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,6 +19,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private int showingWeek;
+    private ArrayList<Day> vault;
+    private ArrayList<Date> week;
     private RecyclerView rvMonday;
     private RecyclerView rvTuesday;
     private RecyclerView rvWednesday;
@@ -31,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         showingWeek = 0;
+        week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
     }
@@ -143,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
         TextView friday = findViewById(R.id.tv_friday);
         TextView weekend = findViewById(R.id.tv_weekend);
 
-        List<Date> showingWeekList = getWeekDateList(showingWeek);
+        ArrayList<Date> showingWeekList = week;
 
         monday.setText(getString(R.string.monday) + " " + showingWeekList.get(0).getDate());
         tuesday.setText(getString(R.string.tuesday) + " " + showingWeekList.get(1).getDate());
@@ -160,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
      * @return a List of "Date" with all the days of the specified week
      */
     @NonNull
-    public static List<Date> getWeekDateList(int plusWeek) {
+    public static ArrayList<Date> getWeekDateList(int plusWeek) {
         Calendar cal = Calendar.getInstance();
         if (plusWeek != 0){
             cal.add(Calendar.DAY_OF_MONTH,7*plusWeek);
@@ -180,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
         cal.add(Calendar.DATE, 4 +cal.getFirstDayOfWeek());
         Date sundayDate = cal.getTime();
 
-        List lDate = new ArrayList();
+        ArrayList lDate = new ArrayList();
         lDate.add(mondayDate);
         Calendar calBegin = Calendar.getInstance();
         //  Set the time of this Calendar with the given Date
@@ -202,7 +207,41 @@ public class MainActivity extends AppCompatActivity {
      * @return a List of "Date" with all the days of the current week
      */
     @NonNull
-    public static List<Date> getWeekDateList() {
+    public static ArrayList<Date> getWeekDateList() {
         return getWeekDateList(0);
+    }
+
+    private void openDayActivity(int day){
+        Intent i = new Intent(this, ActivityDay.class);
+        i.putExtra("dayDate", week.get(day));
+        startActivity(i);
+    }
+
+    public void mondayClick(View view) {
+        openDayActivity(0);
+    }
+
+    public void tuesdayClick(View view) {
+        openDayActivity(1);
+    }
+
+    public void wednesdayClick(View view) {
+        openDayActivity(2);
+    }
+
+    public void ThursdayClick(View view) {
+        openDayActivity(3);
+    }
+
+    public void fridayClick(View view) {
+        openDayActivity(4);
+    }
+
+    public void saturdayClick(View view) {
+        openDayActivity(5);
+    }
+
+    public void sundayClick(View view) {
+        openDayActivity(6);
     }
 }
