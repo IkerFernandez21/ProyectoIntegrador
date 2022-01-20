@@ -18,8 +18,8 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         logo = (ImageView) findViewById(R.id.imageView2);
 
-        Animation scale = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
-        logo.startAnimation(scale);
+        //Animation scale = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
+        //logo.startAnimation(scale);
 
         openApp(true);
     }
@@ -36,4 +36,3 @@ public class Splash extends AppCompatActivity {
         },1100);
     }
     }
-}
