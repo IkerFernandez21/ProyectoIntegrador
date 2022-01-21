@@ -30,7 +30,7 @@ public class ActivityDay extends AppCompatActivity {
         dayDate = (Date) extras.get("dayDate");
 
         tvDay.setText(dayDate.getDay() + " " + dayDate.getDate());
-        tvYear.setText(dayDate.getYear());
+        //tvYear.setText(dayDate.getYear());
 
         setUpRecycler();
 
@@ -46,7 +46,7 @@ public class ActivityDay extends AppCompatActivity {
         rvDay = findViewById(R.id.rv_day_tasks);
         LinearLayoutManager mLayout = new LinearLayoutManager(this);
         rvDay.setLayoutManager(mLayout);
-        RecyclerView.Adapter adapter = new MyAdapter(this,taskList);
+        RecyclerView.Adapter adapter = new AdapterTasks(this,taskList);
         rvDay.setAdapter(adapter);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvDay.getContext(),

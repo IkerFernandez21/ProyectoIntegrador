@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<String> list = new ArrayList();
         list.add("ejemplo 1 muy largo super largo hiper mega super larguisimo de la muerte");
-        list.add("ejemplo 2");
+        /*list.add("ejemplo 2");
         list.add("ejemplo 3");
         list.add("ejemplo 4");
         list.add("ejemplo 5");
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("ejemplo 7");
         list.add("ejemplo 8");
         list.add("ejemplo 9");
-
+*/
 
         //Recycler Monday
         rvMonday = findViewById(R.id.rv_monday);
@@ -133,6 +133,17 @@ public class MainActivity extends AppCompatActivity {
         dividerItemDecoration = new DividerItemDecoration(rvSunday.getContext(),
                 mLayout.getOrientation());
         rvSunday.addItemDecoration(dividerItemDecoration);
+
+        setRecyclerClickEvent();
+    }
+
+    private void setRecyclerClickEvent(){
+        rvMonday.setOnTouchListener(new RVClickHandler(rvMonday));
+        rvMonday.setOnClickListener((v) -> {
+            System.out.println("Rv clicked");
+            openDayActivity(0);
+        });
+
     }
 
 

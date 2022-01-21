@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> {
 
-    private List<String> mData;
+    private List<Task> mData;
     private LayoutInflater mInflater;
 
     private int pos = 0;
@@ -30,21 +31,23 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
 
     ;
 
-    AdapterTasks(Context context, List<String> data) {
+    AdapterTasks(Context context, List<Task> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
 
     @Override
     public AdapterTasks.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.row, parent, false);
+        View view = mInflater.inflate(R.layout.row_tasks, parent, false);
         return new AdapterTasks.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AdapterTasks.ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        Task task = mData.get(position);
+        holder.title.setText(task.getTittle());
+        holder.description.setText(task.getDescription());
+
     }
 
     @Override
@@ -53,11 +56,13 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView myTextView;
+        EditText title;
+        EditText description;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.tvTareaNombre);
+            title = itemView.findViewById(R.id.task_tittle_row);
+            description = itemView.findViewById(R.id.task_description_row);
         }
     }
 }

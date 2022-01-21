@@ -37,24 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         String animal = mData.get(position);
         holder.myTextView.setText(animal);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View view){
-                TextView myTV = view.findViewById(R.id.tvTareaNombre);
-                ColorDrawable viewColor = (ColorDrawable) myTV.getBackground();
-
-                if (viewColor == null) myTV.setBackgroundColor(Color.RED);
-                else{
-                    int colorId = viewColor.getColor();
-                    if (colorId == Color.WHITE) myTV.setBackgroundColor(Color.RED);
-                    else myTV.setBackgroundColor(Color.WHITE);
-                }
-
-                pos = position;
-            }
-        }
-        );
     }
 
     @Override
@@ -71,3 +54,5 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
     }
 }
+
+
