@@ -2,6 +2,7 @@ package com.ifernandez.proyectointegrador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,10 +17,10 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        logo = (ImageView) findViewById(R.id.imageView2);
+        logo = (ImageView) findViewById(R.id.imageView3);
 
-        //Animation scale = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
-        //logo.startAnimation(scale);
+        Animation scale = AnimationUtils.loadAnimation(this, R.anim.logoanim);
+        logo.startAnimation(scale);
 
         openApp(true);
     }
@@ -33,6 +34,6 @@ public class Splash extends AppCompatActivity {
                 intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent1);
             }
-        },1100);
+        },9000);
     }
     }
