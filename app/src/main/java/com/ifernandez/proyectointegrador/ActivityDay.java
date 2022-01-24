@@ -44,7 +44,9 @@ public class ActivityDay extends AppCompatActivity {
         //Searchs and load the taskList for the correct day
         for(Day d : daysList){
             System.out.println(d.toString());
-            if (d.getDate().compareTo(dayDate) == 0) {
+            if (d.getDate().getDate() == dayDate.getDate()
+                && d.getDate().getMonth() == dayDate.getMonth()
+                && d.getDate().getYear() == dayDate.getYear()) {
                 taskList = d.getTaskList();
                 break;
             }

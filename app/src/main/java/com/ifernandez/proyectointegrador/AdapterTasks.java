@@ -67,6 +67,23 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             }
         });
 
+        holder.description.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //blank
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //blank;
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                mData.get(position).setDescription(holder.description.getText().toString());
+            }
+        });
+
     }
 
     @Override

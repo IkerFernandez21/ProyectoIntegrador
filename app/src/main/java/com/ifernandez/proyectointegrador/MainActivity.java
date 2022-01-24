@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         checkPermissions();
     }
 
+    /**
+     * This method ask the user for the permmision to write in internal storage
+     */
     private void checkPermissions(){
         // Permision can add more at your convinient
         if ((ContextCompat.checkSelfPermission(this,
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         rvMonday = findViewById(R.id.rv_monday);
         LinearLayoutManager mLayout = new LinearLayoutManager(this);
         rvMonday.setLayoutManager(mLayout);
-        RecyclerView.Adapter adapter = new MyAdapter(this,list);
+        RecyclerView.Adapter adapter = new MyAdapter(this,list,week.get(0));
         rvMonday.setAdapter(adapter);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvMonday.getContext(),
@@ -100,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         rvTuesday = findViewById(R.id.rv_tueday);
         mLayout = new LinearLayoutManager(this);
         rvTuesday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this,list);
+        adapter = new MyAdapter(this,list,week.get(1));
         rvTuesday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvTuesday.getContext(),
@@ -111,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         rvWednesday = findViewById(R.id.rv_wednesday);
         mLayout = new LinearLayoutManager(this);
         rvWednesday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this,list);
+        adapter = new MyAdapter(this,list,week.get(2));
         rvWednesday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvWednesday.getContext(),
@@ -122,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         rvThursday = findViewById(R.id.rv_thursday);
         mLayout = new LinearLayoutManager(this);
         rvThursday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this,list);
+        adapter = new MyAdapter(this,list,week.get(3));
         rvThursday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvThursday.getContext(),
@@ -133,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         rvFriday = findViewById(R.id.rv_friday);
         mLayout = new LinearLayoutManager(this);
         rvFriday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this,list);
+        adapter = new MyAdapter(this,list,week.get(4));
         rvFriday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvFriday.getContext(),
@@ -144,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         rvSaturday = findViewById(R.id.rv_saturday);
         mLayout = new LinearLayoutManager(this);
         rvSaturday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this,list);
+        adapter = new MyAdapter(this,list,week.get(5));
         rvSaturday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvSaturday.getContext(),
@@ -155,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         rvSunday = findViewById(R.id.rv_sunday);
         mLayout = new LinearLayoutManager(this);
         rvSunday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this,list);
+        adapter = new MyAdapter(this,list,week.get(6));
         rvSunday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvSunday.getContext(),
@@ -168,9 +171,39 @@ public class MainActivity extends AppCompatActivity {
     private void setRecyclerClickEvent(){
         rvMonday.setOnTouchListener(new RVClickHandler(rvMonday));
         rvMonday.setOnClickListener((v) -> {
-            System.out.println("Rv clicked");
             openDayActivity(0);
         });
+
+        rvTuesday.setOnTouchListener(new RVClickHandler(rvTuesday));
+        rvTuesday.setOnClickListener((v) -> {
+            openDayActivity(1);
+        });
+
+        rvWednesday.setOnTouchListener(new RVClickHandler(rvWednesday));
+        rvWednesday.setOnClickListener((v) -> {
+            openDayActivity(2);
+        });
+
+        rvThursday.setOnTouchListener(new RVClickHandler(rvThursday));
+        rvThursday.setOnClickListener((v) -> {
+            openDayActivity(3);
+        });
+
+        rvFriday.setOnTouchListener(new RVClickHandler(rvFriday));
+        rvFriday.setOnClickListener((v) -> {
+            openDayActivity(4);
+        });
+
+        rvSaturday.setOnTouchListener(new RVClickHandler(rvSaturday));
+        rvSaturday.setOnClickListener((v) -> {
+            openDayActivity(5);
+        });
+
+        rvSunday.setOnTouchListener(new RVClickHandler(rvSunday));
+        rvSunday.setOnClickListener((v) -> {
+            openDayActivity(6);
+        });
+
 
     }
 

@@ -1,6 +1,7 @@
 package com.ifernandez.proyectointegrador;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
@@ -11,19 +12,30 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Date;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<String> mData;
     private LayoutInflater mInflater;
+    private Date date;
 
     private int pos = 0;
-    public int getPos(){return this.pos;}
-    public void decrementarPos(){this.pos --;};
 
-    MyAdapter(Context context, List<String> data) {
+    public int getPos() {
+        return this.pos;
+    }
+
+    public void decrementarPos() {
+        this.pos--;
+    }
+
+    ;
+
+    MyAdapter(Context context, List<String> data, Date date) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
+        this.date = date;
     }
 
     @Override
@@ -37,18 +49,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         String animal = mData.get(position);
         holder.myTextView.setText(animal);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+                public void onClick(View view) {
 
+                }
+
+            }
+        );
     }
 
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return mData.size();
     }
 
-    public  class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView myTextView;
 
-        ViewHolder(View itemView){
+        ViewHolder(View itemView) {
             super(itemView);
             myTextView = itemView.findViewById(R.id.tvTareaNombre);
         }
