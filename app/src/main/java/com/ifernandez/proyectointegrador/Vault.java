@@ -14,12 +14,9 @@ import java.util.ArrayList;
 public class Vault {
 
     private ArrayList<Day> daysList;
-    private File path;
 
-    public Vault() {
-        this.path = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DOCUMENTS);
-        loadVaultFromFile();
+    public Vault(File path) {
+        loadVaultFromFile(path);
     }
 
     public ArrayList<Day> getDaysList() {
@@ -30,7 +27,7 @@ public class Vault {
         this.daysList = daysList;
     }
 
-    public void loadVaultFromFile(){
+    public void loadVaultFromFile(File path){
 
         File fileName = new File(path, "/" + "vault.dat");
 
@@ -64,7 +61,7 @@ public class Vault {
 
     }
 
-    public void saveVaultToFile(){
+    public void saveVaultToFile(File path){
 
         File fileName = new File(path, "/" + "vault.dat");
 

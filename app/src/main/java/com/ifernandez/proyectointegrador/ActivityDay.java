@@ -38,7 +38,7 @@ public class ActivityDay extends AppCompatActivity {
         tvDay.setText(dayDate.getDay() + " " + dayDate.getDate());
         //tvYear.setText(dayDate.getYear());
 
-        vault = new Vault();
+        vault = new Vault(getFilesDir());
         daysList = vault.getDaysList();
 
         //Searchs and load the taskList for the correct day
@@ -84,7 +84,7 @@ public class ActivityDay extends AppCompatActivity {
         }
 
         vault.setDaysList(daysList);
-        vault.saveVaultToFile();
+        vault.saveVaultToFile(getFilesDir());
     }
 
 
