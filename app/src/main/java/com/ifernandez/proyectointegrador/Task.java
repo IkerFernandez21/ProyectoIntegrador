@@ -1,6 +1,8 @@
 package com.ifernandez.proyectointegrador;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable {
 
     private String tittle;
     private String description;

@@ -3,6 +3,8 @@ package com.ifernandez.proyectointegrador;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +49,23 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
         Task task = mData.get(position);
         holder.title.setText(task.getTittle());
         holder.description.setText(task.getDescription());
+
+        holder.title.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //blank
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //blank;
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                mData.get(position).setTittle(holder.title.getText().toString());
+            }
+        });
 
     }
 

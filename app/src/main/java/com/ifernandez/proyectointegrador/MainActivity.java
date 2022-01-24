@@ -2,11 +2,15 @@ package com.ifernandez.proyectointegrador;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -19,7 +23,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private int showingWeek;
-    private ArrayList<Day> vault;
+    private Vault vault;
     private ArrayList<Date> week;
     private RecyclerView rvMonday;
     private RecyclerView rvTuesday;
@@ -38,6 +42,30 @@ public class MainActivity extends AppCompatActivity {
         week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
+        checkPermissions();
+    }
+
+    private void checkPermissions(){
+        // Permision can add more at your convinient
+        if ((ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)) !=
+                PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]
+                            {
+                                    Manifest.permission.READ_CONTACTS,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                                    Manifest.permission.ACCESS_FINE_LOCATION,
+                                    Manifest.permission.BLUETOOTH,
+                                    Manifest.permission.CAMERA,
+                                    Manifest.permission.CALL_PHONE
+                            },
+                    0
+            );
+        }
     }
 
     /**

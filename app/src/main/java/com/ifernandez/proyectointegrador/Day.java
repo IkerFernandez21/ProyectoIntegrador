@@ -1,9 +1,10 @@
 package com.ifernandez.proyectointegrador;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Day {
+public class Day implements Serializable {
 
     private Date date;
     private ArrayList<Task> taskList;

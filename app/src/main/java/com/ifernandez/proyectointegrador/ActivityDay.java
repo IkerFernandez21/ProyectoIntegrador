@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,6 +21,8 @@ public class ActivityDay extends AppCompatActivity {
     Date dayDate;
     ArrayList<Task> taskList;
     AdapterTasks adapter;
+    Vault vault;
+    ArrayList<Day> daysList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +38,57 @@ public class ActivityDay extends AppCompatActivity {
         tvDay.setText(dayDate.getDay() + " " + dayDate.getDate());
         //tvYear.setText(dayDate.getYear());
 
-        taskList = new ArrayList<>(); //Load tasklist
+        vault = new Vault();
+        daysList = vault.getDaysList();
+
+        //Searchs and load the taskList for the correct day
+        for(Day d : daysList){
+            System.out.println(d.toString());
+            if (d.getDate().compareTo(dayDate) == 0) {
+                taskList = d.getTaskList();
+                break;
+            }
+        }
+
+        //If there isnt any day saved, creates a new taskList
+        if (taskList == null){
+            taskList = new ArrayList<>();
+        }
+
+         //Load tasklist
         setUpRecycler();
 
     }
 
-    private void setUpRecycler(){
+    @Override
+    protected void onStop() {
+        super.onStop();
 
-        Task task = new Task("Titulo", "Descripcion");
-        taskList.add(task);
+        Day day = null;
+
+        //Save changes on tasks
+        for(Day d : daysList){
+            if (d.getDate().compareTo(dayDate) == 0) {
+                day = d;
+                break;
+            }
+        }
+
+        if (day != null){
+            day.setTaskList(taskList);
+        }else{
+            day = new Day();
+            day.setDate(dayDate);
+            day.setTaskList(taskList);
+            daysList.add(day);
+        }
+
+        vault.setDaysList(daysList);
+        vault.saveVaultToFile();
+    }
+
+
+    private void setUpRecycler(){
 
         //Recycler
         rvDay = findViewById(R.id.rv_day_tasks);
