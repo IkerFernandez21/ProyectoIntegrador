@@ -42,33 +42,6 @@ public class MainActivity extends AppCompatActivity {
         week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
-        checkPermissions();
-    }
-
-    /**
-     * This method ask the user for the permmision to write in internal storage
-     */
-    private void checkPermissions(){
-        // Permision can add more at your convinient
-        if ((ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)) !=
-                PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(
-                    this,
-                    new String[]
-                            {
-                                    Manifest.permission.READ_CONTACTS,
-                                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                                    Manifest.permission.ACCESS_COARSE_LOCATION,
-                                    Manifest.permission.ACCESS_FINE_LOCATION,
-                                    Manifest.permission.BLUETOOTH,
-                                    Manifest.permission.CAMERA,
-                                    Manifest.permission.CALL_PHONE
-                            },
-                    0
-            );
-        }
     }
 
     /**
@@ -283,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
         return getWeekDateList(0);
     }
 
-    private void openDayActivity(int day){
+    public void openDayActivity(int day){
         Intent i = new Intent(this, ActivityDay.class);
         i.putExtra("dayDate", week.get(day));
         startActivity(i);

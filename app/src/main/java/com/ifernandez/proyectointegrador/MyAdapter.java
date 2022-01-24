@@ -19,6 +19,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<String> mData;
     private LayoutInflater mInflater;
     private Date date;
+    private Context context;
 
     private int pos = 0;
 
@@ -33,6 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     ;
 
     MyAdapter(Context context, List<String> data, Date date) {
+        this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.date = date;
@@ -52,7 +54,31 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View view) {
+                    MainActivity ma = (MainActivity) holder.context;
 
+                    switch (date.getDay()){
+                        case 0:
+                            ma.openDayActivity(6);
+                            break;
+                        case 1:
+                            ma.openDayActivity(0);
+                            break;
+                        case 2:
+                            ma.openDayActivity(1);
+                            break;
+                        case 3:
+                            ma.openDayActivity(2);
+                            break;
+                        case 4:
+                            ma.openDayActivity(3);
+                            break;
+                        case 5:
+                            ma.openDayActivity(4);
+                            break;
+                        case 6:
+                            ma.openDayActivity(5);
+                            break;
+                    }
                 }
 
             }
@@ -66,10 +92,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView myTextView;
+        Context context;
 
         ViewHolder(View itemView) {
             super(itemView);
             myTextView = itemView.findViewById(R.id.tvTareaNombre);
+            context = myTextView.getContext();
         }
     }
 }
