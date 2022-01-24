@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public class ActivityDay extends AppCompatActivity {
     TextView tvYear;
     RecyclerView rvDay;
     Date dayDate;
+    ArrayList<Task> taskList;
+    AdapterTasks adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class ActivityDay extends AppCompatActivity {
         tvDay.setText(dayDate.getDay() + " " + dayDate.getDate());
         //tvYear.setText(dayDate.getYear());
 
+        taskList = new ArrayList<>(); //Load tasklist
         setUpRecycler();
 
     }
@@ -39,19 +43,28 @@ public class ActivityDay extends AppCompatActivity {
     private void setUpRecycler(){
 
         Task task = new Task("Titulo", "Descripcion");
-        ArrayList taskList = new ArrayList();
         taskList.add(task);
 
         //Recycler
         rvDay = findViewById(R.id.rv_day_tasks);
         LinearLayoutManager mLayout = new LinearLayoutManager(this);
         rvDay.setLayoutManager(mLayout);
-        RecyclerView.Adapter adapter = new AdapterTasks(this,taskList);
+        adapter = new AdapterTasks(this,taskList);
         rvDay.setAdapter(adapter);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvDay.getContext(),
                 mLayout.getOrientation());
         rvDay.addItemDecoration(dividerItemDecoration);
 
+    }
+
+    public void addTaskButton(View view) {
+        Task newTask = new Task();
+
+        int posicionInsertion = (adapter.getPos()>=0)? adapter.getPos()+1:0;
+        taskList.add(newTask);
+        adapter.notifyItemInserted(taskList.size());
+        adapter.notifyItemRangeChanged(0,taskList.size());
+        rvDay.scheduleLayoutAnimation();
     }
 }
