@@ -3,15 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fondosplash">
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/iconoppal"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="242dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/iconoppal" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="256dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="416dp"
+        android:fontFamily="@font/fuente_splash"
+        android:text="NOTEAPP"
+        android:textSize="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,17 +10,22 @@ import android.os.Looper;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Splash extends AppCompatActivity {
     ImageView logo;
+    TextView tx ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         logo = (ImageView) findViewById(R.id.imageView3);
+        tx = findViewById(R.id.textView);
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.logoanim);
+        logo.startAnimation(anim);
+        Animation animtexto = AnimationUtils.loadAnimation(this, R.anim.logoanimtext);
+        tx.startAnimation(animtexto);
 
-        Animation scale = AnimationUtils.loadAnimation(this, R.anim.logoanim);
-        logo.startAnimation(scale);
 
         openApp(true);
     }
@@ -34,6 +39,6 @@ public class Splash extends AppCompatActivity {
                 intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent1);
             }
-        },9000);
+        },3400);
     }
     }

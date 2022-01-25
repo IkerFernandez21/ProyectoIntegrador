@@ -4,14 +4,8 @@
     android:duration="3000"
     android:fillAfter="true">
 
-
-   <translate
-       android:fromXDelta="100%"
-       android:toXDelta="0%"></translate>
-
-
-
-
-
+    <translate
+        android:fromXDelta="-100%"
+        android:toXDelta="5%"></translate>
 
 </set>
