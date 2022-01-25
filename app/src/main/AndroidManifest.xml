@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoIntegrador"
         android:requestLegacyExternalStorage="true">
+
         <activity
             android:name=".ActivityDay"
             android:exported="false"
