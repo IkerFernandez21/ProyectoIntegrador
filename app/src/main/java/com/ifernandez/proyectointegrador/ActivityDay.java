@@ -85,6 +85,7 @@ public class ActivityDay extends AppCompatActivity {
             daysList.add(day);
         }
 
+        System.out.println("Days on day saving: " + daysList);
         vault.setDaysList(daysList);
         vault.saveVaultToFile(getFilesDir());
     }
