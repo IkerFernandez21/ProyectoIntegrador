@@ -310,6 +310,7 @@ public class MainActivity extends AppCompatActivity {
         return getWeekDateList(0);
     }
 
+
     public void openDayActivity(int day){
         Intent i = new Intent(this, ActivityDay.class);
         i.putExtra("dayDate", week.get(day));
