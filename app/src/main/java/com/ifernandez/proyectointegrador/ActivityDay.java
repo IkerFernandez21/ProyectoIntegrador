@@ -44,7 +44,6 @@ public class ActivityDay extends AppCompatActivity {
 
         //Searchs and load the taskList for the correct day
         for(Day d : daysList){
-            System.out.println(d.toString());
             if (d.getDate().getDate() == dayDate.getDate()
                 && d.getDate().getMonth() == dayDate.getMonth()
                 && d.getDate().getYear() == dayDate.getYear()) {
@@ -63,6 +62,9 @@ public class ActivityDay extends AppCompatActivity {
 
     }
 
+    /**
+     * This method saves all the changes to a file when back button pressed
+     */
     @Override
     public void onBackPressed() {
         Day day = null;
@@ -92,6 +94,9 @@ public class ActivityDay extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Set ups the recyclerview with the correct values
+     */
     private void setUpRecycler(){
 
         //Recycler
@@ -107,6 +112,10 @@ public class ActivityDay extends AppCompatActivity {
 
     }
 
+    /**
+     * Button to add a new task
+     * @param view
+     */
     public void addTaskButton(View view) {
         Task newTask = new Task();
 

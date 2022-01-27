@@ -57,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
         setActivityResultLauncher();
     }
 
+
+    /**
+     * This method allow to return info from activitu day
+     */
     private void setActivityResultLauncher() {
         activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -66,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
                         Intent resultIntent = result.getData();
                         vault = (Vault) resultIntent.getParcelableExtra("vault");
-                        System.out.println("Executed callback");
                         vault.saveVaultToFile(getFilesDir());
                         setRecyclersUp();
 
@@ -102,8 +105,6 @@ public class MainActivity extends AppCompatActivity {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvMonday.getContext(),
                 mLayout.getOrientation());
         rvMonday.addItemDecoration(dividerItemDecoration);
-
-        System.out.println("List on recycler: " + list);
 
         //Recycler Tuesday
         list = new ArrayList<String>();
@@ -224,6 +225,9 @@ public class MainActivity extends AppCompatActivity {
         return taskList;
     }
 
+    /**
+     * This method allows the recyclerviews to open day activity by selecting an empty space
+     */
     private void setRecyclerClickEvent() {
         rvMonday.setOnTouchListener(new RVClickHandler(rvMonday));
         rvMonday.setOnClickListener((v) -> {
@@ -345,33 +349,5 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, ActivityDay.class);
         i.putExtra("dayDate", week.get(day));
         activityResultLauncher.launch(i);
-    }
-
-    public void mondayClick(View view) {
-        openDayActivity(0);
-    }
-
-    public void tuesdayClick(View view) {
-        openDayActivity(1);
-    }
-
-    public void wednesdayClick(View view) {
-        openDayActivity(2);
-    }
-
-    public void ThursdayClick(View view) {
-        openDayActivity(3);
-    }
-
-    public void fridayClick(View view) {
-        openDayActivity(4);
-    }
-
-    public void saturdayClick(View view) {
-        openDayActivity(5);
-    }
-
-    public void sundayClick(View view) {
-        openDayActivity(6);
     }
 }
