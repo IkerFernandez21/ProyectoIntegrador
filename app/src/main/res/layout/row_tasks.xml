@@ -12,15 +12,23 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/task_tittle"
-        android:textSize="30sp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="30sp" />
 
     <EditText
         android:id="@+id/task_description_row"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/task_description"
-        android:textSize="15sp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textSize="15sp" />
+
+    <CheckBox
+        android:id="@+id/idCheckbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </CheckBox>
+
 </LinearLayout>
