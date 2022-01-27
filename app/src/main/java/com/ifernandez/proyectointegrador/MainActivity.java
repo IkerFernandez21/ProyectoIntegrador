@@ -31,6 +31,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+
     private int showingWeek;
     private Vault vault;
     private ArrayList<Day> daysList;
