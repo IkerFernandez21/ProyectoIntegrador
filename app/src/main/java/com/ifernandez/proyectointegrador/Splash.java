@@ -21,9 +21,9 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         logo = (ImageView) findViewById(R.id.imageView3);
         tx = findViewById(R.id.textView);
-        Animation anim = AnimationUtils.loadAnimation(this, R.anim.logoanim);
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.logoanim);//logo animation
         logo.startAnimation(anim);
-        Animation animtexto = AnimationUtils.loadAnimation(this, R.anim.logoanimtext);
+        Animation animtexto = AnimationUtils.loadAnimation(this, R.anim.logoanimtext);//text animation
         tx.startAnimation(animtexto);
 
 
