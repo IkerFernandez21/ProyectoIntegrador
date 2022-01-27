@@ -27,6 +27,7 @@ public class Splash extends AppCompatActivity {
         tx.startAnimation(animtexto);
 
 
+
         openApp(true);
     }
 
