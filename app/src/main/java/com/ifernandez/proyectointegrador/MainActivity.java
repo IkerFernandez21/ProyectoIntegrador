@@ -1,5 +1,9 @@
 package com.ifernandez.proyectointegrador;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -9,12 +13,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -35,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvFriday;
     private RecyclerView rvSaturday;
     private RecyclerView rvSunday;
+    private ActivityResultLauncher<Intent> activityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +53,33 @@ public class MainActivity extends AppCompatActivity {
         week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
+        setActivityResultLauncher();
+    }
+
+    private void setActivityResultLauncher() {
+        activityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+
+                        Intent resultIntent = result.getData();
+                        vault = (Vault) resultIntent.getParcelableExtra("vault");
+                        System.out.println("Executed callback");
+                        vault.saveVaultToFile(getFilesDir());
+                        setRecyclersUp();
+
+
+                    }
+                }
+        );
     }
 
 
     /**
      * Set ups RecyclerViews on init
      */
-    public void setRecyclersUp(){
+    public void setRecyclersUp() {
 
         ArrayList<String> list = new ArrayList<String>();
         ArrayList<Task> taskList;
@@ -61,13 +89,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Recycler Monday
         taskList = getTaskListFromDay(week.get(0));
-        for (Task t : taskList){
+        for (Task t : taskList) {
             list.add(t.getTittle());
         }
         rvMonday = findViewById(R.id.rv_monday);
         LinearLayoutManager mLayout = new LinearLayoutManager(this);
         rvMonday.setLayoutManager(mLayout);
-        RecyclerView.Adapter adapter = new MyAdapter(this,list,week.get(0));
+        RecyclerView.Adapter adapter = new MyAdapter(this, list, week.get(0));
         rvMonday.setAdapter(adapter);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvMonday.getContext(),
@@ -79,13 +107,13 @@ public class MainActivity extends AppCompatActivity {
         //Recycler Tuesday
         list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(1));
-        for (Task t : taskList){
+        for (Task t : taskList) {
             list.add(t.getTittle());
         }
         rvTuesday = findViewById(R.id.rv_tueday);
         mLayout = new LinearLayoutManager(this);
         rvTuesday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this,list,week.get(1));
+        adapter = new MyAdapter(this, list, week.get(1));
         rvTuesday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvTuesday.getContext(),
@@ -95,13 +123,13 @@ public class MainActivity extends AppCompatActivity {
         //Recycler Wednesday
         list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(2));
-        for (Task t : taskList){
+        for (Task t : taskList) {
             list.add(t.getTittle());
         }
         rvWednesday = findViewById(R.id.rv_wednesday);
         mLayout = new LinearLayoutManager(this);
         rvWednesday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this,list,week.get(2));
+        adapter = new MyAdapter(this, list, week.get(2));
         rvWednesday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvWednesday.getContext(),
@@ -111,13 +139,13 @@ public class MainActivity extends AppCompatActivity {
         //Recycler Thursday
         list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(3));
-        for (Task t : taskList){
+        for (Task t : taskList) {
             list.add(t.getTittle());
         }
         rvThursday = findViewById(R.id.rv_thursday);
         mLayout = new LinearLayoutManager(this);
         rvThursday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this,list,week.get(3));
+        adapter = new MyAdapter(this, list, week.get(3));
         rvThursday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvThursday.getContext(),
@@ -127,13 +155,13 @@ public class MainActivity extends AppCompatActivity {
         //Recycler Friday
         list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(4));
-        for (Task t : taskList){
+        for (Task t : taskList) {
             list.add(t.getTittle());
         }
         rvFriday = findViewById(R.id.rv_friday);
         mLayout = new LinearLayoutManager(this);
         rvFriday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this,list,week.get(4));
+        adapter = new MyAdapter(this, list, week.get(4));
         rvFriday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvFriday.getContext(),
@@ -143,13 +171,13 @@ public class MainActivity extends AppCompatActivity {
         //Recycler Saturday
         list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(5));
-        for (Task t : taskList){
+        for (Task t : taskList) {
             list.add(t.getTittle());
         }
         rvSaturday = findViewById(R.id.rv_saturday);
         mLayout = new LinearLayoutManager(this);
         rvSaturday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this,list,week.get(5));
+        adapter = new MyAdapter(this, list, week.get(5));
         rvSaturday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvSaturday.getContext(),
@@ -159,13 +187,13 @@ public class MainActivity extends AppCompatActivity {
         //Recycler Sunday
         list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(6));
-        for (Task t : taskList){
+        for (Task t : taskList) {
             list.add(t.getTittle());
         }
         rvSunday = findViewById(R.id.rv_sunday);
         mLayout = new LinearLayoutManager(this);
         rvSunday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this,list,week.get(6));
+        adapter = new MyAdapter(this, list, week.get(6));
         rvSunday.setAdapter(adapter);
 
         dividerItemDecoration = new DividerItemDecoration(rvSunday.getContext(),
@@ -175,11 +203,11 @@ public class MainActivity extends AppCompatActivity {
         setRecyclerClickEvent();
     }
 
-    private ArrayList<Task> getTaskListFromDay(Date day){
+    private ArrayList<Task> getTaskListFromDay(Date day) {
 
         ArrayList<Task> taskList = null;
         //Searchs and load the taskList for the correct day
-        for(Day d : daysList){
+        for (Day d : daysList) {
             if (d.getDate().getDate() == day.getDate()
                     && d.getDate().getMonth() == day.getMonth()
                     && d.getDate().getYear() == day.getYear()) {
@@ -188,14 +216,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         //If there isnt any day saved, creates a new taskList
-        if (taskList == null){
+        if (taskList == null) {
             taskList = new ArrayList<>();
         }
 
         return taskList;
     }
 
-    private void setRecyclerClickEvent(){
+    private void setRecyclerClickEvent() {
         rvMonday.setOnTouchListener(new RVClickHandler(rvMonday));
         rvMonday.setOnClickListener((v) -> {
             openDayActivity(0);
@@ -238,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method set the days of the week in the UI
      */
-    private void setDaysOfWeekUI(){
+    private void setDaysOfWeekUI() {
 
         TextView monday = findViewById(R.id.tv_monday);
         TextView tuesday = findViewById(R.id.tv_tuesday);
@@ -260,20 +288,21 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method retrieves all the days of the current week plus the specified number of weeks
+     *
      * @param plusWeek Number of weeks plus or minus the current, you want to retrieve the days for
      * @return a List of "Date" with all the days of the specified week
      */
     @NonNull
     public static ArrayList<Date> getWeekDateList(int plusWeek) {
         Calendar cal = Calendar.getInstance();
-        if (plusWeek != 0){
-            cal.add(Calendar.DAY_OF_MONTH,7*plusWeek);
+        if (plusWeek != 0) {
+            cal.add(Calendar.DAY_OF_MONTH, 7 * plusWeek);
         }
         //  Set the first day of the week. According to Spanish custom, the first day of the week is Monday
         cal.setFirstDayOfWeek(Calendar.MONDAY);
         //  Get the current date is the day of the week
         int dayWeek = cal.get(Calendar.DAY_OF_WEEK);
-        if(dayWeek==1){
+        if (dayWeek == 1) {
             dayWeek = 8;
         }
 
@@ -281,7 +310,7 @@ public class MainActivity extends AppCompatActivity {
         cal.add(Calendar.DATE, cal.getFirstDayOfWeek() - dayWeek);
         Date mondayDate = cal.getTime();
 
-        cal.add(Calendar.DATE, 4 +cal.getFirstDayOfWeek());
+        cal.add(Calendar.DATE, 4 + cal.getFirstDayOfWeek());
         Date sundayDate = cal.getTime();
 
         ArrayList lDate = new ArrayList();
@@ -303,6 +332,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method retrieves all the days of the current week in date format
+     *
      * @return a List of "Date" with all the days of the current week
      */
     @NonNull
@@ -310,10 +340,10 @@ public class MainActivity extends AppCompatActivity {
         return getWeekDateList(0);
     }
 
-    public void openDayActivity(int day){
+    public void openDayActivity(int day) {
         Intent i = new Intent(this, ActivityDay.class);
         i.putExtra("dayDate", week.get(day));
-        startActivity(i);
+        activityResultLauncher.launch(i);
     }
 
     public void mondayClick(View view) {

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -63,9 +64,7 @@ public class ActivityDay extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-
+    public void onBackPressed() {
         Day day = null;
 
         //Save changes on tasks
@@ -85,11 +84,13 @@ public class ActivityDay extends AppCompatActivity {
             daysList.add(day);
         }
 
-        System.out.println("Days on day saving: " + daysList);
         vault.setDaysList(daysList);
-        vault.saveVaultToFile(getFilesDir());
-    }
 
+        Intent result = new Intent();
+        result.putExtra("vault", vault);
+        setResult(RESULT_OK, result);
+        finish();
+    }
 
     private void setUpRecycler(){
 
