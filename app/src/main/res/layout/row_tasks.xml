@@ -54,8 +54,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_marginLeft="160dp"
-
-
             app:srcCompat="@drawable/ic_bin" />
     </LinearLayout>
 
