@@ -6,21 +6,55 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/task_tittle_row"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/task_tittle"
-        android:textSize="30sp"
-        android:inputType="textPersonName" />
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/task_description_row"
+        <EditText
+            android:id="@+id/task_tittle_row"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+
+            android:hint="@string/task_tittle"
+            android:inputType="textPersonName"
+            android:textSize="30sp" />
+
+        <CheckBox
+            android:id="@+id/idCheckbox"
+            android:layout_marginLeft="164dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right">
+
+
+        </CheckBox>
+
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/task_description"
-        android:textSize="15sp"
-        android:inputType="textPersonName" />
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/task_description_row"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/task_description"
+            android:inputType="textPersonName"
+            android:textSize="15sp" />
+
+
+        <ImageButton
+            android:id="@+id/binButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="160dp"
+            app:srcCompat="@drawable/ic_bin" />
+    </LinearLayout>
+
 </LinearLayout>
