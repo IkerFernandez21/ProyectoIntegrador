@@ -24,6 +24,7 @@ import android.os.Parcelable;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +36,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private Button bthome;
     private int showingWeek;
     private Vault vault;
     private ArrayList<Day> daysList;
@@ -61,7 +62,21 @@ public class MainActivity extends AppCompatActivity {
         setDaysOfWeekUI();
         setRecyclersUp();
         CambioSemana();
+        eventoHome();
         setActivityResultLauncher();
+    }
+
+    private void eventoHome() {
+        bthome = findViewById(R.id.buttonHome);
+        bthome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showingWeek = 0;
+                week = getWeekDateList(showingWeek);
+                setDaysOfWeekUI();
+                setRecyclersUp();
+            }
+        });
     }
 
 
