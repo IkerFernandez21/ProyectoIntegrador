@@ -6,6 +6,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -13,12 +14,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.content.Context;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvFriday;
     private RecyclerView rvSaturday;
     private RecyclerView rvSunday;
+    private OnSwipeTouchListener onSwipeTouchListener;
+    private ConstraintLayout cl;
     private ActivityResultLauncher<Intent> activityResultLauncher;
 
     @Override
@@ -54,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
+        CambioSemana();
         setActivityResultLauncher();
     }
 
@@ -77,6 +84,34 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
+
+    }
+
+    /**
+     * creation of the event to scroll laterally
+     */
+    private void CambioSemana() {
+
+        cl = findViewById(R.id.ConstraintLayout);
+        cl.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
+
+            public void onSwipeRight() {
+                showingWeek -= 1;
+                week = getWeekDateList(showingWeek);
+                setDaysOfWeekUI();
+                setRecyclersUp();
+            }
+
+            public void onSwipeLeft() {
+                showingWeek += 1;
+                week = getWeekDateList(showingWeek);
+                setDaysOfWeekUI();
+                setRecyclersUp();
+            }
+
+
+        });
     }
 
 
@@ -293,7 +328,6 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method retrieves all the days of the current week plus the specified number of weeks
-     *
      * @param plusWeek Number of weeks plus or minus the current, you want to retrieve the days for
      * @return a List of "Date" with all the days of the specified week
      */
