@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private OnSwipeTouchListener onSwipeTouchListener;
     private ConstraintLayout cl;
     private ActivityResultLauncher<Intent> activityResultLauncher;
+    private LinearLayoutManager mLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
+        setRecyclersDecoration();
         CambioSemana();
         eventoHome();
         setActivityResultLauncher();
@@ -147,14 +149,10 @@ public class MainActivity extends AppCompatActivity {
             list.add(t.getTittle());
         }
         rvMonday = findViewById(R.id.rv_monday);
-        LinearLayoutManager mLayout = new LinearLayoutManager(this);
+        mLayout = new LinearLayoutManager(this);
         rvMonday.setLayoutManager(mLayout);
         RecyclerView.Adapter adapter = new MyAdapter(this, list, week.get(0));
         rvMonday.setAdapter(adapter);
-
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvMonday.getContext(),
-                mLayout.getOrientation());
-        rvMonday.addItemDecoration(dividerItemDecoration);
 
         //Recycler Tuesday
         list = new ArrayList<String>();
@@ -168,10 +166,6 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MyAdapter(this, list, week.get(1));
         rvTuesday.setAdapter(adapter);
 
-        dividerItemDecoration = new DividerItemDecoration(rvTuesday.getContext(),
-                mLayout.getOrientation());
-        rvTuesday.addItemDecoration(dividerItemDecoration);
-
         //Recycler Wednesday
         list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(2));
@@ -183,10 +177,6 @@ public class MainActivity extends AppCompatActivity {
         rvWednesday.setLayoutManager(mLayout);
         adapter = new MyAdapter(this, list, week.get(2));
         rvWednesday.setAdapter(adapter);
-
-        dividerItemDecoration = new DividerItemDecoration(rvWednesday.getContext(),
-                mLayout.getOrientation());
-        rvWednesday.addItemDecoration(dividerItemDecoration);
 
         //Recycler Thursday
         list = new ArrayList<String>();
@@ -200,10 +190,6 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MyAdapter(this, list, week.get(3));
         rvThursday.setAdapter(adapter);
 
-        dividerItemDecoration = new DividerItemDecoration(rvThursday.getContext(),
-                mLayout.getOrientation());
-        rvThursday.addItemDecoration(dividerItemDecoration);
-
         //Recycler Friday
         list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(4));
@@ -215,10 +201,6 @@ public class MainActivity extends AppCompatActivity {
         rvFriday.setLayoutManager(mLayout);
         adapter = new MyAdapter(this, list, week.get(4));
         rvFriday.setAdapter(adapter);
-
-        dividerItemDecoration = new DividerItemDecoration(rvFriday.getContext(),
-                mLayout.getOrientation());
-        rvFriday.addItemDecoration(dividerItemDecoration);
 
         //Recycler Saturday
         list = new ArrayList<String>();
@@ -232,10 +214,6 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MyAdapter(this, list, week.get(5));
         rvSaturday.setAdapter(adapter);
 
-        dividerItemDecoration = new DividerItemDecoration(rvSaturday.getContext(),
-                mLayout.getOrientation());
-        rvSaturday.addItemDecoration(dividerItemDecoration);
-
         //Recycler Sunday
         list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(6));
@@ -248,11 +226,38 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MyAdapter(this, list, week.get(6));
         rvSunday.setAdapter(adapter);
 
+        setRecyclerClickEvent();
+    }
+
+    private void setRecyclersDecoration(){
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvMonday.getContext(),
+                mLayout.getOrientation());
+        rvMonday.addItemDecoration(dividerItemDecoration);
+
+        dividerItemDecoration = new DividerItemDecoration(rvTuesday.getContext(),
+                mLayout.getOrientation());
+        rvTuesday.addItemDecoration(dividerItemDecoration);
+
+        dividerItemDecoration = new DividerItemDecoration(rvWednesday.getContext(),
+                mLayout.getOrientation());
+        rvWednesday.addItemDecoration(dividerItemDecoration);
+
+        dividerItemDecoration = new DividerItemDecoration(rvThursday.getContext(),
+                mLayout.getOrientation());
+        rvThursday.addItemDecoration(dividerItemDecoration);
+
+        dividerItemDecoration = new DividerItemDecoration(rvFriday.getContext(),
+                mLayout.getOrientation());
+        rvFriday.addItemDecoration(dividerItemDecoration);
+
+        dividerItemDecoration = new DividerItemDecoration(rvSaturday.getContext(),
+                mLayout.getOrientation());
+        rvSaturday.addItemDecoration(dividerItemDecoration);
+
         dividerItemDecoration = new DividerItemDecoration(rvSunday.getContext(),
                 mLayout.getOrientation());
         rvSunday.addItemDecoration(dividerItemDecoration);
 
-        setRecyclerClickEvent();
     }
 
     private ArrayList<Task> getTaskListFromDay(Date day) {
