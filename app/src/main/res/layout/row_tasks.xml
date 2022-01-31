@@ -23,11 +23,11 @@
 
         <CheckBox
             android:id="@+id/idCheckbox"
+            android:layout_marginLeft="164dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="right">
 
-           >
 
         </CheckBox>
 
@@ -53,6 +53,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
+            android:layout_marginLeft="160dp"
+
 
             app:srcCompat="@drawable/ic_bin" />
     </LinearLayout>
