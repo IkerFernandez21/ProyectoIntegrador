@@ -3,28 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/activity_day.xml" value="0.33" />
-        <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/activity_dia.xml" value="0.23505434782608695" />
         <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/row-tasks.xml" value="0.2269021739130435" />
-        <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/row.xml" value="0.2269021739130435" />
-        <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/row_tasks.xml" value="0.33" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/drawable/bordes_redondos.xml" value="0.3828125" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/drawable/botones_redondos.xml" value="0.3828125" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/drawable/ic_iconoapp_background.xml" value="0.3828125" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/drawable/ic_launcher_background.xml" value="0.24814814814814815" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/drawable/iconoppal.xml" value="0.24814814814814815" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/font/fuentetit.xml" value="0.396875" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/font/oswald_bold.xml" value="0.396875" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/layout/activity_day.xml" value="0.36666666666666664" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/layout/activity_dia.xml" value="0.2957427536231884" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.28940217391304346" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/layout/activity_splash.xml" value="0.2957427536231884" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/mipmap-anydpi-v26/ic_iconoapp.xml" value="0.3768518518518518" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3828125" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/mipmap-anydpi-v26/iconoppal.xml" value="0.23796296296296296" />
-        <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/mipmap-anydpi-v26/iconoppal_round.xml" value="0.24814814814814815" />
+        <entry key="..\:/Users/Enrique/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_day.xml" value="0.4" />
+        <entry key="..\:/Users/Enrique/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_dia.xml" value="0.1" />
+        <entry key="..\:/Users/Enrique/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.23052536231884058" />
+        <entry key="..\:/Users/Enrique/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row.xml" value="0.1" />
+        <entry key="..\:/Users/Enrique/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row_tasks.xml" value="0.264" />
+        <entry key="..\:/Users/Enrique/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/rv_layout.xml" value="0.23052536231884058" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_dia.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18425925925925926" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/mipmap-anydpi-v26/iconoPpal.xml" value="0.18425925925925926" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/mipmap-anydpi-v26/iconoppal.xml" value="0.14635416666666667" />
       </map>
     </option>
   </component>
