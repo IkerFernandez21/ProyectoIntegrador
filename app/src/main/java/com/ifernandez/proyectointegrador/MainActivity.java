@@ -36,7 +36,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button bthome;
+    private Button bthome,btCalendar;
     private int showingWeek;
     private Vault vault;
     private ArrayList<Day> daysList;
@@ -63,7 +63,18 @@ public class MainActivity extends AppCompatActivity {
         setRecyclersUp();
         CambioSemana();
         eventoHome();
+        eventoCalendario();
         setActivityResultLauncher();
+    }
+
+    private void eventoCalendario() {
+        btCalendar= findViewById(R.id.buttonCalendar);
+        btCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void eventoHome() {
