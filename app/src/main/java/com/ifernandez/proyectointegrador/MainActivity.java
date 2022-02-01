@@ -36,7 +36,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button bthome;
+    private Button bthome, btCalendar;
     private int showingWeek;
     private Vault vault;
     private ArrayList<Day> daysList;
@@ -65,7 +65,18 @@ public class MainActivity extends AppCompatActivity {
         setRecyclersDecoration();
         CambioSemana();
         eventoHome();
+        eventoCalendario();
         setActivityResultLauncher();
+    }
+
+    private void eventoCalendario() {
+        btCalendar = findViewById(R.id.buttonCalendar);
+        btCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void eventoHome() {
@@ -348,6 +359,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method retrieves all the days of the current week plus the specified number of weeks
+     *
      * @param plusWeek Number of weeks plus or minus the current, you want to retrieve the days for
      * @return a List of "Date" with all the days of the specified week
      */
