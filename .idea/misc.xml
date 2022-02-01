@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/activity_day.xml" value="0.3359375" />
         <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/row_tasks.xml" value="0.25226449275362317" />
         <entry key="..\:/Users/Enrique/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_day.xml" value="0.4" />
         <entry key="..\:/Users/Enrique/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_dia.xml" value="0.1" />
         <entry key="..\:/Users/Enrique/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.23052536231884058" />
