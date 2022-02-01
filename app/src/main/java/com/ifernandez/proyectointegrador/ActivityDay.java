@@ -124,6 +124,6 @@ public class ActivityDay extends AppCompatActivity {
 
         taskList.add(newTask);
         setUpRecycler();
-        rvDay.scrollToPosition(adapter.getItemCount());
+        //rvDay.scrollToPosition(adapter.getItemCount());
     }
 }

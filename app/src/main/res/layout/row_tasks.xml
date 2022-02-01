@@ -16,7 +16,7 @@
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:hint="@string/task_tittle"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             android:textSize="30sp" />
 
         <CheckBox
@@ -40,7 +40,7 @@
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:hint="@string/task_description"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:textSize="15sp" />
 
         <ImageButton

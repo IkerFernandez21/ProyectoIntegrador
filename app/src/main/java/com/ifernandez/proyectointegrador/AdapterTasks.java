@@ -1,5 +1,7 @@
 package com.ifernandez.proyectointegrador;
 
+import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -25,6 +27,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
 
     private List<Task> mData;
     private LayoutInflater mInflater;
+    private RecyclerView mRecycler;
 
     SparseBooleanArray checkBoxStateArray = new SparseBooleanArray();
 
@@ -43,6 +46,11 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
     AdapterTasks(Context context, List<Task> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        this.mRecycler = recyclerView;
     }
 
     @Override
@@ -82,11 +90,15 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     task.setCompleted(true);
-                    notifyItemChanged(position);
+                    if (!mRecycler.isComputingLayout() && mRecycler.getScrollState() == SCROLL_STATE_IDLE) {
+                        notifyItemChanged(position);
+                    }
 
                 }else{
                     task.setCompleted(false);
-                    notifyItemChanged(position);
+                    if (!mRecycler.isComputingLayout() && mRecycler.getScrollState() == SCROLL_STATE_IDLE) {
+                        notifyItemChanged(position);
+                    }
                 }
             }
         });
@@ -142,27 +154,6 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             title = itemView.findViewById(R.id.task_tittle_row);
             description = itemView.findViewById(R.id.task_description_row);
             checkBox = itemView.findViewById(R.id.checkboxRow);
-
-
-            checkBox.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //getAdapter nos devuelve la posicion clickead
-
-                    int position =getAdapterPosition();
-                    if(!checkBoxStateArray.get(position,false)){
-                        //checkbox checked
-
-                        checkBoxStateArray.put(position,true);
-                    } else {
-                        //sin clickear
-                        checkBox.setChecked(false);
-                        checkBoxStateArray.put(position,false);
-
-                    }
-
-                }
-            });
         }
     }
 }

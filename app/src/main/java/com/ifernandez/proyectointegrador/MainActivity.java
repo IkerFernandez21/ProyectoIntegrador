@@ -103,11 +103,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onActivityResult(ActivityResult result) {
 
-                        Intent resultIntent = result.getData();
-                        vault = (Vault) resultIntent.getParcelableExtra("vault");
-                        vault.saveVaultToFile(getFilesDir());
-                        setRecyclersUp();
-
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Intent resultIntent = result.getData();
+                            vault = (Vault) resultIntent.getParcelableExtra("vault");
+                            vault.saveVaultToFile(getFilesDir());
+                            setRecyclersUp();
+                        }
 
                     }
                 }
@@ -214,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
         setRecyclerClickEvent();
     }
 
-    private void setRecyclersDecoration(){
+    private void setRecyclersDecoration() {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvMonday.getContext(),
                 mLayout.getOrientation());
         rvMonday.addItemDecoration(dividerItemDecoration);
