@@ -20,7 +20,7 @@
             android:textSize="30sp" />
 
         <CheckBox
-            android:id="@+id/idCheckbox"
+            android:id="@+id/checkboxRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left">
@@ -43,9 +43,8 @@
             android:inputType="text"
             android:textSize="15sp" />
 
-
         <ImageButton
-            android:id="@+id/binButton"
+            android:id="@+id/deleteRowButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"

@@ -2,6 +2,7 @@ package com.ifernandez.proyectointegrador;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -60,16 +62,30 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
         Task task = mData.get(position);
         holder.title.setText(task.getTittle());
         holder.description.setText(task.getDescription());
-        if (!checkBoxStateArray.get(position,false)){
 
-            //checkbox vacio
-
-            holder.checkBox.setChecked(false);
-        }else {
+        if (task.isCompleted()){
             holder.checkBox.setChecked(true);
+            holder.title.setPaintFlags(holder.title.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.title.setTextColor(Color.GRAY);
+        }else{
+            holder.checkBox.setChecked(false);
+            holder.title.setPaintFlags(holder.title.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
+            holder.title.setTextColor(Color.BLACK);
         }
 
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    task.setCompleted(true);
+                    notifyItemChanged(position);
 
+                }else{
+                    task.setCompleted(false);
+                    notifyItemChanged(position);
+                }
+            }
+        });
 
         holder.title.addTextChangedListener(new TextWatcher() {
             @Override
@@ -121,7 +137,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             super(itemView);
             title = itemView.findViewById(R.id.task_tittle_row);
             description = itemView.findViewById(R.id.task_description_row);
-            checkBox = itemView.findViewById(R.id.idCheckbox);
+            checkBox = itemView.findViewById(R.id.checkboxRow);
 
 
             checkBox.setOnClickListener(new View.OnClickListener() {
