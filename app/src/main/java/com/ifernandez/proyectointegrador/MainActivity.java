@@ -156,85 +156,59 @@ public class MainActivity extends AppCompatActivity {
 
         //Recycler Monday
         taskList = getTaskListFromDay(week.get(0));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvMonday = findViewById(R.id.rv_monday);
         mLayout = new LinearLayoutManager(this);
         rvMonday.setLayoutManager(mLayout);
-        RecyclerView.Adapter adapter = new MyAdapter(this, list, week.get(0));
+        RecyclerView.Adapter adapter = new MyAdapter(this, taskList, week.get(0));
         rvMonday.setAdapter(adapter);
 
         //Recycler Tuesday
-        list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(1));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvTuesday = findViewById(R.id.rv_tueday);
         mLayout = new LinearLayoutManager(this);
         rvTuesday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this, list, week.get(1));
+        adapter = new MyAdapter(this, taskList, week.get(1));
         rvTuesday.setAdapter(adapter);
 
         //Recycler Wednesday
-        list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(2));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvWednesday = findViewById(R.id.rv_wednesday);
         mLayout = new LinearLayoutManager(this);
         rvWednesday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this, list, week.get(2));
+        adapter = new MyAdapter(this, taskList, week.get(2));
         rvWednesday.setAdapter(adapter);
 
         //Recycler Thursday
-        list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(3));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvThursday = findViewById(R.id.rv_thursday);
         mLayout = new LinearLayoutManager(this);
         rvThursday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this, list, week.get(3));
+        adapter = new MyAdapter(this, taskList, week.get(3));
         rvThursday.setAdapter(adapter);
 
         //Recycler Friday
-        list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(4));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvFriday = findViewById(R.id.rv_friday);
         mLayout = new LinearLayoutManager(this);
         rvFriday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this, list, week.get(4));
+        adapter = new MyAdapter(this, taskList, week.get(4));
         rvFriday.setAdapter(adapter);
 
         //Recycler Saturday
-        list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(5));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvSaturday = findViewById(R.id.rv_saturday);
         mLayout = new LinearLayoutManager(this);
         rvSaturday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this, list, week.get(5));
+        adapter = new MyAdapter(this, taskList, week.get(5));
         rvSaturday.setAdapter(adapter);
 
         //Recycler Sunday
         list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(6));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvSunday = findViewById(R.id.rv_sunday);
         mLayout = new LinearLayoutManager(this);
         rvSunday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this, list, week.get(6));
+        adapter = new MyAdapter(this, taskList, week.get(6));
         rvSunday.setAdapter(adapter);
 
         setRecyclerClickEvent();

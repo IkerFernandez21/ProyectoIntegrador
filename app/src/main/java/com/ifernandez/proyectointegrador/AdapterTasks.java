@@ -67,9 +67,13 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             holder.checkBox.setChecked(true);
             holder.title.setPaintFlags(holder.title.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.title.setTextColor(Color.GRAY);
+            holder.description.setPaintFlags(holder.title.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.description.setTextColor(Color.GRAY);
         }else{
             holder.checkBox.setChecked(false);
             holder.title.setPaintFlags(holder.title.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
+            holder.title.setTextColor(Color.BLACK);
+            holder.description.setPaintFlags(holder.title.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
             holder.title.setTextColor(Color.BLACK);
         }
 
