@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -137,6 +138,14 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             }
         });
 
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mData.remove(position);
+                notifyItemRemoved(position);
+            }
+        });
+
     }
 
     @Override
@@ -148,12 +157,14 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
         CheckBox checkBox;
         EditText title;
         EditText description;
+        ImageButton delete;
 
         ViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.task_tittle_row);
             description = itemView.findViewById(R.id.task_description_row);
             checkBox = itemView.findViewById(R.id.checkboxRow);
+            delete = itemView.findViewById(R.id.deleteRowButton);
         }
     }
 }
