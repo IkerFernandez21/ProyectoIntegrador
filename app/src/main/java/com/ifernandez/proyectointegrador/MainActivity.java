@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.app.Activity;
 import android.content.Context;
@@ -25,6 +26,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,6 +69,25 @@ public class MainActivity extends AppCompatActivity {
         eventoHome();
         eventoCalendario();
         setActivityResultLauncher();
+        setBtCalendar();
+    }
+
+    private void setBtCalendar(){
+        btCalendar = findViewById(R.id.buttonCalendar);
+
+        btCalendar.setOnClickListener(this::showDatePicker);
+    }
+
+    public void showDatePicker(View view) {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+
+
+            }
+        });
+
+        newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
     private void eventoCalendario() {
