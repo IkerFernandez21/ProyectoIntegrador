@@ -31,7 +31,8 @@
             android:windowSoftInputMode="adjustPan" /><!--This shit fixes the keyboard in recyclerView-->
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/theme.conactionbar">
 
         </activity>
 
