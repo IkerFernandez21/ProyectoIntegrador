@@ -86,20 +86,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 
-                Calendar cal = Calendar.getInstance();
-                Date dateNow = cal.getTime();
+
+                Date dateNow = week.get(0);
 
                 Date datePicked = new Date();
                 datePicked.setDate(day);
                 datePicked.setMonth(month);
-                datePicked.setYear(year);
+                datePicked.setYear(year-1900);
 
                 DateTime dateTime1 = new DateTime(dateNow);
                 DateTime dateTime2 = new DateTime(datePicked);
 
-                int weeks = Weeks.weeksBetween(dateTime1, dateTime2).getWeeks();
+                int weeks = 0;
 
-                showingWeek = weeks;
+                if (dateTime1.isBefore(dateTime2)){
+                    weeks = Weeks.weeksBetween(dateTime1, dateTime2).getWeeks();
+                }else{
+                    weeks = Weeks.weeksBetween(dateTime2,dateTime1).getWeeks();
+                    weeks = - weeks -1;
+                }
+
+                showingWeek = showingWeek + weeks;
                 week = getWeekDateList(showingWeek);
                 setDaysOfWeekUI();
                 setRecyclersUp();
