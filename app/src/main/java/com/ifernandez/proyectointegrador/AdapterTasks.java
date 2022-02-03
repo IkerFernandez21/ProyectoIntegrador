@@ -1,7 +1,10 @@
 package com.ifernandez.proyectointegrador;
 
+import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
+
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,6 +28,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
 
     private List<Task> mData;
     private LayoutInflater mInflater;
+    private RecyclerView mRecycler;
 
     SparseBooleanArray checkBoxStateArray = new SparseBooleanArray();
 
@@ -44,6 +50,11 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
     }
 
     @Override
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        this.mRecycler = recyclerView;
+    }
+
+    @Override
 
     //crea los nuevos objetos
     //ViewHolder necesarios para los elementos de la colección. En nuestro
@@ -60,16 +71,38 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
         Task task = mData.get(position);
         holder.title.setText(task.getTittle());
         holder.description.setText(task.getDescription());
-        if (!checkBoxStateArray.get(position,false)){
 
-            //checkbox vacio
-
-            holder.checkBox.setChecked(false);
-        }else {
+        if (task.isCompleted()){
             holder.checkBox.setChecked(true);
+            holder.title.setPaintFlags(holder.title.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.title.setTextColor(Color.GRAY);
+            holder.description.setPaintFlags(holder.title.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.description.setTextColor(Color.GRAY);
+        }else{
+            holder.checkBox.setChecked(false);
+            holder.title.setPaintFlags(holder.title.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
+            holder.title.setTextColor(Color.BLACK);
+            holder.description.setPaintFlags(holder.title.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
+            holder.title.setTextColor(Color.BLACK);
         }
 
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    task.setCompleted(true);
+                    if (!mRecycler.isComputingLayout() && mRecycler.getScrollState() == SCROLL_STATE_IDLE) {
+                        notifyItemChanged(position);
+                    }
 
+                }else{
+                    task.setCompleted(false);
+                    if (!mRecycler.isComputingLayout() && mRecycler.getScrollState() == SCROLL_STATE_IDLE) {
+                        notifyItemChanged(position);
+                    }
+                }
+            }
+        });
 
         holder.title.addTextChangedListener(new TextWatcher() {
             @Override
@@ -105,6 +138,14 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             }
         });
 
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mData.remove(position);
+                notifyItemRemoved(position);
+            }
+        });
+
     }
 
     @Override
@@ -116,33 +157,14 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
         CheckBox checkBox;
         EditText title;
         EditText description;
+        ImageButton delete;
 
         ViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.task_tittle_row);
             description = itemView.findViewById(R.id.task_description_row);
-            checkBox = itemView.findViewById(R.id.idCheckbox);
-
-
-            checkBox.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //getAdapter nos devuelve la posicion clickead
-
-                    int position =getAdapterPosition();
-                    if(!checkBoxStateArray.get(position,false)){
-                        //checkbox checked
-
-                        checkBoxStateArray.put(position,true);
-                    } else {
-                        //sin clickear
-                        checkBox.setChecked(false);
-                        checkBoxStateArray.put(position,false);
-
-                    }
-
-                }
-            });
+            checkBox = itemView.findViewById(R.id.checkboxRow);
+            delete = itemView.findViewById(R.id.deleteRowButton);
         }
     }
 }

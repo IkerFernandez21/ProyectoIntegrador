@@ -10,8 +10,8 @@
         android:id="@+id/tv_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="52dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,8 +20,8 @@
         android:id="@+id/tv_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="44dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,18 +30,17 @@
         android:id="@+id/rv_day_tasks"
         android:layout_width="408dp"
         android:layout_height="479dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/coordinator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.405"
-        />
+        app:layout_constraintVertical_bias="0.405" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,20 +52,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:layout_marginBottom="0dp"
             app:fabAlignmentMode="center"
-            android:layout_marginBottom="50dp"
             app:fabCradleRoundedCornerRadius="20dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="addTaskButton"
             android:src="@drawable/ic_add"
             app:fabSize="normal"
             app:layout_anchor="@+id/bottomAppBar"
             app:tint="@android:color/white"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:onClick="addTaskButton"/>
+            tools:ignore="SpeakableTextPresentCheck" />
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

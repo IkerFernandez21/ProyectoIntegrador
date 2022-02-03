@@ -1,9 +1,8 @@
 package com.ifernandez.proyectointegrador;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private List<String> mData;
+    private List<Task> mData;
     private LayoutInflater mInflater;
     private Date date;
     private Context context;
@@ -33,7 +32,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     ;
 
-    MyAdapter(Context context, List<String> data, Date date) {
+    MyAdapter(Context context, List<Task> data, Date date) {
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
@@ -48,8 +47,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        Task task = mData.get(position);
+        holder.title.setText(task.getTittle());
+
+        if (task.isCompleted()){
+            holder.title.setPaintFlags(holder.title.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.title.setTextColor(Color.GRAY);
+        }else{
+            holder.title.setPaintFlags(holder.title.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
+            holder.title.setTextColor(Color.BLACK);
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,13 +98,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView myTextView;
+        TextView title;
         Context context;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.tvTareaNombre);
-            context = myTextView.getContext();
+            title = itemView.findViewById(R.id.tvTareaNombre);
+            context = title.getContext();
         }
     }
 }

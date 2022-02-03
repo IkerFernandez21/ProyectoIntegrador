@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.app.Activity;
 import android.content.Context;
@@ -29,8 +30,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.joda.time.DateTime;
+import org.joda.time.Weeks;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -71,6 +76,49 @@ public class MainActivity extends AppCompatActivity {
         eventoHome();
         eventoCalendario();
         setActivityResultLauncher();
+        setBtCalendar();
+    }
+
+    private void setBtCalendar(){
+        btCalendar = findViewById(R.id.buttonCalendar);
+
+        btCalendar.setOnClickListener(this::showDatePicker);
+    }
+
+    public void showDatePicker(View view) {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+
+
+                Date dateNow = week.get(0);
+
+                Date datePicked = new Date();
+                datePicked.setDate(day);
+                datePicked.setMonth(month);
+                datePicked.setYear(year-1900);
+
+                DateTime dateTime1 = new DateTime(dateNow);
+                DateTime dateTime2 = new DateTime(datePicked);
+
+                int weeks = 0;
+
+                if (dateTime1.isBefore(dateTime2)){
+                    weeks = Weeks.weeksBetween(dateTime1, dateTime2).getWeeks();
+                }else{
+                    weeks = Weeks.weeksBetween(dateTime2,dateTime1).getWeeks();
+                    weeks = - weeks -1;
+                }
+
+                showingWeek = showingWeek + weeks;
+                week = getWeekDateList(showingWeek);
+                setDaysOfWeekUI();
+                setRecyclersUp();
+
+            }
+        });
+
+        newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
     private void eventoCalendario() {
@@ -107,11 +155,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onActivityResult(ActivityResult result) {
 
-                        Intent resultIntent = result.getData();
-                        vault = (Vault) resultIntent.getParcelableExtra("vault");
-                        vault.saveVaultToFile(getFilesDir());
-                        setRecyclersUp();
-
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Intent resultIntent = result.getData();
+                            vault = (Vault) resultIntent.getParcelableExtra("vault");
+                            vault.saveVaultToFile(getFilesDir());
+                            setRecyclersUp();
+                        }
 
                     }
                 }
@@ -160,91 +209,65 @@ public class MainActivity extends AppCompatActivity {
 
         //Recycler Monday
         taskList = getTaskListFromDay(week.get(0));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvMonday = findViewById(R.id.rv_monday);
         mLayout = new LinearLayoutManager(this);
         rvMonday.setLayoutManager(mLayout);
-        RecyclerView.Adapter adapter = new MyAdapter(this, list, week.get(0));
+        RecyclerView.Adapter adapter = new MyAdapter(this, taskList, week.get(0));
         rvMonday.setAdapter(adapter);
 
         //Recycler Tuesday
-        list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(1));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvTuesday = findViewById(R.id.rv_tueday);
         mLayout = new LinearLayoutManager(this);
         rvTuesday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this, list, week.get(1));
+        adapter = new MyAdapter(this, taskList, week.get(1));
         rvTuesday.setAdapter(adapter);
 
         //Recycler Wednesday
-        list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(2));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvWednesday = findViewById(R.id.rv_wednesday);
         mLayout = new LinearLayoutManager(this);
         rvWednesday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this, list, week.get(2));
+        adapter = new MyAdapter(this, taskList, week.get(2));
         rvWednesday.setAdapter(adapter);
 
         //Recycler Thursday
-        list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(3));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvThursday = findViewById(R.id.rv_thursday);
         mLayout = new LinearLayoutManager(this);
         rvThursday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this, list, week.get(3));
+        adapter = new MyAdapter(this, taskList, week.get(3));
         rvThursday.setAdapter(adapter);
 
         //Recycler Friday
-        list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(4));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvFriday = findViewById(R.id.rv_friday);
         mLayout = new LinearLayoutManager(this);
         rvFriday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this, list, week.get(4));
+        adapter = new MyAdapter(this, taskList, week.get(4));
         rvFriday.setAdapter(adapter);
 
         //Recycler Saturday
-        list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(5));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvSaturday = findViewById(R.id.rv_saturday);
         mLayout = new LinearLayoutManager(this);
         rvSaturday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this, list, week.get(5));
+        adapter = new MyAdapter(this, taskList, week.get(5));
         rvSaturday.setAdapter(adapter);
 
         //Recycler Sunday
         list = new ArrayList<String>();
         taskList = getTaskListFromDay(week.get(6));
-        for (Task t : taskList) {
-            list.add(t.getTittle());
-        }
         rvSunday = findViewById(R.id.rv_sunday);
         mLayout = new LinearLayoutManager(this);
         rvSunday.setLayoutManager(mLayout);
-        adapter = new MyAdapter(this, list, week.get(6));
+        adapter = new MyAdapter(this, taskList, week.get(6));
         rvSunday.setAdapter(adapter);
 
         setRecyclerClickEvent();
     }
 
-    private void setRecyclersDecoration(){
+    private void setRecyclersDecoration() {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvMonday.getContext(),
                 mLayout.getOrientation());
         rvMonday.addItemDecoration(dividerItemDecoration);
@@ -349,6 +372,7 @@ public class MainActivity extends AppCompatActivity {
         TextView thursday = findViewById(R.id.tv_thursday);
         TextView friday = findViewById(R.id.tv_friday);
         TextView weekend = findViewById(R.id.tv_weekend);
+        TextView month = findViewById(R.id.tv_month);
 
         ArrayList<Date> showingWeekList = week;
 
@@ -358,6 +382,72 @@ public class MainActivity extends AppCompatActivity {
         thursday.setText(getString(R.string.thursday) + " " + showingWeekList.get(3).getDate());
         friday.setText(getString(R.string.friday) + " " + showingWeekList.get(4).getDate());
         weekend.setText(getString(R.string.weekend) + " " + showingWeekList.get(5).getDate() + "/" + showingWeekList.get(6).getDate());
+
+        int firstMonth = -1, secondMonth = -1, fmCount = 0, smCount = 0, monthVar = -1;
+
+        firstMonth = showingWeekList.get(0).getMonth();
+        for(Date d : showingWeekList){
+
+            monthVar = d.getMonth();
+            if (monthVar == firstMonth){
+                fmCount++;
+            }else if (secondMonth == -1){
+                secondMonth = monthVar;
+                smCount++;
+            }else{
+                smCount++;
+            }
+        }
+
+        if (fmCount > smCount){
+            monthVar = firstMonth;
+        }else{
+            monthVar = secondMonth;
+        }
+
+
+        String monthString = "";
+
+        switch(monthVar){
+            case 0:
+                monthString = getString(R.string.januray);
+                break;
+            case 1:
+                monthString = getString(R.string.february);
+                break;
+            case 2:
+                monthString = getString(R.string.march);
+                break;
+            case 3:
+                monthString = getString(R.string.april);
+                break;
+            case 4:
+                monthString = getString(R.string.may);
+                break;
+            case 5:
+                monthString = getString(R.string.june);
+                break;
+            case 6:
+                monthString = getString(R.string.july);
+                break;
+            case 7:
+                monthString = getString(R.string.august);
+                break;
+            case 8:
+                monthString = getString(R.string.september);
+                break;
+            case 9:
+                monthString = getString(R.string.october);
+                break;
+            case 10:
+                monthString = getString(R.string.november);
+                break;
+            case 11:
+                monthString = getString(R.string.december);
+                break;
+        }
+
+        month.setText(monthString);
 
     }
 
