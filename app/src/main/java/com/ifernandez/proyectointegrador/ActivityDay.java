@@ -24,6 +24,7 @@ public class ActivityDay extends AppCompatActivity {
     AdapterTasks adapter;
     Vault vault;
     ArrayList<Day> daysList;
+    LinearLayoutManager mLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,7 @@ public class ActivityDay extends AppCompatActivity {
 
          //Load tasklist
         setUpRecycler();
+        setUpRecyclerDecoration();
 
     }
 
@@ -101,15 +103,16 @@ public class ActivityDay extends AppCompatActivity {
 
         //Recycler
         rvDay = findViewById(R.id.rv_day_tasks);
-        LinearLayoutManager mLayout = new LinearLayoutManager(this);
+        mLayout = new LinearLayoutManager(this);
         rvDay.setLayoutManager(mLayout);
         adapter = new AdapterTasks(this,taskList);
         rvDay.setAdapter(adapter);
+    }
 
+    private void setUpRecyclerDecoration(){
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvDay.getContext(),
                 mLayout.getOrientation());
         rvDay.addItemDecoration(dividerItemDecoration);
-
     }
 
     /**
@@ -119,10 +122,8 @@ public class ActivityDay extends AppCompatActivity {
     public void addTaskButton(View view) {
         Task newTask = new Task();
 
-        int posicionInsertion = (adapter.getPos()>=0)? adapter.getPos()+1:0;
         taskList.add(newTask);
-        adapter.notifyItemInserted(taskList.size());
-        adapter.notifyItemRangeChanged(0,taskList.size());
-        rvDay.scheduleLayoutAnimation();
+        setUpRecycler();
+        rvDay.scrollToPosition(adapter.getItemCount());
     }
 }
