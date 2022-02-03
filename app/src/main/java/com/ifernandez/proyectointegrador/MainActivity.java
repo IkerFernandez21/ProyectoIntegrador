@@ -30,6 +30,9 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.joda.time.DateTime;
+import org.joda.time.Weeks;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -83,6 +86,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 
+                Calendar cal = Calendar.getInstance();
+                Date dateNow = cal.getTime();
+
+                Date datePicked = new Date();
+                datePicked.setDate(day);
+                datePicked.setMonth(month);
+                datePicked.setYear(year);
+
+                DateTime dateTime1 = new DateTime(dateNow);
+                DateTime dateTime2 = new DateTime(datePicked);
+
+                int weeks = Weeks.weeksBetween(dateTime1, dateTime2).getWeeks();
+
+                showingWeek = weeks;
+                week = getWeekDateList(showingWeek);
+                setDaysOfWeekUI();
+                setRecyclersUp();
 
             }
         });
@@ -341,6 +361,7 @@ public class MainActivity extends AppCompatActivity {
         TextView thursday = findViewById(R.id.tv_thursday);
         TextView friday = findViewById(R.id.tv_friday);
         TextView weekend = findViewById(R.id.tv_weekend);
+        TextView month = findViewById(R.id.tv_month);
 
         ArrayList<Date> showingWeekList = week;
 
@@ -350,6 +371,72 @@ public class MainActivity extends AppCompatActivity {
         thursday.setText(getString(R.string.thursday) + " " + showingWeekList.get(3).getDate());
         friday.setText(getString(R.string.friday) + " " + showingWeekList.get(4).getDate());
         weekend.setText(getString(R.string.weekend) + " " + showingWeekList.get(5).getDate() + "/" + showingWeekList.get(6).getDate());
+
+        int firstMonth = -1, secondMonth = -1, fmCount = 0, smCount = 0, monthVar = -1;
+
+        firstMonth = showingWeekList.get(0).getMonth();
+        for(Date d : showingWeekList){
+
+            monthVar = d.getMonth();
+            if (monthVar == firstMonth){
+                fmCount++;
+            }else if (secondMonth == -1){
+                secondMonth = monthVar;
+                smCount++;
+            }else{
+                smCount++;
+            }
+        }
+
+        if (fmCount > smCount){
+            monthVar = firstMonth;
+        }else{
+            monthVar = secondMonth;
+        }
+
+
+        String monthString = "";
+
+        switch(monthVar){
+            case 0:
+                monthString = getString(R.string.januray);
+                break;
+            case 1:
+                monthString = getString(R.string.february);
+                break;
+            case 2:
+                monthString = getString(R.string.march);
+                break;
+            case 3:
+                monthString = getString(R.string.april);
+                break;
+            case 4:
+                monthString = getString(R.string.may);
+                break;
+            case 5:
+                monthString = getString(R.string.june);
+                break;
+            case 6:
+                monthString = getString(R.string.july);
+                break;
+            case 7:
+                monthString = getString(R.string.august);
+                break;
+            case 8:
+                monthString = getString(R.string.september);
+                break;
+            case 9:
+                monthString = getString(R.string.october);
+                break;
+            case 10:
+                monthString = getString(R.string.november);
+                break;
+            case 11:
+                monthString = getString(R.string.december);
+                break;
+        }
+
+        month.setText(monthString);
 
     }
 
