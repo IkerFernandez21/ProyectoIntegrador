@@ -1,4 +1,4 @@
-package com.ifernandez.proyectointegrador;
+package com.aliken.proyectointegrador;
 
 import android.view.MotionEvent;
 import android.view.View;

@@ -1,11 +1,10 @@
-package com.ifernandez.proyectointegrador;
+package com.aliken.proyectointegrador;
 
 import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.drawable.ColorDrawable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.SparseBooleanArray;
@@ -16,7 +15,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -142,9 +140,9 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             @Override
             public void onClick(View v) {
                 mData.remove(position);
-                if (!mRecycler.isComputingLayout() && mRecycler.getScrollState() == SCROLL_STATE_IDLE) {
-                    notifyItemRemoved(position);
-                }
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(0,mData.size());
+                decrementarPos();
             }
         });
 
