@@ -142,7 +142,9 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             @Override
             public void onClick(View v) {
                 mData.remove(position);
-                notifyItemRemoved(position);
+                if (!mRecycler.isComputingLayout() && mRecycler.getScrollState() == SCROLL_STATE_IDLE) {
+                    notifyItemRemoved(position);
+                }
             }
         });
 

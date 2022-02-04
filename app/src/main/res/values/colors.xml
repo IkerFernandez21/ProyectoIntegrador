@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="ColorPrimario">#83d85a</color>
     <color name="ColorPrimarioClaro">#b6ff8a</color>
+    <color name="cardsPrimary">#D8FBC3</color>
     <color name="ColorPrimarioOscuro">#50a629</color>
     <color name="ColorSecundario">#be64c6</color>
     <color name="ColorSecundarioClaro">#f294f9</color>

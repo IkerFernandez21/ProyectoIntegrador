@@ -59,7 +59,6 @@ public class ActivityDay extends AppCompatActivity {
 
          //Load tasklist
         setUpRecycler();
-        setUpRecyclerDecoration();
 
     }
 
@@ -141,11 +140,6 @@ public class ActivityDay extends AppCompatActivity {
         rvDay.setAdapter(adapter);
     }
 
-    private void setUpRecyclerDecoration(){
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvDay.getContext(),
-                mLayout.getOrientation());
-        rvDay.addItemDecoration(dividerItemDecoration);
-    }
 
     /**
      * Button to add a new task
