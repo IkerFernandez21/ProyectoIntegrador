@@ -29,12 +29,18 @@
                 android:id="@+id/tv_monday"
                 android:layout_width="205dp"
                 android:layout_height="match_parent"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="100sp"
                 android:text="Lunes"></TextView>
 
             <TextView
                 android:id="@+id/tv_tuesday"
-                android:layout_width="205dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="100sp"
                 android:text="Martes"></TextView>
         </LinearLayout>
 
@@ -65,12 +71,18 @@
                 android:id="@+id/tv_wednesday"
                 android:layout_width="205dp"
                 android:layout_height="match_parent"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="100sp"
                 android:text="Miercoles"></TextView>
 
             <TextView
                 android:id="@+id/tv_thursday"
-                android:layout_width="205dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="100sp"
                 android:text="Jueves"></TextView>
         </LinearLayout>
 
@@ -99,12 +111,18 @@
                 android:id="@+id/tv_friday"
                 android:layout_width="205dp"
                 android:layout_height="match_parent"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="100sp"
                 android:text="Viernes"></TextView>
 
             <TextView
                 android:id="@+id/tv_weekend"
-                android:layout_width="205dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="100sp"
                 android:text="Sábado/Domigo"></TextView>
         </LinearLayout>
 

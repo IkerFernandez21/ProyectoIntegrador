@@ -37,8 +37,7 @@ public class ActivityDay extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         dayDate = (Date) extras.get("dayDate");
 
-        tvDay.setText(dayDate.getDay() + " " + dayDate.getDate());
-        //tvYear.setText(dayDate.getYear());
+        setTextviewsUI();
 
         vault = new Vault(getFilesDir());
         daysList = vault.getDaysList();
@@ -62,6 +61,39 @@ public class ActivityDay extends AppCompatActivity {
         setUpRecycler();
         setUpRecyclerDecoration();
 
+    }
+
+    private void setTextviewsUI(){
+
+        String day = "";
+
+        switch(dayDate.getDay()){
+            case 0:
+                day = getString(R.string.sunday);
+                break;
+            case 1:
+                day = getString(R.string.monday);
+                break;
+            case 2:
+                day = getString(R.string.tuesday);
+                break;
+            case 3:
+                day = getString(R.string.wednesday);
+                break;
+            case 4:
+                day = getString(R.string.thursday);
+                break;
+            case 5:
+                day = getString(R.string.friday);
+                break;
+            case 6:
+                day = getString(R.string.saturday);
+                break;
+        }
+
+        tvDay.setText(day + " " + dayDate.getDate());
+        int year = dayDate.getYear()+1900;
+        tvYear.setText(""+year);
     }
 
     /**
