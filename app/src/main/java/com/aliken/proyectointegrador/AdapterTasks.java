@@ -115,7 +115,11 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
 
             @Override
             public void afterTextChanged(Editable s) {
-                mData.get(position).setTittle(holder.title.getText().toString());
+                try {
+                    mData.get(position).setTittle(holder.title.getText().toString());
+                }catch (IndexOutOfBoundsException e){
+
+                }
             }
         });
 
@@ -132,7 +136,11 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
 
             @Override
             public void afterTextChanged(Editable s) {
-                mData.get(position).setDescription(holder.description.getText().toString());
+                try {
+                    mData.get(position).setDescription(holder.description.getText().toString());
+                }catch (IndexOutOfBoundsException e){
+
+            }
             }
         });
 
