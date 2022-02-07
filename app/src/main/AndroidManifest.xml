@@ -16,7 +16,7 @@
 
         android:theme="@style/Theme.ProyectoIntegrador">
         <activity
-            android:name=".Splash"
+            android:name="com.aliken.proyectointegrador.Splash"
             android:exported="true"
             android:theme="@style/theme.sinactionbar">
             <intent-filter>
@@ -26,13 +26,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActivityDay"
+            android:name="com.aliken.proyectointegrador.ActivityDay"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" /><!--This shit fixes the keyboard in recyclerView-->
         <activity
-            android:name=".MainActivity"
+            android:name="com.aliken.proyectointegrador.MainActivity"
             android:exported="true"
             android:theme="@style/theme.conactionbar">
+            >
 
         </activity>
 

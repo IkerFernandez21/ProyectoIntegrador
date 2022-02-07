@@ -1,6 +1,5 @@
-package com.ifernandez.proyectointegrador;
+package com.aliken.proyectointegrador;
 
-import android.os.Environment;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -10,7 +9,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Vault implements Parcelable {

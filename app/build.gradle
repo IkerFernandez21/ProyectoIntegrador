@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
-        applicationId "com.ifernandez.proyectointegrador"
+        applicationId "com.aliken.proyectointegrador"
         minSdk 21
         targetSdk 31
         versionCode 1
@@ -41,4 +41,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
     implementation 'net.danlew:android.joda:2.10.12.2'
+    implementation "androidx.cardview:cardview:1.0.0"
 }
