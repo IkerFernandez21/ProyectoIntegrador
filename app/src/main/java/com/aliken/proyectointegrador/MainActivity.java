@@ -27,6 +27,8 @@ import android.widget.ImageView;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import com.ifernandez.proyectointegrador.R;
+
 import org.joda.time.DateTime;
 import org.joda.time.Weeks;
 

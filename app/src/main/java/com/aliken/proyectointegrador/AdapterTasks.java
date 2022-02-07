@@ -19,6 +19,8 @@ import android.widget.ImageButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ifernandez.proyectointegrador.R;
+
 import java.util.List;
 
 public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> {
@@ -59,9 +61,9 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
     //ejemplo, nos limitamos a inflar (construir) una vista a partir del layout
     //correspondiente a los elementos de la lista (row), y crear y devolver un nuevo view holder
 
-    public AdapterTasks.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.row_tasks, parent, false);
-        return new AdapterTasks.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override

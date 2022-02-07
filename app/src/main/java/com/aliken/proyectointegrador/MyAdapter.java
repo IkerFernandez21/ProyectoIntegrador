@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ifernandez.proyectointegrador.R;
+
 import java.util.Date;
 import java.util.List;
 
