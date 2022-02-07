@@ -15,15 +15,10 @@ import android.app.DatePickerDialog;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.view.GestureDetector;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
@@ -66,17 +61,41 @@ public class MainActivity extends AppCompatActivity {
         setRecyclersUp();
         setRecyclersDecoration();
         CambioSemana();
-        eventoHome();
-        eventoCalendario();
+
         setActivityResultLauncher();
-        setBtCalendar();
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.appbar_main, menu);
+
+        return true;
+
+
     }
 
-    private void setBtCalendar(){
-        btCalendar = findViewById(R.id.buttonCalendar);
+    @Override
+    public boolean onOptionsItemSelected( MenuItem item) {
 
-        btCalendar.setOnClickListener(this::showDatePicker);
+        int id = item.getItemId();
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.calendario) {
+
+            showDatePicker(this.getCurrentFocus());
+
+        }
+        if (id == R.id.botonhome) {
+
+            showingWeek = 0;
+            week = getWeekDateList(showingWeek);
+            setDaysOfWeekUI();
+            setRecyclersUp();
+
+        }
+        return super.onOptionsItemSelected(item);
     }
+
+
 
     public void showDatePicker(View view) {
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
@@ -114,28 +133,8 @@ public class MainActivity extends AppCompatActivity {
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
-    private void eventoCalendario() {
-        btCalendar = findViewById(R.id.buttonCalendar);
-        btCalendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
-    }
 
-    private void eventoHome() {
-        bthome = findViewById(R.id.buttonHome);
-        bthome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showingWeek = 0;
-                week = getWeekDateList(showingWeek);
-                setDaysOfWeekUI();
-                setRecyclersUp();
-            }
-        });
-    }
 
 
     /**

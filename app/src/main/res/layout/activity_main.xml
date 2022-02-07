@@ -159,35 +159,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/buttonHome"
-        android:layout_width="55dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/ic_baseline_home_24"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayoutParent"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.727"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/buttonCalendar"
-        android:layout_width="36dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="11dp"
-        android:background="@drawable/ic_baseline_calendar_month_24"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayoutParent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontal"
         android:layout_width="wrap_content"
@@ -201,8 +172,6 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal"
-        app:layout_constraintEnd_toStartOf="@+id/buttonHome"
-        app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="parent" />
 
 

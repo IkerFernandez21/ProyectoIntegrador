@@ -17,7 +17,7 @@
     <style name="theme.sinactionbar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
 
-
+        <item name="title">" "</item>
         <item name="colorPrimary">@color/ColorPrimario</item>
         <item name="colorPrimaryVariant">@color/ColorPrimarioOscuro</item>
         <item name="colorOnPrimary">@color/black</item>
@@ -35,7 +35,7 @@
     <style name="theme.conactionbar" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
 
-
+        <item name="title">" "</item>
         <item name="colorPrimary">@color/ColorPrimario</item>
         <item name="colorPrimaryVariant">@color/ColorPrimarioOscuro</item>
         <item name="colorOnPrimary">@color/black</item>
