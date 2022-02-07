@@ -24,4 +24,6 @@
     <string name="december">December</string>
     <string name="item2">item2</string>
     <string name="item">Item</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 </resources>

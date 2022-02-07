@@ -5,8 +5,10 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,6 +23,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ifernandez.proyectointegrador.R;
 
@@ -32,7 +35,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private DrawerLayout drawerLayout;
     private Button bthome, btCalendar;
     private int showingWeek;
     private Vault vault;
@@ -61,10 +65,24 @@ public class MainActivity extends AppCompatActivity {
         setRecyclersUp();
         setRecyclersDecoration();
         CambioSemana();
+        NavigationMenu();
+
 
         setActivityResultLauncher();
 
     }
+
+    private void NavigationMenu() {
+        drawerLayout = findViewById(R.id.my_drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.appbar_main, menu);
@@ -90,6 +108,10 @@ public class MainActivity extends AppCompatActivity {
             week = getWeekDateList(showingWeek);
             setDaysOfWeekUI();
             setRecyclersUp();
+
+        }
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
 
         }
         return super.onOptionsItemSelected(item);
@@ -440,6 +462,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         month.setText(monthString);
+        this.setTitle(monthString);
 
     }
 
