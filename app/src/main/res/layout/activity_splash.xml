@@ -14,7 +14,7 @@
         android:layout_marginTop="88dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/iconoppal" />
+        app:srcCompat="@drawable/imageiconovector" />
 
     <TextView
         android:id="@+id/textView"

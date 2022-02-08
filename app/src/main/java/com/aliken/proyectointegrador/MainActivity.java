@@ -15,10 +15,19 @@ import android.app.DatePickerDialog;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.GestureDetector;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.DatePicker;
 import android.widget.TextView;
+
+import com.ifernandez.proyectointegrador.R;
 
 import org.joda.time.DateTime;
 import org.joda.time.Weeks;
@@ -494,4 +503,5 @@ public class MainActivity extends AppCompatActivity {
         i.putExtra("dayDate", week.get(day));
         activityResultLauncher.launch(i);
     }
+
 }
