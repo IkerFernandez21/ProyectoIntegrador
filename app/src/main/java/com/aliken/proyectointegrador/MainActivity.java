@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         btCalendar.setOnClickListener(this::showDatePicker);
     }
 
+
     public void showDatePicker(View view) {
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
             @Override
