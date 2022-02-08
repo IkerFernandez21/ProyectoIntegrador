@@ -127,6 +127,32 @@ public class ActivityDay extends AppCompatActivity {
         finish();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Day day = null;
+
+        //Save changes on tasks
+        for(Day d : daysList){
+            if (d.getDate().compareTo(dayDate) == 0) {
+                day = d;
+                break;
+            }
+        }
+
+        if (day != null){
+            day.setTaskList(taskList);
+        }else{
+            day = new Day();
+            day.setDate(dayDate);
+            day.setTaskList(taskList);
+            daysList.add(day);
+        }
+
+        vault.setDaysList(daysList);
+        vault.saveVaultToFile(getFilesDir());
+    }
+
     /**
      * Set ups the recyclerview with the correct values
      */
