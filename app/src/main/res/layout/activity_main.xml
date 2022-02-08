@@ -28,8 +28,10 @@
         <!--include the menu created in the menu folder-->
         <com.google.android.material.navigation.NavigationView
             android:layout_width="wrap_content"
+            android:id="@+id/nav_view"
             android:layout_height="match_parent"
             android:layout_gravity="start"
+            app:headerLayout="@layout/nav_header"
             android:background="@color/ColorPrimario"
             app:itemShapeFillColor="@color/ColorPrimarioOscuro"
             app:itemTextColor="@color/ColorSecundarioClaro"

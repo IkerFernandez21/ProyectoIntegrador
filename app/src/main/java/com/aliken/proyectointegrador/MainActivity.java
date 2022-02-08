@@ -9,6 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
 import com.ifernandez.proyectointegrador.R;
 
 import org.joda.time.DateTime;
@@ -68,7 +70,14 @@ public class MainActivity extends AppCompatActivity {
         CambioSemana();
         NavigationMenu();
 
+        drawerLayout = (DrawerLayout) findViewById(R.id.my_drawer_layout);
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        if (navigationView != null) {
+            setupNavigationDrawerContent(navigationView);
+        }
+
+        setupNavigationDrawerContent(navigationView);
         setActivityResultLauncher();
 
     }
@@ -113,12 +122,31 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            int idNav = item.getItemId();
-        }
         return super.onOptionsItemSelected(item);
     }
 
+    public boolean onNavigationItemSelected(MenuItem menuItem) {
+        int title;
+        switch (menuItem.getItemId()) {
+            case R.id.nav_account:
+                Toast.makeText(this, "nav_account", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_logout:
+                Toast.makeText(this, "nav_logout", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_settings:
+                Toast.makeText(this, "nav_settings", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+
+        }
+
+
+
+
+
+        return true;
+    }
 
 
     public void showDatePicker(View view) {
