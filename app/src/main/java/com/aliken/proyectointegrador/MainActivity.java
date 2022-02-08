@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
     }
 
     @Override
@@ -112,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-
+            int idNav = item.getItemId();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -188,8 +190,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private void CambioSemana() {
 
-        cl = findViewById(R.id.ConstraintLayout);
-        cl.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
+        LinearLayout lt = findViewById(R.id.linearLayoutParent);
+        lt.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
 
             public void onSwipeRight() {
                 showingWeek -= 1;
