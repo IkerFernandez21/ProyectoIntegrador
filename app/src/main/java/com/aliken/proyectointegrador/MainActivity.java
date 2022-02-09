@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -350,7 +351,39 @@ public class MainActivity extends AppCompatActivity {
             openDayActivity(6);
         });
 
+        ItemTouchHelper iTH = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
 
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                if (direction == ItemTouchHelper.RIGHT) {
+                    showingWeek -= 1;
+                    week = getWeekDateList(showingWeek);
+                    setDaysOfWeekUI();
+                    setRecyclersUp();
+                }
+                if (direction == ItemTouchHelper.LEFT) {
+                    showingWeek += 1;
+                    week = getWeekDateList(showingWeek);
+                    setDaysOfWeekUI();
+                    setRecyclersUp();
+
+                }
+
+            }
+        });
+
+        iTH.attachToRecyclerView(rvMonday);
+        iTH.attachToRecyclerView(rvTuesday);
+        iTH.attachToRecyclerView(rvWednesday);
+        iTH.attachToRecyclerView(rvThursday);
+        iTH.attachToRecyclerView(rvFriday);
+        iTH.attachToRecyclerView(rvSaturday);
+        iTH.attachToRecyclerView(rvSunday);
     }
 
 
