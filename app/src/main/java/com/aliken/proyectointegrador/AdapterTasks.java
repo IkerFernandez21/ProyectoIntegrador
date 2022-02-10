@@ -114,8 +114,11 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
                 switch (item.getItemId()) {
                     case R.id.reset:
 
-                        setTextColor(holder.title,Color.YELLOW);
+                        setTextColor(holder.title,Color.TRANSPARENT);
                         task.setColor(Color.TRANSPARENT);
+                        String place = holder.title.getText().toString();
+                        holder.title.setText(null);
+                        holder.title.setText(place);
                         return true;
                     case R.id.redCricle:
 
@@ -262,8 +265,6 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
                 new MyLineBackgroundSpan(color, padding),
                 0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        editText.setShadowLayer(padding, 0, 0, 0);
-        editText.setPadding(padding, padding, padding, padding);
         editText.setText(spannable);
     }
 }
