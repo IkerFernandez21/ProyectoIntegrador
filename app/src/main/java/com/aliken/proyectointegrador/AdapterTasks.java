@@ -83,6 +83,9 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
     public void onBindViewHolder(@NonNull AdapterTasks.ViewHolder holder, int position) {
         Task task = mData.get(position);
         holder.title.setText(task.getTittle());
+        if (task.getColor()!=0){
+            setTextColor(holder.title,task.getColor());
+        }
         holder.description.setText(task.getDescription());
         ActivityDay ad = (ActivityDay) holder.context;
         ActionMode[] actionMode = new ActionMode[1];
@@ -109,23 +112,15 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.button1:
-                        Toast.makeText(ad, "Clicked", Toast.LENGTH_SHORT).show();
-                        //mode.finish(); // Action picked, so close the CAB
+                    case R.id.reset:
+
+                        setTextColor(holder.title,Color.YELLOW);
+                        task.setColor(Color.TRANSPARENT);
                         return true;
                     case R.id.redCricle:
-                        holder.title.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP);
 
-                        int padding = 10;
-
-                        SpannableString spannable = new SpannableString(holder.title.getText());
-                        spannable.setSpan(
-                                new MyLineBackgroundSpan(ContextCompat.getColor(ad, R.color.red_delete), padding),
-                                0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                        holder.title.setShadowLayer(padding, 0, 0, 0);
-                        holder.title.setPadding(padding, padding, padding, padding);
-                        holder.title.setText(spannable);
+                        setTextColor(holder.title,Color.RED);
+                        task.setColor(Color.RED);
                         return true;
                     default:
                         return false;
@@ -135,7 +130,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             // Called when the user exits the action mode
             @Override
             public void onDestroyActionMode(ActionMode mode) {
-                actionMode[0] = mode;
+                aMode = null;
             }
         };
 
@@ -257,6 +252,19 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             delete = itemView.findViewById(R.id.deleteRowButton);
             context = title.getContext();
         }
+    }
+
+    public void setTextColor(EditText editText, int color){
+        int padding = 10;
+
+        SpannableString spannable = new SpannableString(editText.getText());
+        spannable.setSpan(
+                new MyLineBackgroundSpan(color, padding),
+                0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        editText.setShadowLayer(padding, 0, 0, 0);
+        editText.setPadding(padding, padding, padding, padding);
+        editText.setText(spannable);
     }
 }
 
