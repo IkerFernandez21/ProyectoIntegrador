@@ -124,8 +124,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 new MyLineBackgroundSpan(color, padding),
                 0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        textView.setShadowLayer(padding, 0, 0, 0);
-        textView.setPadding(padding, padding, padding, padding);
         textView.setText(spannable);
     }
 }
