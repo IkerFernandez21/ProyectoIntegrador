@@ -5,21 +5,34 @@ import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
 import android.util.SparseBooleanArray;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ifernandez.proyectointegrador.R;
+
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
 import java.util.List;
 
@@ -29,6 +42,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
     private List<Task> mData;
     private LayoutInflater mInflater;
     private RecyclerView mRecycler;
+    private ActionMode aMode;
 
     SparseBooleanArray checkBoxStateArray = new SparseBooleanArray();
 
@@ -40,9 +54,8 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
 
     public void decrementarPos() {
         this.pos--;
-    }
+    };
 
-    ;
 
     AdapterTasks(Context context, List<Task> data) {
         this.mInflater = LayoutInflater.from(context);
@@ -71,6 +84,60 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
         Task task = mData.get(position);
         holder.title.setText(task.getTittle());
         holder.description.setText(task.getDescription());
+        ActivityDay ad = (ActivityDay) holder.context;
+        ActionMode[] actionMode = new ActionMode[1];
+
+        ActionMode.Callback actionModeCallback = new ActionMode.Callback() {
+
+            // Called when the action mode is created; startActionMode() was called
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                // Inflate a menu resource providing context menu items
+                MenuInflater inflater = mode.getMenuInflater();
+                inflater.inflate(R.menu.keyboard_menu, menu);
+                return true;
+            }
+
+            // Called each time the action mode is shown. Always called after onCreateActionMode, but
+            // may be called multiple times if the mode is invalidated.
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                return false; // Return false if nothing is done
+            }
+
+            // Called when the user selects a contextual menu item
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.button1:
+                        Toast.makeText(ad, "Clicked", Toast.LENGTH_SHORT).show();
+                        //mode.finish(); // Action picked, so close the CAB
+                        return true;
+                    case R.id.redCricle:
+                        holder.title.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP);
+
+                        int padding = 10;
+
+                        SpannableString spannable = new SpannableString(holder.title.getText());
+                        spannable.setSpan(
+                                new MyLineBackgroundSpan(ContextCompat.getColor(ad, R.color.red_delete), padding),
+                                0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        holder.title.setShadowLayer(padding, 0, 0, 0);
+                        holder.title.setPadding(padding, padding, padding, padding);
+                        holder.title.setText(spannable);
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+
+            // Called when the user exits the action mode
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+                actionMode[0] = mode;
+            }
+        };
 
         if (task.isCompleted()){
             holder.checkBox.setChecked(true);
@@ -156,6 +223,18 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             }
         });
 
+        KeyboardVisibilityEvent.setEventListener(
+                ad,
+                new KeyboardVisibilityEventListener() {
+                    @Override
+                    public void onVisibilityChanged(boolean isOpen) {
+                        if(isOpen) {
+                           aMode = ad.startActionMode(actionModeCallback);
+                        }else{
+                            if(aMode!=null){aMode.finish();}
+                        }
+                    }
+                });
     }
 
     @Override
@@ -168,6 +247,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
         EditText title;
         EditText description;
         ImageButton delete;
+        Context context;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -175,6 +255,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             description = itemView.findViewById(R.id.task_description_row);
             checkBox = itemView.findViewById(R.id.checkboxRow);
             delete = itemView.findViewById(R.id.deleteRowButton);
+            context = title.getContext();
         }
     }
 }
