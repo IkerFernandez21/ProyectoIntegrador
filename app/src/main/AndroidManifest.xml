@@ -28,7 +28,7 @@
         <activity
             android:name="com.aliken.proyectointegrador.ActivityDay"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan" /><!--This shit fixes the keyboard in recyclerView-->
+            android:windowSoftInputMode="adjustResize" /><!--adjustPan This shit fixes the keyboard in recyclerView-->
         <activity
             android:name="com.aliken.proyectointegrador.MainActivity"
             android:exported="true"

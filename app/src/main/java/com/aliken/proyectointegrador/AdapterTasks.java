@@ -226,13 +226,23 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
                 new KeyboardVisibilityEventListener() {
                     @Override
                     public void onVisibilityChanged(boolean isOpen) {
-                        if(isOpen) {
-                           aMode = ad.startActionMode(actionModeCallback);
-                        }else{
+                        if (!isOpen) {
                             if(aMode!=null){aMode.finish();}
                         }
                     }
                 });
+
+        holder.title.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if(aMode!=null){
+                    aMode.finish();
+                    aMode = ad.startActionMode(actionModeCallback);
+                }else{
+                    aMode = ad.startActionMode(actionModeCallback);
+                }
+            }
+        });
     }
 
     @Override
