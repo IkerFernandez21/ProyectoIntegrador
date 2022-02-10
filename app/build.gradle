@@ -43,4 +43,5 @@ dependencies {
     implementation 'net.danlew:android.joda:2.10.12.2'
     implementation "androidx.cardview:cardview:1.0.0"
     implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:3.0.0-RC3'
+    implementation 'petrov.kristiyan:colorpicker-library:1.1.10'
 }

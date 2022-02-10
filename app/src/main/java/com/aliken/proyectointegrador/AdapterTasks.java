@@ -36,6 +36,8 @@ import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventList
 
 import java.util.List;
 
+import petrov.kristiyan.colorpicker.ColorPicker;
+
 public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> {
 
 
@@ -122,8 +124,21 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
                         return true;
                     case R.id.redCricle:
 
-                        setTextColor(holder.title,Color.RED);
-                        task.setColor(Color.RED);
+                        ColorPicker colorPicker = new ColorPicker(ad);
+                        colorPicker.show();
+                        colorPicker.setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
+                            @Override
+                            public void onChooseColor(int position,int color) {
+                                setTextColor(holder.title, color);
+                                task.setColor(color);
+                                System.out.println(color);
+                            }
+
+                            @Override
+                            public void onCancel(){
+                                // put code
+                            }
+                        });
                         return true;
                     default:
                         return false;
@@ -239,6 +254,15 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
                     aMode.finish();
                     aMode = ad.startActionMode(actionModeCallback);
                 }else{
+                    aMode = ad.startActionMode(actionModeCallback);
+                }
+            }
+        });
+
+        holder.title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(aMode==null){
                     aMode = ad.startActionMode(actionModeCallback);
                 }
             }
