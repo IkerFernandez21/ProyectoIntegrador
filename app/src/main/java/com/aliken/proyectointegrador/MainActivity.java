@@ -7,7 +7,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -23,16 +22,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.ifernandez.proyectointegrador.R;
-import com.ifernandez.proyectointegrador.homeFragment;
 import com.ifernandez.proyectointegrador.navtoolsFragment;
 import com.ifernandez.proyectointegrador.settingsFragment;
-import com.ifernandez.proyectointegrador.webtoolsFragment;
+import com.ifernandez.proyectointegrador.LoginFragment;
 
 import org.joda.time.DateTime;
 import org.joda.time.Weeks;
@@ -74,10 +71,6 @@ public class MainActivity extends AppCompatActivity {
         WeekChange();
         setDrawerNavView();
         setActivityResultLauncher();
-
-
-
-
     }
 
     @Override
@@ -111,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                                 break;
 
                             case R.id.nav_web_tools:
-                                fragment = new webtoolsFragment();
+                                fragment = new LoginFragment();
                                 fragmentTransaction = true;
                                 break;
                             case R.id.nav_tools:
