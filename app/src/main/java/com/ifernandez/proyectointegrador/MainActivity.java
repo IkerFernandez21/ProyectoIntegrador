@@ -92,16 +92,17 @@ public class MainActivity extends AppCompatActivity {
 
                         boolean fragmentTransaction = false;
                         Fragment fragment = null;
+                        Intent intent;
 
                         switch (menuItem.getItemId()) {
                             case R.id.nav_home:
-                                Intent intent= new Intent (MainActivity.this, MainActivity.class);
+                                intent= new Intent (MainActivity.this, MainActivity.class);
                                 startActivity(intent);
                                 break;
 
                             case R.id.nav_web_tools:
-                                fragment = new LoginFragment();
-                                fragmentTransaction = true;
+                                intent= new Intent (MainActivity.this, LoginActivity.class);
+                                startActivity(intent);
                                 break;
                             case R.id.nav_tools:
                                 fragment = new navtoolsFragment();
