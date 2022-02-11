@@ -14,7 +14,7 @@
         android:theme="@style/Theme.ProyectoIntegrador"
         android:requestLegacyExternalStorage="true">
 
-        android:theme="@style/Theme.ProyectoIntegrador">
+
         <activity
             android:name="com.aliken.proyectointegrador.Splash"
             android:exported="true"
@@ -32,12 +32,10 @@
         <activity
             android:name="com.aliken.proyectointegrador.MainActivity"
             android:exported="true"
-            android:theme="@style/theme.conactionbar">
-            >
+            android:theme="@style/theme.sinactionbar">
+
 
         </activity>
-
-
 
     </application>
 

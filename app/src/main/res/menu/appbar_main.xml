@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/calendario"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_baseline_calendar_month_24"
+        android:title="@string/item2"
+        app:showAsAction="ifRoom" />
+
+    <item
+        
+        android:id="@+id/botonhome"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/item"
+
+        app:showAsAction="ifRoom"
+        />
+
+
+</menu>

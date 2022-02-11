@@ -6,7 +6,11 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NavUtils;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,19 +19,19 @@ import android.app.DatePickerDialog;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.view.GestureDetector;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import com.google.android.material.navigation.NavigationView;
 import com.ifernandez.proyectointegrador.R;
+import com.ifernandez.proyectointegrador.homeFragment;
+import com.ifernandez.proyectointegrador.navtoolsFragment;
+import com.ifernandez.proyectointegrador.settingsFragment;
+import com.ifernandez.proyectointegrador.webtoolsFragment;
 
 import org.joda.time.DateTime;
 import org.joda.time.Weeks;
@@ -37,8 +41,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
+    private NavigationView navView;
+    private  Toolbar appbar;
 
-    private Button bthome, btCalendar;
     private int showingWeek;
     private Vault vault;
     private ArrayList<Day> daysList;
@@ -51,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvSaturday;
     private RecyclerView rvSunday;
     private OnSwipeTouchListener onSwipeTouchListener;
-    private ConstraintLayout cl;
+    private DrawerLayout DrawerLayout;
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private LinearLayoutManager mLayout;
 
@@ -59,24 +64,111 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        appbar = (Toolbar)findViewById(R.id.toolbar);
         showingWeek = 0;
         week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
         setRecyclersDecoration();
-        CambioSemana();
-        eventoHome();
-        eventoCalendario();
+        WeekChange();
+        setDrawerNavView();
         setActivityResultLauncher();
-        setBtCalendar();
+
+
+
+
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.appbar_main,menu);
+        return true;
+    }
+    private void setDrawerNavView() {
+
+        setSupportActionBar(appbar);
+
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_nav_menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        DrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        navView = (NavigationView)findViewById(R.id.nav_view);
+
+        navView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+
+                        boolean fragmentTransaction = false;
+                        Fragment fragment = null;
+
+                        switch (menuItem.getItemId()) {
+                            case R.id.nav_home:
+                                Intent intent= new Intent (MainActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                break;
+
+                            case R.id.nav_web_tools:
+                                fragment = new webtoolsFragment();
+                                fragmentTransaction = true;
+                                break;
+                            case R.id.nav_tools:
+                                fragment = new navtoolsFragment();
+                                fragmentTransaction = true;
+                                break;
+                            case R.id.nav_settings:
+                                fragment = new settingsFragment();
+                                fragmentTransaction = true;
+                                break;
+
+                        }
+
+                        if(fragmentTransaction) {
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.linearLayoutParent, fragment)
+                                    .commit();
+
+                            menuItem.setChecked(true);
+                            getSupportActionBar().setTitle(menuItem.getTitle());
+                        }
+
+                        DrawerLayout.closeDrawers();
+
+                        return true;
+                    }
+                });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case android.R.id.home:
+                DrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+            case R.id.botonhome:
+                showingWeek = 0;
+                week = getWeekDateList(showingWeek);
+                setDaysOfWeekUI();
+                setRecyclersUp();
+                break;
+            case R.id.calendario:
+                showDatePicker(this.getCurrentFocus());
+                break;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
     private void setBtCalendar(){
-        btCalendar = findViewById(R.id.buttonCalendar);
+        //btCalendar = findViewById(R.id.buttonCalendar);
 
-        btCalendar.setOnClickListener(this::showDatePicker);
+        //btCalendar.setOnClickListener(this::showDatePicker);
     }
+
 
     public void showDatePicker(View view) {
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
@@ -114,28 +206,9 @@ public class MainActivity extends AppCompatActivity {
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
-    private void eventoCalendario() {
-        btCalendar = findViewById(R.id.buttonCalendar);
-        btCalendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
-    }
 
-    private void eventoHome() {
-        bthome = findViewById(R.id.buttonHome);
-        bthome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showingWeek = 0;
-                week = getWeekDateList(showingWeek);
-                setDaysOfWeekUI();
-                setRecyclersUp();
-            }
-        });
-    }
+
 
 
     /**
@@ -165,10 +238,10 @@ public class MainActivity extends AppCompatActivity {
     /**
      * creation of the event to scroll laterally
      */
-    private void CambioSemana() {
+    private void WeekChange() {
 
-        cl = findViewById(R.id.ConstraintLayout);
-        cl.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
+        DrawerLayout = findViewById(R.id.drawer_layout);
+        DrawerLayout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
 
             public void onSwipeRight() {
                 showingWeek -= 1;
@@ -440,7 +513,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        month.setText(monthString);
+        appbar.setTitle(monthString);
+
 
     }
 

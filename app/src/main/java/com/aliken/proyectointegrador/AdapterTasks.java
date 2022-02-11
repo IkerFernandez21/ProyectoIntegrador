@@ -66,6 +66,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
         return new ViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull AdapterTasks.ViewHolder holder, int position) {
         Task task = mData.get(position);
