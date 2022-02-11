@@ -3,9 +3,12 @@ package com.aliken.proyectointegrador;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -51,6 +54,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Task task = mData.get(position);
         holder.title.setText(task.getTittle());
+        if (task.getColor()!=0){
+            setTextColor(holder.title,task.getColor());
+        }
 
         if (task.isCompleted()){
             holder.title.setPaintFlags(holder.title.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
@@ -108,6 +114,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             title = itemView.findViewById(R.id.tvTareaNombre);
             context = title.getContext();
         }
+    }
+
+    public void setTextColor(TextView textView, int color){
+        int padding = 1;
+
+        SpannableString spannable = new SpannableString(textView.getText());
+        spannable.setSpan(
+                new MyLineBackgroundSpan(color, padding),
+                0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        textView.setText(spannable);
     }
 }
 

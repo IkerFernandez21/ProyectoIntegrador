@@ -5,23 +5,38 @@ import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
 import android.util.SparseBooleanArray;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ifernandez.proyectointegrador.R;
 
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
+
 import java.util.List;
+
+import petrov.kristiyan.colorpicker.ColorPicker;
 
 public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> {
 
@@ -29,6 +44,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
     private List<Task> mData;
     private LayoutInflater mInflater;
     private RecyclerView mRecycler;
+    private ActionMode aMode;
 
     SparseBooleanArray checkBoxStateArray = new SparseBooleanArray();
 
@@ -40,9 +56,8 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
 
     public void decrementarPos() {
         this.pos--;
-    }
+    };
 
-    ;
 
     AdapterTasks(Context context, List<Task> data) {
         this.mInflater = LayoutInflater.from(context);
@@ -71,7 +86,72 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
     public void onBindViewHolder(@NonNull AdapterTasks.ViewHolder holder, int position) {
         Task task = mData.get(position);
         holder.title.setText(task.getTittle());
+        if (task.getColor()!=0){
+            setTextColor(holder.title,task.getColor());
+        }
         holder.description.setText(task.getDescription());
+        ActivityDay ad = (ActivityDay) holder.context;
+        ActionMode[] actionMode = new ActionMode[1];
+
+        ActionMode.Callback actionModeCallback = new ActionMode.Callback() {
+
+            // Called when the action mode is created; startActionMode() was called
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                // Inflate a menu resource providing context menu items
+                MenuInflater inflater = mode.getMenuInflater();
+                inflater.inflate(R.menu.keyboard_menu, menu);
+                return true;
+            }
+
+            // Called each time the action mode is shown. Always called after onCreateActionMode, but
+            // may be called multiple times if the mode is invalidated.
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                return false; // Return false if nothing is done
+            }
+
+            // Called when the user selects a contextual menu item
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.reset:
+
+                        setTextColor(holder.title,Color.TRANSPARENT);
+                        task.setColor(Color.TRANSPARENT);
+                        String place = holder.title.getText().toString();
+                        holder.title.setText(null);
+                        holder.title.setText(place);
+                        return true;
+                    case R.id.redCricle:
+
+                        ColorPicker colorPicker = new ColorPicker(ad);
+                        colorPicker.show();
+                        colorPicker.setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
+                            @Override
+                            public void onChooseColor(int position,int color) {
+                                setTextColor(holder.title, color);
+                                task.setColor(color);
+                                System.out.println(color);
+                            }
+
+                            @Override
+                            public void onCancel(){
+                                // put code
+                            }
+                        });
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+
+            // Called when the user exits the action mode
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+                aMode = null;
+            }
+        };
 
         if (task.isCompleted()){
             holder.checkBox.setChecked(true);
@@ -118,7 +198,11 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
 
             @Override
             public void afterTextChanged(Editable s) {
-                mData.get(position).setTittle(holder.title.getText().toString());
+                try {
+                    mData.get(position).setTittle(holder.title.getText().toString());
+                }catch (IndexOutOfBoundsException e){
+
+                }
             }
         });
 
@@ -135,7 +219,11 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
 
             @Override
             public void afterTextChanged(Editable s) {
-                mData.get(position).setDescription(holder.description.getText().toString());
+                try {
+                    mData.get(position).setDescription(holder.description.getText().toString());
+                }catch (IndexOutOfBoundsException e){
+
+            }
             }
         });
 
@@ -149,6 +237,37 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             }
         });
 
+        KeyboardVisibilityEvent.setEventListener(
+                ad,
+                new KeyboardVisibilityEventListener() {
+                    @Override
+                    public void onVisibilityChanged(boolean isOpen) {
+                        if (!isOpen) {
+                            if(aMode!=null){aMode.finish();}
+                        }
+                    }
+                });
+
+        holder.title.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if(aMode!=null){
+                    aMode.finish();
+                    aMode = ad.startActionMode(actionModeCallback);
+                }else{
+                    aMode = ad.startActionMode(actionModeCallback);
+                }
+            }
+        });
+
+        holder.title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(aMode==null){
+                    aMode = ad.startActionMode(actionModeCallback);
+                }
+            }
+        });
     }
 
     @Override
@@ -161,6 +280,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
         EditText title;
         EditText description;
         ImageButton delete;
+        Context context;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -168,7 +288,19 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             description = itemView.findViewById(R.id.task_description_row);
             checkBox = itemView.findViewById(R.id.checkboxRow);
             delete = itemView.findViewById(R.id.deleteRowButton);
+            context = title.getContext();
         }
+    }
+
+    public void setTextColor(EditText editText, int color){
+        int padding = 10;
+
+        SpannableString spannable = new SpannableString(editText.getText());
+        spannable.setSpan(
+                new MyLineBackgroundSpan(color, padding),
+                0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        editText.setText(spannable);
     }
 }
 

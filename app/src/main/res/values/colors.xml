@@ -15,5 +15,6 @@
     <color name="ColorSecundarioClaro">#f294f9</color>
     <color name="ColorSecundarioOscuro">#8c3495</color>
     <color name="red_delete">#BE3939</color>
+    <color name="Red">#FF0000</color>
 
 </resources>
