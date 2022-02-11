@@ -10,6 +10,7 @@ public class Day implements Serializable {
     private ArrayList<Task> taskList;
 
     //Constructors
+
     public Day() {
     }
 
