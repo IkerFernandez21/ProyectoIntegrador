@@ -1,4 +1,4 @@
-package com.aliken.proyectointegrador;
+package com.ifernandez.proyectointegrador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,8 +10,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.ifernandez.proyectointegrador.R;
 
 public class Splash extends AppCompatActivity {
     ImageView logo;

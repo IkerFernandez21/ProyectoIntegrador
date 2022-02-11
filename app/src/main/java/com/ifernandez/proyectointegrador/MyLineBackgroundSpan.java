@@ -1,4 +1,4 @@
-package com.aliken.proyectointegrador;
+package com.ifernandez.proyectointegrador;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

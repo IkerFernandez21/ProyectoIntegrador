@@ -1,4 +1,4 @@
-package com.aliken.proyectointegrador;
+package com.ifernandez.proyectointegrador;
 
 import android.content.Context;
 import android.view.GestureDetector;

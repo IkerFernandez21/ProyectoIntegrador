@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
-        applicationId "com.aliken.proyectointegrador"
+        applicationId "com.ifernandez.proyectointegrador"
         minSdk 21
         targetSdk 31
         versionCode 1
