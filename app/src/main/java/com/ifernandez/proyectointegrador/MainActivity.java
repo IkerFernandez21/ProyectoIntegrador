@@ -1,4 +1,4 @@
-package com.aliken.proyectointegrador;
+package com.ifernandez.proyectointegrador;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -26,9 +26,6 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
-import com.ifernandez.proyectointegrador.R;
-import com.ifernandez.proyectointegrador.configFragment;
-import com.ifernandez.proyectointegrador.temaFragment;
 
 import org.joda.time.DateTime;
 import org.joda.time.Weeks;

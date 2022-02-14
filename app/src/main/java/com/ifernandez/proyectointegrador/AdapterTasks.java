@@ -1,11 +1,10 @@
-package com.aliken.proyectointegrador;
+package com.ifernandez.proyectointegrador;
 
 import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
 import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -22,14 +21,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.PopupMenu;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.ifernandez.proyectointegrador.R;
 
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
