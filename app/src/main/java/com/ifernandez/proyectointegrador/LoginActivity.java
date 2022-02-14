@@ -1,8 +1,10 @@
 package com.ifernandez.proyectointegrador;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private StorageReference stoRef;
     private Button loadFromCloudBtn;
     private TextView loggedAccString;
+    private Activity activity = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +132,9 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                             System.out.println("load vault from cloud success");
+
+                            setResult(27);
+                            activity.finish();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

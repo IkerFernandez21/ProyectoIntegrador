@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
                             case R.id.nav_web_tools:
                                 intent= new Intent (MainActivity.this, LoginActivity.class);
-                                startActivity(intent);
+                                activityResultLauncher.launch(intent);
                                 break;
                             case R.id.nav_tools:
                                 fragment = new navtoolsFragment();
@@ -218,6 +218,11 @@ public class MainActivity extends AppCompatActivity {
                             vault.saveVaultToFile(getFilesDir());
                             setRecyclersUp();
                             vault.saveVaultToCloud(getFilesDir());
+                        }
+
+                        if (result.getResultCode() == 27) {
+                            vault.loadVaultFromFile(getFilesDir());
+                            setRecyclersUp();
                         }
 
                     }
