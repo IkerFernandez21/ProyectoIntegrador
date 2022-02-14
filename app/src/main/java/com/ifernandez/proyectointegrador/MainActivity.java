@@ -217,6 +217,7 @@ public class MainActivity extends AppCompatActivity {
                             vault = (Vault) resultIntent.getParcelableExtra("vault");
                             vault.saveVaultToFile(getFilesDir());
                             setRecyclersUp();
+                            vault.saveVaultToCloud(getFilesDir());
                         }
 
                     }
