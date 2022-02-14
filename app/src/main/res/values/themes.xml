@@ -14,6 +14,7 @@
         <!-- Customize your theme here. -->
 
     </style>
+
     <style name="theme.sinactionbar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
 
@@ -32,32 +33,176 @@
 
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
 
-
+        <item name="android:windowTranslucentNavigation">true</item>
         <!-- Customize your theme here. -->
-
     </style>
-    <style name="theme.conactionbar" parent="Theme.MaterialComponents.DayNight">
-        <!-- Primary brand color. -->
 
-
-        <item name="colorPrimary">@color/ColorPrimario</item>
-        <item name="colorPrimaryVariant">@color/ColorPrimarioOscuro</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/ColorSecundario</item>
-        <item name="colorSecondaryVariant">@color/ColorPrimarioOscuro</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <item name="android:windowTranslucentStatus">true</item>
-
-        <!-- Customize your theme here. -->
-
-
-    </style>
     <style name="ColorBotones">
         <item name="backgroundTint">@color/ColorSecundarioOscuro</item>
     </style>
+    ///////////////////////////////////TEAL ////////////////////////////////////////////////////////////////////////////////////
+    <style name="Theme.ProyectoIntegradorTeal" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#81DBDB</item>
+        <item name="colorPrimaryVariant">#8AFFFF</item>
+        <item name="colorOnPrimary">#1E9C99</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#A35527</item>
+        <item name="colorSecondaryVariant">#F09B69</item>
+        <item name="colorOnSecondary">#8F3F22</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
 
 
+    <style name="theme.Tealsinactionbar." parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#81DBDB</item>
+        <item name="colorPrimaryVariant">#8AFFFF</item>
+        <item name="colorOnPrimary">#1E9C99</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#A35527</item>
+        <item name="colorSecondaryVariant">#F09B69</item>
+        <item name="colorOnSecondary">#8F3F22</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="ColorBotonesTeal">
+        <item name="backgroundTint">#A35527</item>
+    </style>
+    ////////////////////////////////PINK/////////////////////////
+    <style name="Theme.ProyectoIntegradorPink" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#FF9FA2</item>
+        <item name="colorPrimaryVariant">#FFBCB5</item>
+        <item name="colorOnPrimary">#ED87A1</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#FF7397</item>
+        <item name="colorSecondaryVariant">#FF99C9</item>
+        <item name="colorOnSecondary">#C55A76</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="theme.Pinksinactionbar." parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#FF9FA2</item>
+        <item name="colorPrimaryVariant">#FFBCB5</item>
+        <item name="colorSecondary">#ED87A1</item>
+        <item name="colorSecondaryVariant">#FF7397</item>
+        <item name="colorOnSecondary">#FF99C9</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="ColorBotonesPink">
+        <item name="backgroundTint">#C55A76</item>
+    </style>
+
+
+    /////////////////////////Mustard/////////////////////
+    <style name="Theme.ProyectoIntegradorMustard" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#7F5505</item>
+        <item name="colorPrimaryVariant">#FFC556</item>
+        <item name="colorOnPrimary">#FFAB0A</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#7F5F22</item>
+        <item name="colorSecondaryVariant">#CC8908</item>
+        <item name="colorOnSecondary">#FF672D18</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="theme.Mustardsinactionbar." parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#7F5505</item>
+        <item name="colorPrimaryVariant">#FFC556</item>
+        <item name="colorSecondary">#FFAB0A</item>
+        <item name="colorSecondaryVariant">#7F5F22</item>
+        <item name="colorOnSecondary">#CC8908</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="ColorBotonesMustard">
+        <item name="backgroundTint">#FF672D18</item>
+    </style>
+
+    /////////////////////ORANGE-BLUE//////////////////////
+    <style name="Theme.ProyectoIntegradorOrangeBlue" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#304269</item>
+        <item name="colorPrimaryVariant">#D9E8F5</item>
+        <item name="colorOnPrimary">#91BED4</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#FFFFFF</item>
+        <item name="colorSecondaryVariant">#F26101</item>
+        <item name="colorOnSecondary">#C14E02</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="theme.OrangeBluesinactionbar." parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#304269</item>
+        <item name="colorPrimaryVariant">#D9E8F5</item>
+        <item name="colorSecondary">#91BED4</item>
+        <item name="colorSecondaryVariant">#FFFFFF</item>
+        <item name="colorOnSecondary">#F26101</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="ColorBotonesOrangeBlue">
+        <item name="backgroundTint">#F26101</item>
+    </style>
+
+    ///softgrey
+    <style name="Theme.ProyectoIntegradorGrey" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#A4A5A6</item>
+        <item name="colorPrimaryVariant">#D2D5D9</item>
+        <item name="colorOnPrimary">#D9CAB8</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#D9CCC5</item>
+        <item name="colorSecondaryVariant">#F2F2F2</item>
+        <item name="colorOnSecondary">#F2F2FF</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="theme.Greysinactionbar." parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#A4A5A6</item>
+        <item name="colorPrimaryVariant">#D2D5D9</item>
+        <item name="colorSecondary">#D9CAB8</item>
+        <item name="colorSecondaryVariant">#D9CCC5</item>
+        <item name="colorOnSecondary">#F2F2F2</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="ColorBotonesGrey">
+        <item name="backgroundTint">#F2F2FF</item>
+    </style>
 </resources>
