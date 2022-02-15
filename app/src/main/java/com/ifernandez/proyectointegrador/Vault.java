@@ -1,15 +1,27 @@
 package com.ifernandez.proyectointegrador;
 
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+
+import io.grpc.Context;
 
 public class Vault implements Parcelable {
 
@@ -109,6 +121,37 @@ public class Vault implements Parcelable {
         {
             System.out.println("IOException is caught");
             ex.printStackTrace();
+        }
+    }
+
+    public void saveVaultToCloud(File path){
+        try{
+
+            StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+
+            File fileName = new File(path, "/" + "vault.dat");
+
+            InputStream stream = new FileInputStream(fileName);
+
+            // Create a reference to "mountains.jpg"
+            StorageReference mountainsRef = FirebaseStorage.getInstance().getReference().child("vaults/vault.dat");
+
+
+            UploadTask uploadTask = mountainsRef.putStream(stream);
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    System.out.println("Save to cloud fail");
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    System.out.println("save to cloud success");
+                }
+            });
+
+        }catch (Exception e){
+            System.out.println("Fail to save vault to cloud");
         }
     }
 

@@ -68,10 +68,6 @@ public class MainActivity extends AppCompatActivity {
         WeekChange();
         setDrawerNavView();
         setActivityResultLauncher();
-
-
-
-
     }
 
     @Override
@@ -217,6 +213,12 @@ public class MainActivity extends AppCompatActivity {
                             Intent resultIntent = result.getData();
                             vault = (Vault) resultIntent.getParcelableExtra("vault");
                             vault.saveVaultToFile(getFilesDir());
+                            setRecyclersUp();
+                            vault.saveVaultToCloud(getFilesDir());
+                        }
+
+                        if (result.getResultCode() == 27) {
+                            vault.loadVaultFromFile(getFilesDir());
                             setRecyclersUp();
                         }
 
