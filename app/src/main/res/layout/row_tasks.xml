@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="8dp"
         app:cardUseCompatPadding="true"
-        app:cardBackgroundColor="@color/cardsPrimary"
         android:elevation="500dp">
 
         <LinearLayout
@@ -42,7 +41,7 @@
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:gravity="left"
-                    android:layout_weight="1">
+                    android:layout_weight="1.2">
 
 
                 </CheckBox>
@@ -67,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:backgroundTint="@color/red_delete"
+                    android:backgroundTint="@color/white"
                     android:baselineAligned="false"
                     app:srcCompat="@drawable/ic_bin" />
 
