@@ -101,8 +101,7 @@ public class MainActivity extends AppCompatActivity {
                                 break;
 
                             case R.id.nav_web_tools:
-                                intent= new Intent (MainActivity.this, LoginActivity.class);
-                                activityResultLauncher.launch(intent);
+
                                 break;
                             case R.id.nav_tools:
                                 fragment = new navtoolsFragment();
