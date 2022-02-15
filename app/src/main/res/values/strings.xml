@@ -41,7 +41,7 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="loged_account">"You're logged with: "</string>
+    <string name="loged_account">"You're logged with:"</string>
     <string name="load_from_cloud">"Data load from cloud"</string>
     <string name="load_cloud_success">"Data successfully loaded"</string>
 </resources>

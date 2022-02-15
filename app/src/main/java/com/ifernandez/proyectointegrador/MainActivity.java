@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout DrawerLayout;
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private LinearLayoutManager mLayout;
+    private Activity activity = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -219,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                             vault = (Vault) resultIntent.getParcelableExtra("vault");
                             vault.saveVaultToFile(getFilesDir());
                             setRecyclersUp();
-                            vault.saveVaultToCloud(getFilesDir());
+                            vault.saveVaultToCloud(getFilesDir(), activity);
                         }
 
                         if (result.getResultCode() == 27) {

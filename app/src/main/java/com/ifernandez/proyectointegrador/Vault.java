@@ -1,11 +1,15 @@
 package com.ifernandez.proyectointegrador;
 
+import android.app.Activity;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -65,13 +69,12 @@ public class Vault implements Parcelable {
         this.daysList = daysList;
     }
 
-    public void loadVaultFromFile(File path){
+    public void loadVaultFromFile(File path) {
 
         File fileName = new File(path, "/" + "vault.dat");
 
         // Deserialization
-        try
-        {
+        try {
             // Reading the object from the file
             FileInputStream file = new FileInputStream(fileName);
             ObjectInputStream in = new ObjectInputStream(file);
@@ -84,28 +87,21 @@ public class Vault implements Parcelable {
 
             this.daysList = days;
 
-        }
-
-        catch(IOException ex)
-        {
+        } catch (IOException ex) {
             System.out.println("Vault not found");
             this.daysList = new ArrayList<Day>();
-        }
-
-        catch(ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             System.out.println("ClassNotFoundException is caught");
         }
 
     }
 
-    public void saveVaultToFile(File path){
+    public void saveVaultToFile(File path) {
 
         File fileName = new File(path, "/" + "vault.dat");
 
         // Serialization
-        try
-        {
+        try {
             //Saving of object in a file
             FileOutputStream file = new FileOutputStream(fileName);
             ObjectOutputStream out = new ObjectOutputStream(file);
@@ -115,43 +111,45 @@ public class Vault implements Parcelable {
 
             out.close();
             file.close();
-        }
-
-        catch(IOException ex)
-        {
+        } catch (IOException ex) {
             System.out.println("IOException is caught");
             ex.printStackTrace();
         }
     }
 
-    public void saveVaultToCloud(File path){
-        try{
+    public void saveVaultToCloud(File path, Activity activity) {
 
-            StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(activity);
 
-            File fileName = new File(path, "/" + "vault.dat");
+        if (acct != null) {
+            try {
+                StorageReference storageRef = FirebaseStorage.getInstance().getReference();
 
-            InputStream stream = new FileInputStream(fileName);
+                File fileName = new File(path, "/" + "vault.dat");
 
-            // Create a reference to "mountains.jpg"
-            StorageReference mountainsRef = FirebaseStorage.getInstance().getReference().child("vaults/vault.dat");
+                InputStream stream = new FileInputStream(fileName);
+
+                // Create a reference to "mountains.jpg"
+                String destiny = "vaults/vault" + acct.getId() + ".dat";
+                StorageReference mountainsRef = FirebaseStorage.getInstance().getReference().child(destiny);
 
 
-            UploadTask uploadTask = mountainsRef.putStream(stream);
-            uploadTask.addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    System.out.println("Save to cloud fail");
-                }
-            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    System.out.println("save to cloud success");
-                }
-            });
+                UploadTask uploadTask = mountainsRef.putStream(stream);
+                uploadTask.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        System.out.println("Save to cloud fail");
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        System.out.println("save to cloud success");
+                    }
+                });
 
-        }catch (Exception e){
-            System.out.println("Fail to save vault to cloud");
+            } catch (Exception e) {
+                System.out.println("Fail to save vault to cloud");
+            }
         }
     }
 

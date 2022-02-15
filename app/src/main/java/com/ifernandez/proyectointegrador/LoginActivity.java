@@ -116,7 +116,9 @@ public class LoginActivity extends AppCompatActivity {
             setContentView(R.layout.activity_loged);
 
             loggedAccString = findViewById(R.id.logged_account);
-            loggedAccString.setText(R.string.loged_account + " " + account.getAccount());
+
+            String logString = getString(R.string.loged_account) + " " + account.getEmail();
+            loggedAccString.setText(logString);
 
             loadFromCloudBtn = findViewById(R.id.load_cloud_button);
 
@@ -124,7 +126,8 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    StorageReference islandRef = stoRef.child("vaults/vault.dat");
+                    String origin = "vaults/vault" + account.getId() + ".dat";
+                    StorageReference islandRef = stoRef.child(origin);
 
                     File fileName = new File(getFilesDir(), "/" + "vault.dat");
 
