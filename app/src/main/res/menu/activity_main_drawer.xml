@@ -7,13 +7,14 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-
             android:title="Inicio" />
         <item
-            android:id="@+id/nav_web_tools"
+        android:id="@+id/nav_web_tools"
+        android:title="Seleccionar tema" />
 
-
-            android:title="Seleccionar tema" />
+        <item
+            android:id="@+id/drawer_cloud"
+            android:title="Cloud" />
 
     </group>
 

@@ -105,6 +105,11 @@ public class MainActivity extends AppCompatActivity {
                                 fragmentTransaction = true;
                                 break;
 
+                            case R.id.drawer_cloud:
+                                intent= new Intent (MainActivity.this, LoginActivity.class);
+                                activityResultLauncher.launch(intent);
+                                break;
+
                             case R.id.nav_settings:
                                 fragment = new configFragment();
                                 fragmentTransaction = true;
