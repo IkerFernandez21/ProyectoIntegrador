@@ -1,4 +1,4 @@
-package com.ifernandez.proyectointegrador;
+package com.aliken.proyectointegrador;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         appbar = (Toolbar)findViewById(R.id.toolbar);
@@ -67,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
         WeekChange();
         setDrawerNavView();
         setActivityResultLauncher();
+
+
+
+
     }
 
     @Override
@@ -100,15 +105,12 @@ public class MainActivity extends AppCompatActivity {
                                 break;
 
                             case R.id.nav_web_tools:
-                                fragment = new LoginFragment();
+                                fragment = new temaFragment();
                                 fragmentTransaction = true;
                                 break;
-                            case R.id.nav_tools:
-                                fragment = new navtoolsFragment();
-                                fragmentTransaction = true;
-                                break;
+
                             case R.id.nav_settings:
-                                fragment = new settingsFragment();
+                                fragment = new configFragment();
                                 fragmentTransaction = true;
                                 break;
 

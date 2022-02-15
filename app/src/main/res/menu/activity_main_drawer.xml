@@ -8,25 +8,23 @@
         <item
             android:id="@+id/nav_home"
 
-            android:title="Home" />
+            android:title="Inicio" />
         <item
             android:id="@+id/nav_web_tools"
 
 
-            android:title="WebTools" />
-        <item
-            android:id="@+id/nav_tools"
+            android:title="Seleccionar tema" />
 
-            android:title="NavTools" />
     </group>
 
     <group
         android:id="@+id/third_section"
+
         android:checkableBehavior="none">
         <item
             android:id="@+id/nav_settings"
 
-            android:title="Settings" />
+            android:title="Configuración" />
     </group>
 
 </menu>
