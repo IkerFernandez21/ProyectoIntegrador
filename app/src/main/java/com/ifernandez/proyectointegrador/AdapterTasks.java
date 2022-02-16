@@ -30,6 +30,7 @@ import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventList
 
 import java.util.List;
 
+import jp.wasabeef.recyclerview.animators.ScaleInBottomAnimator;
 import petrov.kristiyan.colorpicker.ColorPicker;
 
 public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> {
@@ -296,5 +297,6 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
 
         editText.setText(spannable);
     }
+
 }
 

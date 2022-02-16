@@ -7,10 +7,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Date;
+
+import jp.wasabeef.recyclerview.animators.FadeInRightAnimator;
+import jp.wasabeef.recyclerview.animators.FlipInLeftYAnimator;
+import jp.wasabeef.recyclerview.animators.LandingAnimator;
+import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
+import jp.wasabeef.recyclerview.animators.ScaleInBottomAnimator;
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 
 public class ActivityDay extends AppCompatActivity {
 
@@ -162,6 +170,14 @@ public class ActivityDay extends AppCompatActivity {
         rvDay.setLayoutManager(mLayout);
         adapter = new AdapterTasks(this,taskList);
         rvDay.setAdapter(adapter);
+
+        rvDay.setHasFixedSize(true);
+
+        rvDay.setItemAnimator(new LandingAnimator(new OvershootInterpolator(2.0f)));
+        rvDay.getItemAnimator().setChangeDuration(0);
+        rvDay.getItemAnimator().setMoveDuration(0);
+        rvDay.getItemAnimator().setRemoveDuration(220);
+        rvDay.getItemAnimator().setAddDuration(300);
     }
 
 
@@ -173,7 +189,7 @@ public class ActivityDay extends AppCompatActivity {
         Task newTask = new Task();
 
         taskList.add(newTask);
-        setUpRecycler();
-        //rvDay.scrollToPosition(adapter.getItemCount());
+        rvDay.getAdapter().notifyItemInserted(rvDay.getAdapter().getItemCount()+1);
+        //setUpRecycler();
     }
 }
