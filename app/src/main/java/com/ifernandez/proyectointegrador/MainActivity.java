@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayoutManager mLayout;
     private Activity activity = this;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
