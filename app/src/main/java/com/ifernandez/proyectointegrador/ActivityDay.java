@@ -96,7 +96,47 @@ public class ActivityDay extends AppCompatActivity {
                 break;
         }
 
-        tvDay.setText(day + " " + dayDate.getDate());
+        String monthString = "";
+        switch(dayDate.getMonth()){
+            case 0:
+                monthString = getString(R.string.jan);
+                break;
+            case 1:
+                monthString = getString(R.string.feb);
+                break;
+            case 2:
+                monthString = getString(R.string.mar);
+                break;
+            case 3:
+                monthString = getString(R.string.apr);
+                break;
+            case 4:
+                monthString = getString(R.string.mays);
+                break;
+            case 5:
+                monthString = getString(R.string.jun);
+                break;
+            case 6:
+                monthString = getString(R.string.jul);
+                break;
+            case 7:
+                monthString = getString(R.string.aug);
+                break;
+            case 8:
+                monthString = getString(R.string.sep);
+                break;
+            case 9:
+                monthString = getString(R.string.oct);
+                break;
+            case 10:
+                monthString = getString(R.string.nov);
+                break;
+            case 11:
+                monthString = getString(R.string.dec);
+                break;
+        }
+        tvDay.setText(day + " " + dayDate.getDate() + " " + monthString);
+        dayDate.getMonth();
         int year = dayDate.getYear()+1900;
         tvYear.setText(""+year);
     }

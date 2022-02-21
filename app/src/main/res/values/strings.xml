@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProyectoIntegrador</string>
+    <string name="app_name">NoteApp</string>
     <string name="monday">Monday</string>
     <string name="tuesday">Tuesday</string>
     <string name="wednesday">Wednesday</string>
@@ -26,13 +26,12 @@
     <string name="item">Item</string>
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
-    <string name="navigation_drawer_open">hola</string>
-    <string name="navigation_drawer_close">adios</string>
+    <string name="navigation_drawer_open">Hello</string>
+    <string name="navigation_drawer_close">Bye</string>
     <string name="hilight_color_clear">CLEAR</string>
     <string name="load_cloud_button">"Load agenda data from cloud"</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login">Login</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -44,4 +43,16 @@
     <string name="loged_account">"You're logged with:"</string>
     <string name="load_from_cloud">"Data load from cloud"</string>
     <string name="load_cloud_success">"Data successfully loaded"</string>
+    <string name="jan">Jan</string>
+    <string name="feb">Feb</string>
+    <string name="mar">Mar</string>
+    <string name="apr">Apr</string>
+    <string name="mays">May</string>
+    <string name="jun">Jun</string>
+    <string name="jul">Jul</string>
+    <string name="aug">Aug</string>
+    <string name="sep">Sep</string>
+    <string name="oct">Oct</string>
+    <string name="nov">Nov</string>
+    <string name="dec">Dec</string>
 </resources>
