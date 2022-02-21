@@ -6,11 +6,29 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvTareaNombre"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textAlignment="viewStart"
-        android:textSize="20dp" />
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="top"
+            android:src="@drawable/ic_outline_circle_24"
+            android:layout_weight="0.7">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/tvTareaNombre"
+            android:layout_width="0dp"
+            android:layout_weight="10"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="viewStart"
+            android:textSize="20dp" />
+    </LinearLayout>
+
 </LinearLayout>

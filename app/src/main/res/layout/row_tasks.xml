@@ -59,7 +59,7 @@
                     android:layout_weight="10"
                     android:hint="@string/task_description"
                     android:inputType="textMultiLine"
-                    android:textSize="15sp" />
+                    android:textSize="23sp" />
 
                 <ImageButton
                     android:id="@+id/deleteRowButton"

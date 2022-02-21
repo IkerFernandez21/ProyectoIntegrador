@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
-        setRecyclersDecoration();
+        //setRecyclersDecoration();
         WeekChange();
         setDrawerNavView();
         setActivityResultLauncher();
@@ -469,8 +469,8 @@ public class MainActivity extends AppCompatActivity {
         TextView wednesday = findViewById(R.id.tv_wednesday);
         TextView thursday = findViewById(R.id.tv_thursday);
         TextView friday = findViewById(R.id.tv_friday);
-        TextView weekend = findViewById(R.id.tv_weekend);
-        TextView month = findViewById(R.id.tv_month);
+        TextView saturday = findViewById(R.id.tv_saturday);
+        TextView sunday = findViewById(R.id.tv_sunday);
 
         ArrayList<Date> showingWeekList = week;
 
@@ -479,7 +479,9 @@ public class MainActivity extends AppCompatActivity {
         wednesday.setText(getString(R.string.wednesday) + " " + showingWeekList.get(2).getDate());
         thursday.setText(getString(R.string.thursday) + " " + showingWeekList.get(3).getDate());
         friday.setText(getString(R.string.friday) + " " + showingWeekList.get(4).getDate());
-        weekend.setText(getString(R.string.weekend) + " " + showingWeekList.get(5).getDate() + "/" + showingWeekList.get(6).getDate());
+        saturday.setText(getString(R.string.saturday) + " " + showingWeekList.get(5).getDate());
+        sunday.setText(getString(R.string.sunday) + " " + showingWeekList.get(6).getDate());
+
 
         int firstMonth = -1, secondMonth = -1, fmCount = 0, smCount = 0, monthVar = -1;
 

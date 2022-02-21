@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">NoteApp</string>
-    <string name="monday">Lunes</string>
-    <string name="tuesday">Martes</string>
-    <string name="wednesday">Miércoles</string>
-    <string name="thursday">Jueves</string>
-    <string name="friday">Viernes</string>
+    <string name="monday">Lun</string>
+    <string name="tuesday">Mar</string>
+    <string name="wednesday">Mié</string>
+    <string name="thursday">Jue</string>
+    <string name="friday">Vie</string>
     <string name="weekend">Sábado/Domingo</string>
-    <string name="saturday">Sábado</string>
-    <string name="sunday">Domingo</string>
+    <string name="saturday">Sáb</string>
+    <string name="sunday">Dom</string>
     <string name="task_tittle">Tarea</string>
     <string name="task_description">Descripción</string>
     <string name="januray">Enero</string>
