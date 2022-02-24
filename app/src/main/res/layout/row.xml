@@ -15,6 +15,7 @@
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
             android:layout_gravity="top"
             android:src="@drawable/ic_outline_circle_24"
             android:layout_weight="0.7">
@@ -25,6 +26,7 @@
             android:id="@+id/tvTareaNombre"
             android:layout_width="0dp"
             android:layout_weight="10"
+            android:layout_marginLeft="5dp"
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textAlignment="viewStart"
