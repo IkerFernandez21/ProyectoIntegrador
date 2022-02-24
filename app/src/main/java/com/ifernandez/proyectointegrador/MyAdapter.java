@@ -53,53 +53,41 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Task task = mData.get(position);
         holder.title.setText(task.getTittle());
-        if (task.getColor()!=0){
-            setTextColor(holder.title,task.getColor());
-        }
 
-        if (task.isCompleted()){
-            Spannable spannable = holder.title.getEditableText();
+        setTextColor(holder.title, task.getColor(), task);
 
-            holder.title.setPaintFlags(holder.title.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            holder.title.setTextColor(Color.GRAY);
-        }else{
-            Spannable spannable = holder.title.getEditableText();
-
-            holder.title.setPaintFlags(holder.title.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
-            holder.title.setTextColor(Color.BLACK);
-        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-                public void onClick(View view) {
-                    MainActivity ma = (MainActivity) holder.context;
+                                               @Override
+                                               public void onClick(View view) {
+                                                   MainActivity ma = (MainActivity) holder.context;
 
-                    switch (date.getDay()){
-                        case 0:
-                            ma.openDayActivity(6);
-                            break;
-                        case 1:
-                            ma.openDayActivity(0);
-                            break;
-                        case 2:
-                            ma.openDayActivity(1);
-                            break;
-                        case 3:
-                            ma.openDayActivity(2);
-                            break;
-                        case 4:
-                            ma.openDayActivity(3);
-                            break;
-                        case 5:
-                            ma.openDayActivity(4);
-                            break;
-                        case 6:
-                            ma.openDayActivity(5);
-                            break;
-                    }
-                }
+                                                   switch (date.getDay()) {
+                                                       case 0:
+                                                           ma.openDayActivity(6);
+                                                           break;
+                                                       case 1:
+                                                           ma.openDayActivity(0);
+                                                           break;
+                                                       case 2:
+                                                           ma.openDayActivity(1);
+                                                           break;
+                                                       case 3:
+                                                           ma.openDayActivity(2);
+                                                           break;
+                                                       case 4:
+                                                           ma.openDayActivity(3);
+                                                           break;
+                                                       case 5:
+                                                           ma.openDayActivity(4);
+                                                           break;
+                                                       case 6:
+                                                           ma.openDayActivity(5);
+                                                           break;
+                                                   }
+                                               }
 
-            }
+                                           }
         );
     }
 
@@ -119,15 +107,28 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
     }
 
-    public void setTextColor(TextView textView, int color){
+    public void setTextColor(TextView textView, int color, Task task) {
         int padding = 1;
 
         SpannableString spannable = new SpannableString(textView.getText());
-        spannable.setSpan(
-                new MyLineBackgroundSpan(color, padding),
-                0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannable.setSpan(new ForegroundColorSpan(Color.WHITE),
-                0, spannable.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+
+        if (color != 0) {
+            spannable.setSpan(
+                    new MyLineBackgroundSpan(color, padding),
+                    0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannable.setSpan(new ForegroundColorSpan(Color.WHITE),
+                    0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+
+
+        if (task.isCompleted()) {
+            spannable.setSpan(
+                    new StrikethroughSpan(),
+                    0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannable.setSpan(new ForegroundColorSpan(Color.GRAY),
+                    0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
 
         textView.setText(spannable);
     }
