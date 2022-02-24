@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_marginStart="10dp"
     android:layout_marginTop="3dp"
-    android:layout_marginBottom="3dp"
     android:layout_marginEnd="15dp"
-    android:layout_marginStart="10dp">
+    android:layout_marginBottom="3dp"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:elevation="500dp"
         app:cardCornerRadius="8dp"
-        app:cardUseCompatPadding="true"
-        android:elevation="500dp">
+        app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,17 +31,17 @@
                     android:id="@+id/task_tittle_row"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="10"
                     android:hint="@string/task_tittle"
                     android:inputType="textMultiLine"
-                    android:textSize="30sp"
-                    android:layout_weight="10"/>
+                    android:textSize="30sp" />
 
                 <CheckBox
                     android:id="@+id/checkboxRow"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:gravity="left"
-                    android:layout_weight="1.2">
+                    android:layout_weight="1.2"
+                    android:gravity="left">
 
 
                 </CheckBox>
@@ -66,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/transparent"
                     android:baselineAligned="false"
                     app:srcCompat="@drawable/ic_bin" />
 

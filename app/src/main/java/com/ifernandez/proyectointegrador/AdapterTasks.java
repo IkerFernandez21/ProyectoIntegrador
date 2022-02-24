@@ -2,13 +2,17 @@ package com.ifernandez.proyectointegrador;
 
 import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Build;
 import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StrikethroughSpan;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -40,6 +44,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
     private LayoutInflater mInflater;
     private RecyclerView mRecycler;
     private ActionMode aMode;
+    private ActivityDay activityDay;
 
     SparseBooleanArray checkBoxStateArray = new SparseBooleanArray();
 
@@ -57,6 +62,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
     AdapterTasks(Context context, List<Task> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
+        this.activityDay = (ActivityDay) context;
     }
 
     @Override
@@ -150,14 +156,36 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
 
         if (task.isCompleted()){
             holder.checkBox.setChecked(true);
-            holder.title.setPaintFlags(holder.title.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            holder.title.setTextColor(Color.GRAY);
+
+            Spannable spannable = holder.title.getText();
+            spannable.setSpan(
+                    new StrikethroughSpan(),
+                    0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannable.setSpan(new ForegroundColorSpan(Color.GRAY),
+                            0, spannable.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
             holder.description.setPaintFlags(holder.title.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.description.setTextColor(Color.GRAY);
         }else{
             holder.checkBox.setChecked(false);
-            holder.title.setPaintFlags(holder.title.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
-            holder.title.setTextColor(Color.BLACK);
+            Spannable spannable = holder.title.getText();
+            try{
+                spannable.removeSpan(spannable.getSpans(0,1,StrikethroughSpan.class)[0]);
+            }catch (ArrayIndexOutOfBoundsException e){}
+
+            try{
+                spannable.removeSpan(spannable.getSpans(0,1,ForegroundColorSpan.class)[0]);
+            }catch (ArrayIndexOutOfBoundsException e){}
+
+            try{
+                MyLineBackgroundSpan ml = spannable.getSpans(0,1,MyLineBackgroundSpan.class)[0];
+                spannable.setSpan(new ForegroundColorSpan(Color.WHITE),
+                        0, spannable.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }catch (ArrayIndexOutOfBoundsException e){
+                spannable.setSpan(new ForegroundColorSpan(Color.BLACK),
+                        0, spannable.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+
             holder.description.setPaintFlags(holder.title.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
             holder.title.setTextColor(Color.BLACK);
         }
@@ -294,7 +322,8 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
         spannable.setSpan(
                 new MyLineBackgroundSpan(color, padding),
                 0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
+        spannable.setSpan(new ForegroundColorSpan(Color.WHITE),
+                0, spannable.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         editText.setText(spannable);
     }
 

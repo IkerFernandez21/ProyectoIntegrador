@@ -13,7 +13,6 @@
         android:id="@+id/botonhome"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/item"
-
         app:showAsAction="ifRoom"
         />
 

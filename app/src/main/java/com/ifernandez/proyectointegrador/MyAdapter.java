@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,9 +58,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
 
         if (task.isCompleted()){
+            Spannable spannable = holder.title.getEditableText();
+
             holder.title.setPaintFlags(holder.title.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.title.setTextColor(Color.GRAY);
         }else{
+            Spannable spannable = holder.title.getEditableText();
+
             holder.title.setPaintFlags(holder.title.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
             holder.title.setTextColor(Color.BLACK);
         }
@@ -120,6 +126,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         spannable.setSpan(
                 new MyLineBackgroundSpan(color, padding),
                 0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannable.setSpan(new ForegroundColorSpan(Color.WHITE),
+                0, spannable.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         textView.setText(spannable);
     }
