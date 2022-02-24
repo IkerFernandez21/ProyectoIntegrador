@@ -40,29 +40,28 @@ import petrov.kristiyan.colorpicker.ColorPicker;
 public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> {
 
 
+    SparseBooleanArray checkBoxStateArray = new SparseBooleanArray();
     private List<Task> mData;
     private LayoutInflater mInflater;
     private RecyclerView mRecycler;
     private ActionMode aMode;
     private ActivityDay activityDay;
-
-    SparseBooleanArray checkBoxStateArray = new SparseBooleanArray();
-
     private int pos = 0;
-
-    public int getPos() {
-        return this.pos;
-    }
-
-    public void decrementarPos() {
-        this.pos--;
-    };
-
 
     AdapterTasks(Context context, List<Task> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.activityDay = (ActivityDay) context;
+    }
+
+    public int getPos() {
+        return this.pos;
+    }
+
+    ;
+
+    public void decrementarPos() {
+        this.pos--;
     }
 
     @Override
@@ -87,8 +86,8 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
     public void onBindViewHolder(@NonNull AdapterTasks.ViewHolder holder, int position) {
         Task task = mData.get(position);
         holder.title.setText(task.getTittle());
-        if (task.getColor()!=0){
-            setTextColor(holder.title,task.getColor());
+        if (task.getColor() != 0) {
+            setTextColor(holder.title, task.getColor());
         }
         holder.description.setText(task.getDescription());
         ActivityDay ad = (ActivityDay) holder.context;
@@ -118,11 +117,26 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
                 switch (item.getItemId()) {
                     case R.id.reset:
 
-                        setTextColor(holder.title,Color.TRANSPARENT);
-                        task.setColor(Color.TRANSPARENT);
-                        String place = holder.title.getText().toString();
-                        holder.title.setText(null);
-                        holder.title.setText(place);
+                        task.setColor(0);
+
+                        Spannable spannable = holder.title.getText();
+                        if (task.isCompleted()) {
+                            try {
+                                spannable.removeSpan(spannable.getSpans(0, 1, MyLineBackgroundSpan.class)[0]);
+                                spannable.removeSpan(spannable.getSpans(0, 1, ForegroundColorSpan.class)[0]);
+                                spannable.setSpan(new ForegroundColorSpan(Color.GRAY),
+                                        0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            } catch (ArrayIndexOutOfBoundsException e) {
+                            }
+                        } else {
+                            try {
+                                spannable.removeSpan(spannable.getSpans(0, 1, MyLineBackgroundSpan.class)[0]);
+                                spannable.removeSpan(spannable.getSpans(0, 1, ForegroundColorSpan.class)[0]);
+                                spannable.setSpan(new ForegroundColorSpan(Color.BLACK),
+                                        0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            } catch (ArrayIndexOutOfBoundsException e) {
+                            }
+                        }
                         return true;
                     case R.id.redCricle:
 
@@ -130,14 +144,13 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
                         colorPicker.show();
                         colorPicker.setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
                             @Override
-                            public void onChooseColor(int position,int color) {
+                            public void onChooseColor(int position, int color) {
                                 setTextColor(holder.title, color);
                                 task.setColor(color);
-                                System.out.println(color);
                             }
 
                             @Override
-                            public void onCancel(){
+                            public void onCancel() {
                                 // put code
                             }
                         });
@@ -154,7 +167,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             }
         };
 
-        if (task.isCompleted()){
+        if (task.isCompleted()) {
             holder.checkBox.setChecked(true);
 
             Spannable spannable = holder.title.getText();
@@ -162,44 +175,46 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
                     new StrikethroughSpan(),
                     0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             spannable.setSpan(new ForegroundColorSpan(Color.GRAY),
-                            0, spannable.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
             holder.description.setPaintFlags(holder.title.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.description.setTextColor(Color.GRAY);
-        }else{
+        } else {
             holder.checkBox.setChecked(false);
             Spannable spannable = holder.title.getText();
-            try{
-                spannable.removeSpan(spannable.getSpans(0,1,StrikethroughSpan.class)[0]);
-            }catch (ArrayIndexOutOfBoundsException e){}
-
-            try{
-                spannable.removeSpan(spannable.getSpans(0,1,ForegroundColorSpan.class)[0]);
-            }catch (ArrayIndexOutOfBoundsException e){}
-
-            try{
-                MyLineBackgroundSpan ml = spannable.getSpans(0,1,MyLineBackgroundSpan.class)[0];
-                spannable.setSpan(new ForegroundColorSpan(Color.WHITE),
-                        0, spannable.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            }catch (ArrayIndexOutOfBoundsException e){
-                spannable.setSpan(new ForegroundColorSpan(Color.BLACK),
-                        0, spannable.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            try {
+                spannable.removeSpan(spannable.getSpans(0, 1, StrikethroughSpan.class)[0]);
+            } catch (ArrayIndexOutOfBoundsException e) {
             }
 
-            holder.description.setPaintFlags(holder.title.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
+            try {
+                spannable.removeSpan(spannable.getSpans(0, 1, ForegroundColorSpan.class)[0]);
+            } catch (ArrayIndexOutOfBoundsException e) {
+            }
+
+            try {
+                MyLineBackgroundSpan ml = spannable.getSpans(0, 1, MyLineBackgroundSpan.class)[0];
+                spannable.setSpan(new ForegroundColorSpan(Color.WHITE),
+                        0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                spannable.setSpan(new ForegroundColorSpan(Color.BLACK),
+                        0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+
+            holder.description.setPaintFlags(holder.title.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
             holder.title.setTextColor(Color.BLACK);
         }
 
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     task.setCompleted(true);
                     if (!mRecycler.isComputingLayout() && mRecycler.getScrollState() == SCROLL_STATE_IDLE) {
                         notifyItemChanged(position);
                     }
 
-                }else{
+                } else {
                     task.setCompleted(false);
                     if (!mRecycler.isComputingLayout() && mRecycler.getScrollState() == SCROLL_STATE_IDLE) {
                         notifyItemChanged(position);
@@ -223,7 +238,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             public void afterTextChanged(Editable s) {
                 try {
                     mData.get(position).setTittle(holder.title.getText().toString());
-                }catch (IndexOutOfBoundsException e){
+                } catch (IndexOutOfBoundsException e) {
 
                 }
             }
@@ -244,9 +259,9 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             public void afterTextChanged(Editable s) {
                 try {
                     mData.get(position).setDescription(holder.description.getText().toString());
-                }catch (IndexOutOfBoundsException e){
+                } catch (IndexOutOfBoundsException e) {
 
-            }
+                }
             }
         });
 
@@ -255,7 +270,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             public void onClick(View v) {
                 mData.remove(position);
                 notifyItemRemoved(position);
-                notifyItemRangeChanged(0,mData.size());
+                notifyItemRangeChanged(0, mData.size());
                 decrementarPos();
             }
         });
@@ -266,7 +281,9 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
                     @Override
                     public void onVisibilityChanged(boolean isOpen) {
                         if (!isOpen) {
-                            if(aMode!=null){aMode.finish();}
+                            if (aMode != null) {
+                                aMode.finish();
+                            }
                         }
                     }
                 });
@@ -274,10 +291,10 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
         holder.title.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
-                if(aMode!=null){
+                if (aMode != null) {
                     aMode.finish();
                     aMode = ad.startActionMode(actionModeCallback);
-                }else{
+                } else {
                     aMode = ad.startActionMode(actionModeCallback);
                 }
             }
@@ -286,7 +303,7 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
         holder.title.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(aMode==null){
+                if (aMode == null) {
                     aMode = ad.startActionMode(actionModeCallback);
                 }
             }
@@ -296,6 +313,21 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    public void setTextColor(EditText editText, int color) {
+        int padding = 10;
+
+        SpannableString spannable = new SpannableString(editText.getText());
+        spannable.setSpan(
+                new MyLineBackgroundSpan(color, padding),
+                0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        if (color != 0){
+            spannable.setSpan(new ForegroundColorSpan(Color.WHITE),
+                0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);}
+
+
+        editText.setText(spannable);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -313,18 +345,6 @@ public class AdapterTasks extends RecyclerView.Adapter<AdapterTasks.ViewHolder> 
             delete = itemView.findViewById(R.id.deleteRowButton);
             context = title.getContext();
         }
-    }
-
-    public void setTextColor(EditText editText, int color){
-        int padding = 10;
-
-        SpannableString spannable = new SpannableString(editText.getText());
-        spannable.setSpan(
-                new MyLineBackgroundSpan(color, padding),
-                0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannable.setSpan(new ForegroundColorSpan(Color.WHITE),
-                0, spannable.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        editText.setText(spannable);
     }
 
 }

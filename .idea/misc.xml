@@ -10,14 +10,11 @@
         <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/drawable/ic_launcher_background.xml" value="0.35625" />
         <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/font/fuente_splash.xml" value="0.2171875" />
         <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/activity_day.xml" value="0.3359375" />
-        <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/activity_loged.xml" value="0.33" />
         <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/content_main.xml" value="0.33" />
         <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/fragment_login.xml" value="0.33" />
         <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/fragment_webtools.xml" value="0.15729166666666666" />
         <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/row_tasks.xml" value="0.33" />
         <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/layout/settings_activity.xml" value="0.24909420289855072" />
-        <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/menu/activity_main_drawer.xml" value="0.3359375" />
         <entry key="..\:/AndroidStudio/Interfaces/ProyectoIntegrador/app/src/main/res/menu/keyboard_menu.xml" value="0.3359375" />
         <entry key="..\:/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/drawable-anydpi/ic_red_circle.xml" value="0.2895" />
         <entry key="..\:/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2895" />
@@ -43,6 +40,9 @@
         <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/layout/activity_splash.xml" value="0.22053231939163498" />
         <entry key="..\:/Perfiles/am1DAM2/ProyectoIntegrador/app/src/main/res/layout/adapter_drawer.xml" value="0.35778985507246375" />
+        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_login.xml" value="0.31354166666666666" />
+        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row.xml" value="0.2828125" />
+        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row_tasks.xml" value="0.2828125" />
         <entry key="..\:/Users/Enrique/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_day.xml" value="0.4" />
         <entry key="..\:/Users/Enrique/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_dia.xml" value="0.1" />
         <entry key="..\:/Users/Enrique/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.23052536231884058" />
@@ -58,7 +58,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
