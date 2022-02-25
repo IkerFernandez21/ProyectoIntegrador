@@ -31,7 +31,7 @@
                 android:autoSizeMinTextSize="12sp"
                 android:autoSizeTextType="uniform"
                 android:textAlignment="center"
-                android:textColor="@color/ColorPrimarioOscuro"
+
                 android:text="Lunes"></TextView>
 
             <TextView
@@ -43,7 +43,7 @@
                 android:autoSizeMinTextSize="12sp"
                 android:autoSizeTextType="uniform"
                 android:textAlignment="center"
-                android:textColor="@color/ColorPrimarioOscuro"
+
                 android:text="Martes"></TextView>
         </LinearLayout>
 
@@ -106,7 +106,7 @@
                 android:autoSizeMinTextSize="12sp"
                 android:autoSizeTextType="uniform"
                 android:textAlignment="center"
-                android:textColor="@color/ColorPrimarioOscuro"
+
                 android:text="Miercoles"></TextView>
 
             <TextView
@@ -118,7 +118,7 @@
                 android:autoSizeMinTextSize="12sp"
                 android:autoSizeTextType="uniform"
                 android:textAlignment="center"
-                android:textColor="@color/ColorPrimarioOscuro"
+
                 android:text="Jueves"></TextView>
         </LinearLayout>
 
@@ -176,7 +176,7 @@
                 android:autoSizeMinTextSize="12sp"
                 android:autoSizeTextType="uniform"
                 android:textAlignment="center"
-                android:textColor="@color/ColorPrimarioOscuro"
+
                 android:text="Viernes"></TextView>
 
             <TextView
@@ -188,7 +188,7 @@
                 android:autoSizeMinTextSize="12sp"
                 android:autoSizeTextType="uniform"
                 android:textAlignment="center"
-                android:textColor="@color/ColorPrimarioOscuro"
+
                 android:text="Sábado/Domigo"></TextView>
         </LinearLayout>
 

@@ -4,16 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 public class ActivityDay extends AppCompatActivity {
-
+    private SharedPreferences prefrencias;
+    private ImageButton deleteButton;
     TextView tvDay;
     TextView tvYear;
     RecyclerView rvDay;
@@ -26,6 +31,7 @@ public class ActivityDay extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ponerTema();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day);
 
@@ -58,6 +64,23 @@ public class ActivityDay extends AppCompatActivity {
          //Load tasklist
         setUpRecycler();
 
+    }
+
+    private void ponerTema() {
+        deleteButton = this.findViewById(R.id.deleteRowButton);
+
+
+        prefrencias = getSharedPreferences("MisPrefrencias", Context.MODE_PRIVATE);
+        String temas = prefrencias.getString("tema","Verde");
+        switch (temas){
+            case "Mostaza":setTheme(R.style.theme_Mustardsinactionbar_);break;
+            case "Verde":setTheme(R.style.theme_sinactionbar);break;
+            case "Azul":setTheme(R.style.theme_Tealsinactionbar_);break;
+            case "Azul y naranja":setTheme(R.style.theme_OrangeBluesinactionbar_);break;
+            case "Rosa":setTheme(R.style.theme_Pinksinactionbar_);break;
+            case "Gris":setTheme(R.style.theme_Greysinactionbar_);break;
+
+        }
     }
 
     private void setTextviewsUI(){

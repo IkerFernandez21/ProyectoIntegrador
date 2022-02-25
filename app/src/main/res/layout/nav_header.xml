@@ -25,6 +25,7 @@
         android:layout_height="match_parent"
         android:paddingTop="15dp"
         android:paddingBottom="5dp"
+        android:textColor="@color/black"
         android:text="Una app para recordar..."
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
         app:layout_constraintEnd_toEndOf="@+id/header_title"
