@@ -68,7 +68,6 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#A35527</item>
         <item name="iconTint">#1E9C99</item>
-        <item name="tint">#1E9C99</item>
         <item name="colorSecondaryVariant">#F09B69</item>
         <item name="colorOnSecondary">#8F3F22</item>
         <!-- Status bar color. -->
@@ -102,7 +101,6 @@
         <item name="colorPrimaryVariant">#FFBCB5</item>
         <item name="colorSecondary">#ED87A1</item>
         <item name="iconTint">#C55A76</item>
-        <item name="tint">#C55A76</item>
         <item name="colorSecondaryVariant">#FF7397</item>
         <item name="colorOnSecondary">#FF99C9</item>
 
@@ -137,7 +135,6 @@
         <item name="colorPrimaryVariant">#FFC556</item>
         <item name="colorSecondary">#FFAB0A</item>
         <item name="iconTint">#FF672D18</item>
-        <item name="tint">#FF672D18</item>
         <item name="colorSecondaryVariant">#7F5F22</item>
         <item name="colorOnSecondary">#CC8908</item>
         <!-- Status bar color. -->
@@ -171,7 +168,6 @@
         <item name="colorPrimaryVariant">#D9E8F5</item>
         <item name="colorSecondary">#91BED4</item>
         <item name="iconTint">#C14E02</item>
-        <item name="tint">#C14E02</item>
         <item name="colorSecondaryVariant">#FFFFFF</item>
         <item name="colorOnSecondary">#F26101</item>
         <!-- Status bar color. -->
@@ -205,7 +201,6 @@
         <item name="colorPrimaryVariant">#D2D5D9</item>
         <item name="colorSecondary">#D9CAB8</item>
         <item name="iconTint">@color/black</item>
-        <item name="tint">@color/black</item>
         <item name="colorSecondaryVariant">#D9CCC5</item>
         <item name="colorOnSecondary">#F2F2F2</item>
         <!-- Status bar color. -->
