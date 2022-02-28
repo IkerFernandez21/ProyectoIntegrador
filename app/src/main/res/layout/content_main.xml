@@ -47,8 +47,7 @@
                         android:autoSizeMinTextSize="12sp"
                         android:autoSizeTextType="uniform"
                         android:text="Lunes"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/ColorPrimarioOscuro"></TextView>
+                        android:textAlignment="textEnd"></TextView>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_monday"
@@ -85,8 +84,7 @@
                         android:autoSizeMinTextSize="12sp"
                         android:autoSizeTextType="uniform"
                         android:textAlignment="textEnd"
-                        android:text="Martes"
-                        android:textColor="@color/ColorPrimarioOscuro"></TextView>
+                        android:text="Martes"></TextView>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_tueday"
@@ -129,8 +127,7 @@
                         android:autoSizeMinTextSize="12sp"
                         android:autoSizeTextType="uniform"
                         android:text="Miercoles"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/ColorPrimarioOscuro"></TextView>
+                        android:textAlignment="textEnd"></TextView>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_wednesday"
@@ -163,8 +160,7 @@
                         android:autoSizeMaxTextSize="100sp"
                         android:autoSizeMinTextSize="12sp"
                         android:autoSizeTextType="uniform"
-                        android:text="Jueves"
-                        android:textColor="@color/ColorPrimarioOscuro"></TextView>
+                        android:text="Jueves"></TextView>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_thursday"
@@ -205,8 +201,7 @@
                         android:autoSizeMaxTextSize="100sp"
                         android:autoSizeMinTextSize="12sp"
                         android:autoSizeTextType="uniform"
-                        android:text="Viernes"
-                        android:textColor="@color/ColorPrimarioOscuro"></TextView>
+                        android:text="Viernes"></TextView>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_friday"
@@ -245,8 +240,7 @@
                             android:autoSizeMaxTextSize="100sp"
                             android:autoSizeMinTextSize="12sp"
                             android:autoSizeTextType="uniform"
-                            android:text="Sabado"
-                            android:textColor="@color/ColorPrimarioOscuro"></TextView>
+                            android:text="Sabado"></TextView>
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv_saturday"
@@ -280,8 +274,7 @@
                             android:autoSizeMaxTextSize="100sp"
                             android:autoSizeMinTextSize="12sp"
                             android:autoSizeTextType="uniform"
-                            android:text="Domingo"
-                            android:textColor="@color/ColorPrimarioOscuro"></TextView>
+                            android:text="Domingo"></TextView>
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv_sunday"

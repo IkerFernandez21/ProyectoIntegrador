@@ -24,6 +24,7 @@
         android:layout_marginTop="416dp"
         android:fontFamily="@font/fuente_splash"
         android:text="NOTEAPP"
+        android:textColor="@color/white"
         android:textSize="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
