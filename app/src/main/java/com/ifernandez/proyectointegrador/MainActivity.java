@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -15,14 +16,25 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
@@ -37,9 +49,11 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
     private NavigationView navView;
     private  Toolbar appbar;
-
+    private SharedPreferences prefrencias,prefrenciasVectores;
     private int showingWeek;
     private Vault vault;
+    private String temas;
+    private ImageView img,img2;
     private ArrayList<Day> daysList;
     private ArrayList<Date> week;
     private RecyclerView rvMonday;
@@ -55,28 +69,59 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayoutManager mLayout;
     private Activity activity = this;
 
+
+    @SuppressLint({"ResourceAsColor", "ResourceType"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        ponerTema();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         appbar = (Toolbar)findViewById(R.id.toolbar);
+
+
+
+
         showingWeek = 0;
         week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
         //setRecyclersDecoration();
         WeekChange();
+
         setDrawerNavView();
         setActivityResultLauncher();
+
+
+
     }
+
+    private void ponerTema() {
+        prefrencias = getSharedPreferences("MisPrefrencias", Context.MODE_PRIVATE);
+
+
+        temas = prefrencias.getString("tema","Verde");
+        switch (temas){
+            case "Mostaza":setTheme(R.style.theme_Mustardsinactionbar_);break;
+            case "Verde":setTheme(R.style.theme_sinactionbar);break;
+            case "Azul":setTheme(R.style.theme_Tealsinactionbar_);break;
+            case "Azul y naranja":setTheme(R.style.theme_OrangeBluesinactionbar_);break;
+            case "Rosa":setTheme(R.style.theme_Pinksinactionbar_);break;
+            case "Gris":setTheme(R.style.theme_Greysinactionbar_);break;
+
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
+
         getMenuInflater().inflate(R.menu.appbar_main,menu);
+
+
         return true;
     }
+
     private void setDrawerNavView() {
 
         setSupportActionBar(appbar);
@@ -138,10 +183,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch(item.getItemId()) {
             case android.R.id.home:
                 DrawerLayout.openDrawer(GravityCompat.START);
+
                 return true;
             case R.id.botonhome:
                 showingWeek = 0;
