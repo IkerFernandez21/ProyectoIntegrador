@@ -37,6 +37,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="theme.splash" parent="theme.sinactionbar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
     <style name="ColorBotones">
         <item name="backgroundTint">@color/ColorSecundarioOscuro</item>
     </style>

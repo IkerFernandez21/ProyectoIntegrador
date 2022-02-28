@@ -59,4 +59,12 @@
     <string name="home">Inicio</string>
     <string name="change_theme">Cambiar tema</string>
     <string name="our_team">Nuestro equipo</string>
+    <string name="select_your_prefered_theme">Selecciona tu tema preferido</string>
+    <string name="apply_theme">Aplicar tema</string>
+    <string name="green">Verde</string>
+    <string name="mustard">Mostaza</string>
+    <string name="bluenorange">Azul y naranja</string>
+    <string name="pink">Rosa</string>
+    <string name="gray">Gris</string>
+    <string name="blue">Azul</string>
 </resources>

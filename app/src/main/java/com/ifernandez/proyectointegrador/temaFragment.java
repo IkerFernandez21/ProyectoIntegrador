@@ -25,7 +25,6 @@ public class temaFragment extends Fragment {
     private SharedPreferences prefrencias;
     private Spinner sp;
     private String seleccion;
-    private String[] temas={"Verde","Mostaza","Azul","Azul y naranja","Rosa","Gris"};
     private View view,viewMain;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +32,7 @@ public class temaFragment extends Fragment {
         viewMain = inflater.inflate(R.layout.content_main, container, false);
         view = inflater.inflate(R.layout.fragment_tema, container, false);
 
+        String[] temas = {getString(R.string.green),getString(R.string.mustard),getString(R.string.blue),getString(R.string.bluenorange),getString(R.string.pink),getString(R.string.gray)};
         mSetColorButton = view.findViewById(R.id.bt2);
         sp = view.findViewById(R.id.spinner);
         prefrencias = getActivity().getSharedPreferences("MisPrefrencias", Context.MODE_PRIVATE);
@@ -41,13 +41,21 @@ public class temaFragment extends Fragment {
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                seleccion = sp.getSelectedItem().toString();
+
+                switch (sp.getSelectedItemPosition()){
+                    case 0: seleccion = "Verde"; break;
+                    case 1: seleccion = "Mostaza"; break;
+                    case 2: seleccion = "Azul"; break;
+                    case 3: seleccion = "Azul y naranja"; break;
+                    case 4: seleccion = "Rosa"; break;
+                    case 5: seleccion = "Gris"; break;
+                }
 
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                seleccion = sp.getSelectedItem().toString();
+                seleccion = "Verde";
             }
         });
 
