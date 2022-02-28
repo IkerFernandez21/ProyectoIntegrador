@@ -36,7 +36,7 @@ public class temaFragment extends Fragment {
         mSetColorButton = view.findViewById(R.id.bt2);
         sp = view.findViewById(R.id.spinner);
         prefrencias = getActivity().getSharedPreferences("MisPrefrencias", Context.MODE_PRIVATE);
-        sp.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_gallery_item,temas));
+        sp.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item,temas));
         sp.setSelection(0);
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

@@ -29,6 +29,7 @@
         <activity
             android:name=".ActivityDay"
             android:exported="false"
+            android:theme="@style/theme.sinactionbar"
             android:windowSoftInputMode="adjustResize" /> <!-- adjustPan This shit fixes the keyboard in recyclerView -->
         <activity
             android:name=".MainActivity"

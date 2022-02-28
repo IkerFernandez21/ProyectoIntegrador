@@ -595,6 +595,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         appbar.setTitle(monthString);
+        appbar.setTitleTextColor(Color.WHITE);
 
 
     }
