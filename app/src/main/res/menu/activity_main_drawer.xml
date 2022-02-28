@@ -7,10 +7,10 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="Inicio" />
+            android:title="@string/home" />
         <item
         android:id="@+id/nav_web_tools"
-        android:title="Seleccionar tema" />
+        android:title="@string/change_theme" />
 
         <item
             android:id="@+id/drawer_cloud"
@@ -25,7 +25,7 @@
         <item
             android:id="@+id/nav_settings"
 
-            android:title="Configuración" />
+            android:title="@string/our_team" />
     </group>
 
 </menu>

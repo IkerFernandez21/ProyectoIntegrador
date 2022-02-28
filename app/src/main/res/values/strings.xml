@@ -56,4 +56,7 @@
     <string name="nov">Nov</string>
     <string name="dec">Dec</string>
     <string name="your_best_weekly_agenda">Your best weekly agenda</string>
+    <string name="home">Home</string>
+    <string name="change_theme">Change theme</string>
+    <string name="our_team">Our team</string>
 </resources>

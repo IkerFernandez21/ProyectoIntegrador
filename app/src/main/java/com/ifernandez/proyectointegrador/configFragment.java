@@ -18,7 +18,7 @@ import com.bumptech.glide.Glide;
 
 import java.time.Instant;
 
-public class settingsFragment extends Fragment {
+public class configFragment extends Fragment {
     private RelativeLayout r1;
     private RelativeLayout r2;
     private RelativeLayout r3;
