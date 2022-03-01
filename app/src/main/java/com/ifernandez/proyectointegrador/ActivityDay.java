@@ -81,12 +81,12 @@ public class ActivityDay extends AppCompatActivity {
         prefrencias = getSharedPreferences("MisPrefrencias", Context.MODE_PRIVATE);
         String temas = prefrencias.getString("tema","Verde");
         switch (temas){
-            case "Mostaza":setTheme(R.style.theme_Mustardsinactionbar_);break;
-            case "Verde":setTheme(R.style.theme_sinactionbar);break;
-            case "Azul":setTheme(R.style.theme_Tealsinactionbar_);break;
-            case "Azul y naranja":setTheme(R.style.theme_OrangeBluesinactionbar_);break;
-            case "Rosa":setTheme(R.style.theme_Pinksinactionbar_);break;
-            case "Gris":setTheme(R.style.theme_Greysinactionbar_);break;
+            case "Mostaza":setTheme(R.style.theme_Mustardsinactionbar_);getWindow().setStatusBarColor(getResources().getColor(R.color.ColorPrimarioClaroMustard));break;
+            case "Verde":setTheme(R.style.theme_sinactionbar);getWindow().setStatusBarColor(getResources().getColor(R.color.ColorPrimarioClaro));break;
+            case "Azul":setTheme(R.style.theme_Tealsinactionbar_);getWindow().setStatusBarColor(getResources().getColor(R.color.ColorPrimarioClaroTeal));break;
+            case "Azul y naranja":setTheme(R.style.theme_OrangeBluesinactionbar_);getWindow().setStatusBarColor(getResources().getColor(R.color.ColorPrimarioClaroOrangeBlue));break;
+            case "Rosa":setTheme(R.style.theme_Pinksinactionbar_);getWindow().setStatusBarColor(getResources().getColor(R.color.ColorPrimarioClaroPink));break;
+            case "Gris":setTheme(R.style.theme_Greysinactionbar_);getWindow().setStatusBarColor(getResources().getColor(R.color.ColorPrimarioClaroGrey));break;
 
         }
     }
