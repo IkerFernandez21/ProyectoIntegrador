@@ -10,12 +10,18 @@
         app:showAsAction="ifRoom" />
 
     <item
+
+        android:id="@+id/botonNotas"
+        android:icon="@drawable/ic_baseline_sticky_note_2_24"
+        android:title="@string/item"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
         
         android:id="@+id/botonhome"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/item"
         app:showAsAction="ifRoom"
         />
-
-
 </menu>

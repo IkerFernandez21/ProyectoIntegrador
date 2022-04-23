@@ -67,5 +67,8 @@
     <string name="bluenorange">Blue and orange</string>
     <string name="pink">Pink</string>
     <string name="gray">Gray</string>
+    <string name="note_tittle">Note tittle</string>
+    <string name="note_description">Note description</string>
+    <string name="add_photo">add Photo</string>
 
 </resources>

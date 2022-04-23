@@ -7,7 +7,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -19,20 +18,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Activity;
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -85,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
-        //setRecyclersDecoration();
         WeekChange();
 
         setDrawerNavView();
@@ -197,19 +189,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.calendario:
                 showDatePicker(this.getCurrentFocus());
                 break;
-
+            case R.id.botonNotas:
+                Intent intent= new Intent (MainActivity.this, NotesScreen.class);
+                startActivity(intent);
+                break;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
-
-    private void setBtCalendar(){
-        //btCalendar = findViewById(R.id.buttonCalendar);
-
-        //btCalendar.setOnClickListener(this::showDatePicker);
-    }
-
 
     public void showDatePicker(View view) {
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
