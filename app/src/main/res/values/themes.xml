@@ -180,7 +180,6 @@
         <item name="backgroundTint">#F26101</item>
     </style>
 
-
     ///softgrey
     <style name="theme.ProyectoIntegradorGrey" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
