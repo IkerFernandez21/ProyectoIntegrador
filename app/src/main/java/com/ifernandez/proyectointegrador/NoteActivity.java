@@ -73,7 +73,7 @@ public class NoteActivity extends AppCompatActivity {
 
             for (int i = 2; i < linearNote.getChildCount(); i++) {
                 if (linearNote.getChildAt(i).equals(imageSelected)){
-                    note.getPhotos().remove(i-2);
+                    note.getPhotos().remove(i-2); //TODO persistence
                     linearNote.removeView(imageSelected);
                 }
             }
@@ -122,11 +122,15 @@ public class NoteActivity extends AppCompatActivity {
             iv.setImageBitmap(imageBitmap);
 
             //Add to Persistence
+            //TODO Persistence
+            /*
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             byte[] imageByte = baos.toByteArray();
 
             note.getPhotos().add(imageByte);
+
+             */
 
             //Add click listener
             registerForContextMenu(iv);
@@ -146,11 +150,15 @@ public class NoteActivity extends AppCompatActivity {
                 iv.setImageBitmap(imageBitmap);
 
                 //Add to Persistence
+                //TODO persistence
+                /*
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                 byte[] imageByte = baos.toByteArray();
 
                 note.getPhotos().add(imageByte);
+
+                 */
 
                 //Add click listener
                 registerForContextMenu(iv);
@@ -250,12 +258,16 @@ public class NoteActivity extends AppCompatActivity {
             }
         });
 
-        //Deploy saves photos
+        //Deploy saved photos
+        //TODO Persistence
+        /*
         ArrayList<byte[]> photos = note.getPhotos();
 
         for(byte[] photo : photos){
             setPhotoInView(photo);
         }
+
+         */
     }
 
     private void setPhotoInView(byte[] photo) {
