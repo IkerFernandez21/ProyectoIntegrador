@@ -11,20 +11,25 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import io.objectbox.Box;
 
 public class AdapterNotes extends RecyclerView.Adapter<AdapterNotes.ViewHolder> {
-    private final ArrayList<Note> mData;
+    private final List<Note> mData;
     private final LayoutInflater mInflater;
     private final Context context;
     private final NotesScreen activity;
+    private Box<Note> noteBox;
 
     private int pos = 0;
 
-    public AdapterNotes(Context context, ArrayList<Note> data, NotesScreen activity) {
+    public AdapterNotes(Context context, List<Note> data, NotesScreen activity) {
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.activity = activity;
+        this.noteBox = ObjectBox.get().boxFor(Note.class);
     }
 
     public int getPos() {
@@ -51,11 +56,12 @@ public class AdapterNotes extends RecyclerView.Adapter<AdapterNotes.ViewHolder> 
         holder.delRow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                long noteId = mData.get(position).getId();
                 mData.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(0, mData.size());
                 decrementarPos();
-                //TODO Implementar borrado de nota
+                noteBox.remove(noteId);
             }
         });
 

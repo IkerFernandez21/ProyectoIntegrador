@@ -2,18 +2,17 @@ package com.ifernandez.proyectointegrador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,14 +20,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
+
+import io.objectbox.Box;
 
 public class NoteActivity extends AppCompatActivity {
 
@@ -40,10 +39,13 @@ public class NoteActivity extends AppCompatActivity {
     private Note note;
     private LinearLayout linearNote;
     private ImageView imageSelected;
+    private Box<Note> noteBox;
+    private Box<Photo> photoBox;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ponerTema();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
 
@@ -51,6 +53,9 @@ public class NoteActivity extends AppCompatActivity {
 
         tittle = findViewById(R.id.etNoteTittle);
         description = findViewById(R.id.etNoteDescription);
+
+        noteBox = ObjectBox.get().boxFor(Note.class);
+        photoBox = ObjectBox.get().boxFor(Photo.class);
 
         initNote();
     }
@@ -73,7 +78,10 @@ public class NoteActivity extends AppCompatActivity {
 
             for (int i = 2; i < linearNote.getChildCount(); i++) {
                 if (linearNote.getChildAt(i).equals(imageSelected)){
-                    note.getPhotos().remove(i-2); //TODO persistence
+
+                    String photoId = note.getPhotos().get(i-2);
+                    note.getPhotos().remove(i-2);
+                    photoBox.remove(Long.parseLong(photoId));
                     linearNote.removeView(imageSelected);
                 }
             }
@@ -122,15 +130,16 @@ public class NoteActivity extends AppCompatActivity {
             iv.setImageBitmap(imageBitmap);
 
             //Add to Persistence
-            //TODO Persistence
-            /*
+
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             byte[] imageByte = baos.toByteArray();
 
-            note.getPhotos().add(imageByte);
-
-             */
+            Photo newPhoto = new Photo();
+            newPhoto.setData(imageByte);
+            photoBox.put(newPhoto);
+            String photoId = String.valueOf(photoBox.getId(newPhoto));
+            note.getPhotos().add(photoId);
 
             //Add click listener
             registerForContextMenu(iv);
@@ -150,15 +159,18 @@ public class NoteActivity extends AppCompatActivity {
                 iv.setImageBitmap(imageBitmap);
 
                 //Add to Persistence
-                //TODO persistence
-                /*
+
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                 byte[] imageByte = baos.toByteArray();
 
-                note.getPhotos().add(imageByte);
+                Photo newPhoto = new Photo();
+                newPhoto.setData(imageByte);
+                photoBox.put(newPhoto);
+                String photoId = String.valueOf(photoBox.getId(newPhoto));
+                note.getPhotos().add(photoId);
 
-                 */
+
 
                 //Add click listener
                 registerForContextMenu(iv);
@@ -178,14 +190,10 @@ public class NoteActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        //TODO PERSISTENCE
-        /*
-        vault.setNotesList(noteList);
-        vault.saveVaultToFile(getFilesDir());
-        vault.saveVaultToCloud(getFilesDir(),this);
+        noteBox.put(note);
         Intent result = new Intent();
         setResult(RESULT_OK, result);
-        */
+
         finish();
     }
 
@@ -193,31 +201,21 @@ public class NoteActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        //TODO PERSISTENCE
-        /*
-        vault.setNotesList(noteList);
-        vault.saveVaultToFile(getFilesDir());
-        vault.saveVaultToCloud(getFilesDir(),this);
-
-         */
+        noteBox.put(note);
     }
 
     private void initNote() {
-        //TODO PERSISTENCE
-        //vault = new PersistenceVault(getFilesDir());
-        noteList = new ArrayList<Note>();
+
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         Boolean newNote = extras.getBoolean("newNote");
 
         //Retrieve the opened note or creates a new one if new note was selected
         if (newNote) {
-            Note newNoteObject = new Note();
-            noteList.add(newNoteObject);
-            note = noteList.get(noteList.size() - 1);
+            note = new Note();
         } else {
-            int notePos = extras.getInt("notePos");
-            note = noteList.get(notePos);
+            Long noteId = extras.getLong("noteId");
+            note = noteBox.get(noteId);
         }
 
         tittle.setText(note.getTittle());
@@ -259,15 +257,16 @@ public class NoteActivity extends AppCompatActivity {
         });
 
         //Deploy saved photos
-        //TODO Persistence
-        /*
-        ArrayList<byte[]> photos = note.getPhotos();
 
-        for(byte[] photo : photos){
-            setPhotoInView(photo);
+        List<String> photos = note.getPhotos();
+
+        for(String photoId : photos){
+
+            byte[] photoData = photoBox.get(Long.parseLong(photoId)).getData();
+            setPhotoInView(photoData);
         }
 
-         */
+
     }
 
     private void setPhotoInView(byte[] photo) {
@@ -282,5 +281,22 @@ public class NoteActivity extends AppCompatActivity {
         iv.setLayoutParams(lp);
         iv.setImageBitmap(imageBitmap);
         registerForContextMenu(iv);
+    }
+
+    private void ponerTema() {
+
+        SharedPreferences prefrencias = getSharedPreferences("MisPrefrencias", Context.MODE_PRIVATE);
+
+
+        String temas = prefrencias.getString("tema","Verde");
+        switch (temas){
+            case "Mostaza":setTheme(R.style.theme_ProyectoIntegradorMustard);break;
+            case "Verde":setTheme(R.style.theme_ProyectoIntegrador);break;
+            case "Azul":setTheme(R.style.theme_ProyectoIntegradorTeal);break;
+            case "Azul y naranja":setTheme(R.style.theme_ProyectoIntegradorOrangeBlue);break;
+            case "Rosa":setTheme(R.style.theme_ProyectoIntegradorPink);break;
+            case "Gris":setTheme(R.style.theme_ProyectoIntegradorGrey);break;
+
+        }
     }
 }

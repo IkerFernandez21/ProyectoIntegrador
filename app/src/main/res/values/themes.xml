@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ProyectoIntegrador" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="theme.ProyectoIntegrador" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/ColorPrimario</item>
         <item name="colorPrimaryVariant">@color/ColorPrimarioOscuro</item>
@@ -45,7 +45,7 @@
         <item name="backgroundTint">@color/ColorSecundarioOscuro</item>
     </style>
     ///////////////////////////////////TEAL ////////////////////////////////////////////////////////////////////////////////////
-    <style name="Theme.ProyectoIntegradorTeal" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="theme.ProyectoIntegradorTeal" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#81DBDB</item>
         <item name="colorPrimaryVariant">#8AFFFF</item>
@@ -81,7 +81,7 @@
         <item name="backgroundTint">#A35527</item>
     </style>
     ////////////////////////////////PINK/////////////////////////
-    <style name="Theme.ProyectoIntegradorPink" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="theme.ProyectoIntegradorPink" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#FF9FA2</item>
         <item name="colorPrimaryVariant">#FFBCB5</item>
@@ -116,7 +116,7 @@
 
 
     /////////////////////////Mustard/////////////////////
-    <style name="Theme.ProyectoIntegradorMustard" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="theme.ProyectoIntegradorMustard" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#7F5505</item>
         <item name="colorPrimaryVariant">#FFC556</item>
@@ -148,7 +148,7 @@
     </style>
 
     /////////////////////ORANGE-BLUE//////////////////////
-    <style name="Theme.ProyectoIntegradorOrangeBlue" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="theme.ProyectoIntegradorOrangeBlue" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#304269</item>
         <item name="colorPrimaryVariant">#D9E8F5</item>
@@ -181,7 +181,7 @@
     </style>
 
     ///softgrey
-    <style name="Theme.ProyectoIntegradorGrey" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="theme.ProyectoIntegradorGrey" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#A4A5A6</item>
         <item name="colorPrimaryVariant">#D2D5D9</item>

@@ -13,6 +13,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/color_notas"
         app:cardCornerRadius="8dp"
         app:cardUseCompatPadding="true"
         android:elevation="500dp">
@@ -35,14 +36,14 @@
                     android:hint="@string/note_tittle"
                     android:inputType="textMultiLine"
                     android:textSize="30sp"
-                    android:layout_weight="10"/>
+                    android:layout_weight="6"/>
                 <ImageButton
                     android:id="@+id/delRowButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_baseline_delete_24"
-                    android:backgroundTint="@android:color/transparent"/>
+                    android:backgroundTint="@color/transparent"/>
 
             </LinearLayout>
 

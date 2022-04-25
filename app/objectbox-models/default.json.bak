@@ -21,38 +21,9 @@
         }
       ],
       "relations": []
-    },
-    {
-      "id": "2:6672229228671018989",
-      "lastPropertyId": "4:2706856824276354400",
-      "name": "Note",
-      "properties": [
-        {
-          "id": "1:1440786233743851204",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:2339949947301353834",
-          "name": "tittle",
-          "type": 9
-        },
-        {
-          "id": "3:2827317057533336160",
-          "name": "description",
-          "type": 9
-        },
-        {
-          "id": "4:2706856824276354400",
-          "name": "photos",
-          "type": 30
-        }
-      ],
-      "relations": []
     }
   ],
-  "lastEntityId": "2:6672229228671018989",
+  "lastEntityId": "1:9212267400404645991",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",

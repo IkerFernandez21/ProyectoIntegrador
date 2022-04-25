@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
@@ -17,18 +19,22 @@ import android.view.animation.OvershootInterpolator;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import io.objectbox.Box;
 import jp.wasabeef.recyclerview.animators.LandingAnimator;
 
 public class NotesScreen extends AppCompatActivity {
 
     private View view;
-    private ArrayList<Note> notesList;
+    private List<Note> notesList;
     private FloatingActionButton fab;
     private ActivityResultLauncher<Intent> activityResultLauncher;
+    private Box<Note> noteBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ponerTema();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_screen);
 
@@ -39,6 +45,7 @@ public class NotesScreen extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         view = findViewById(R.id.notesScreen);
+        noteBox = ObjectBox.get().boxFor(Note.class);
         setUpRecycler();
         configureButton();
     }
@@ -49,15 +56,13 @@ public class NotesScreen extends AppCompatActivity {
                 new ActivityResultCallback<ActivityResult>() {
                     @Override
                     public void onActivityResult(ActivityResult result) {
-                        //TODO PERSISTENCE
-                        /*
+
                         if (result.getResultCode() == Activity.RESULT_OK) {
-                            vault.loadVaultFromFile(main.getFilesDir());
-                            notesList = vault.getNotesList();
+
+                            notesList = noteBox.getAll();
                             setUpRecycler();
                         }
 
-                         */
                     }
                 }
         );
@@ -68,7 +73,7 @@ public class NotesScreen extends AppCompatActivity {
     private void setUpRecycler() {
 
         RecyclerView recycler;
-        notesList = new ArrayList<Note>();
+        notesList = noteBox.getAll();
 
         recycler = view.findViewById(R.id.recycler_notes);
         StaggeredGridLayoutManager mLayout = new StaggeredGridLayoutManager(2,1);
@@ -92,9 +97,29 @@ public class NotesScreen extends AppCompatActivity {
     }
 
     public void openNote(int notePos){
+
+        long noteId = notesList.get(notePos).getId();
         Intent intent = new Intent(this, NoteActivity.class);
         intent.putExtra("newNote", false);
-        intent.putExtra("notePos",notePos);
+        intent.putExtra("noteId",noteId);
         activityResultLauncher.launch(intent);
     }
+
+    private void ponerTema() {
+
+        SharedPreferences prefrencias = getSharedPreferences("MisPrefrencias", Context.MODE_PRIVATE);
+
+
+        String temas = prefrencias.getString("tema","Verde");
+        switch (temas){
+            case "Mostaza":setTheme(R.style.theme_Mustardsinactionbar_);break;
+            case "Verde":setTheme(R.style.theme_sinactionbar);break;
+            case "Azul":setTheme(R.style.theme_Tealsinactionbar_);break;
+            case "Azul y naranja":setTheme(R.style.theme_OrangeBluesinactionbar_);break;
+            case "Rosa":setTheme(R.style.theme_Pinksinactionbar_);break;
+            case "Gris":setTheme(R.style.theme_Greysinactionbar_);break;
+
+        }
+    }
+
 }

@@ -71,9 +71,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         appbar = (Toolbar)findViewById(R.id.toolbar);
 
-
-
-
         showingWeek = 0;
         week = getWeekDateList();
         setDaysOfWeekUI();
