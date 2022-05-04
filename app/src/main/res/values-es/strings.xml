@@ -67,4 +67,6 @@
     <string name="pink">Rosa</string>
     <string name="gray">Gris</string>
     <string name="blue">Azul</string>
+    <string name="pick_color">¡Selecciona un tema!</string>
+
 </resources>

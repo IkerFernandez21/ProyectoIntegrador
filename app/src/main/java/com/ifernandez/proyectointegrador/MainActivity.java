@@ -5,6 +5,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -18,7 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -112,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setDrawerNavView() {
-
+        String[] colores = getResources().getStringArray(R.array.colores);
         setSupportActionBar(appbar);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_nav_menu);
@@ -138,8 +141,25 @@ public class MainActivity extends AppCompatActivity {
                                 break;
 
                             case R.id.nav_web_tools:
-                                fragment = new temaFragment();
-                                fragmentTransaction = true;
+                                
+
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+                                builder.setTitle(R.string.pick_color)
+                                        .setItems(R.array.colores, new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                SharedPreferences.Editor editor = prefrencias.edit();
+                                                editor.putString("tema",colores[which]);
+                                                editor.commit();
+                                                Intent intent1 = new Intent(MainActivity.this, MainActivity.class);
+                                                intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                startActivity(intent1);
+                                            }
+                                        });
+                                Dialog dialog = builder.create();
+                                dialog.show();
                                 break;
 
                             case R.id.drawer_cloud:
