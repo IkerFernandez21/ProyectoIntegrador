@@ -55,6 +55,7 @@ public class NotesScreen extends AppCompatActivity {
         configureButton();
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
