@@ -70,5 +70,6 @@
     <string name="note_tittle">Note tittle</string>
     <string name="note_description">Note description</string>
     <string name="add_photo">add Photo</string>
+    <string name="switch_to_fingerprint">Switch to fingerprint</string>
 
 </resources>

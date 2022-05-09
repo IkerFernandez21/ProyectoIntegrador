@@ -13,8 +13,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -38,6 +42,7 @@ public class NotesScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_screen);
 
+        getSupportActionBar().setTitle("");
         setActivityResultLauncher();
     }
 
@@ -48,6 +53,35 @@ public class NotesScreen extends AppCompatActivity {
         noteBox = ObjectBox.get().boxFor(Note.class);
         setUpRecycler();
         configureButton();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_notes_screen, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.btn_fingerprint) {
+            SharedPreferences preferences = getSharedPreferences("MisPrefrencias", Context.MODE_PRIVATE);
+
+            SharedPreferences.Editor editor = preferences.edit();
+
+            if (preferences.getBoolean("fingerprint", false)) {
+                editor.putBoolean("fingerprint", false);
+                editor.commit();
+                Toast.makeText(this, "Huella digital desactivada", Toast.LENGTH_SHORT).show();
+            }else {
+                editor.putBoolean("fingerprint", true);
+                editor.commit();
+                Toast.makeText(this, "Huella digital activada", Toast.LENGTH_SHORT).show();
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void setActivityResultLauncher() {
@@ -112,12 +146,12 @@ public class NotesScreen extends AppCompatActivity {
 
         String temas = prefrencias.getString("tema","Verde");
         switch (temas){
-            case "Mostaza":setTheme(R.style.theme_Mustardsinactionbar_);break;
-            case "Verde":setTheme(R.style.theme_sinactionbar);break;
-            case "Azul":setTheme(R.style.theme_Tealsinactionbar_);break;
-            case "Azul y naranja":setTheme(R.style.theme_OrangeBluesinactionbar_);break;
-            case "Rosa":setTheme(R.style.theme_Pinksinactionbar_);break;
-            case "Gris":setTheme(R.style.theme_Greysinactionbar_);break;
+            case "Mostaza":setTheme(R.style.theme_ProyectoIntegradorMustard);break;
+            case "Verde":setTheme(R.style.theme_ProyectoIntegrador);break;
+            case "Azul":setTheme(R.style.theme_ProyectoIntegradorTeal);break;
+            case "Azul y naranja":setTheme(R.style.theme_ProyectoIntegradorOrangeBlue);break;
+            case "Rosa":setTheme(R.style.theme_ProyectoIntegradorPink);break;
+            case "Gris":setTheme(R.style.theme_ProyectoIntegradorGrey);break;
 
         }
     }

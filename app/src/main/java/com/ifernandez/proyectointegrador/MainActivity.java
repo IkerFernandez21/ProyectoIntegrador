@@ -7,6 +7,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -29,6 +31,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -38,6 +41,7 @@ import org.joda.time.Weeks;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.Executor;
 
 public class MainActivity extends AppCompatActivity {
     private NavigationView navView;
@@ -61,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private LinearLayoutManager mLayout;
     private Activity activity = this;
+    private Executor executor;
+    private BiometricPrompt biometricPrompt;
+    private BiometricPrompt.PromptInfo promptInfo;
 
 
     @SuppressLint({"ResourceAsColor", "ResourceType"})
@@ -187,8 +194,46 @@ public class MainActivity extends AppCompatActivity {
                 showDatePicker(this.getCurrentFocus());
                 break;
             case R.id.botonNotas:
-                Intent intent= new Intent (MainActivity.this, NotesScreen.class);
-                startActivity(intent);
+
+                SharedPreferences preferences = getSharedPreferences("MisPrefrencias", Context.MODE_PRIVATE);
+
+                if (preferences.getBoolean("fingerprint", false)) {
+
+                    executor = ContextCompat.getMainExecutor(this);
+                    biometricPrompt = new androidx.biometric.BiometricPrompt(MainActivity.this, executor, new androidx.biometric.BiometricPrompt.AuthenticationCallback() {
+                        @Override
+                        public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                            super.onAuthenticationError(errorCode, errString);
+                            Toast.makeText(activity, "Lectura de huellas fallida", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onAuthenticationSucceeded(@NonNull androidx.biometric.BiometricPrompt.AuthenticationResult result) {
+                            super.onAuthenticationSucceeded(result);
+                            Intent intent= new Intent (MainActivity.this, NotesScreen.class);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onAuthenticationFailed() {
+                            super.onAuthenticationFailed();
+                            Toast.makeText(activity, "Huella erronea", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                            .setTitle("Autentificacion Biométrica")
+                            .setSubtitle("Escanea tu huella para acceder a notas")
+                            .setNegativeButtonText("Cancelar")
+                            .build();
+
+                    biometricPrompt.authenticate(promptInfo);
+                }else {
+                    Intent intent= new Intent (MainActivity.this, NotesScreen.class);
+                    startActivity(intent);
+                }
+
+
                 break;
         }
 
