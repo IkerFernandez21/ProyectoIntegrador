@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView img,img2;
     private ArrayList<Day> daysList;
     private ArrayList<Date> week;
+    private Date dayDate;
     private RecyclerView rvMonday;
     private RecyclerView rvTuesday;
     private RecyclerView rvWednesday;
@@ -70,12 +71,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RecyclerView rvFriday;
     private RecyclerView rvSaturday;
     private RecyclerView rvSunday;
-    private OnSwipeTouchListener onSwipeTouchListener;
     private DrawerLayout DrawerLayout;
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private LinearLayoutManager mLayout;
     private Activity activity = this;
-
+    private ArrayList<Task> taskList;
 
     @SuppressLint({"ResourceAsColor", "ResourceType"})
     @Override
@@ -91,10 +91,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
-        //WeekChange(activity_main);
+
+
 
         setDrawerNavView();
         setActivityResultLauncher();
+        //Sistema de gestos para pasar entre semanas
         gestureDetector = new GestureDetector(this, new MyGestureDetector());
         gestureListener = new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
@@ -104,10 +106,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         ConstraintLayout ly = findViewById(R.id.constrainPadre);
-        rvMonday = findViewById(R.id.rv_monday);
+
         ly.setOnClickListener(MainActivity.this);
         ly.setOnTouchListener(gestureListener);
-        /**
+        setItemTouchUp();
+
+
+
+
+
+    }
+    /*
+    Metodo para poder eliminar una nota,deslizando sobre el titulo de la nota
+     */
+    private void setItemTouchUp() {
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,  ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -116,16 +128,63 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                showingWeek += 1;
+
                 week = getWeekDateList(showingWeek);
+
+
+                taskList = getTaskListFromDay(week.get(0));
+                taskList.remove(viewHolder.getAdapterPosition());
+
+                rvMonday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                //guardarCambios();
+                /**week = getWeekDateList(showingWeek);
                 setDaysOfWeekUI();
-                setRecyclersUp();
+                setRecyclersUp();**/
             }
         };
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
-        itemTouchHelper.attachToRecyclerView(rvMonday);
-        **/
+        ItemTouchHelper itemTouchHelperMonday = new ItemTouchHelper(simpleCallback);
+        itemTouchHelperMonday.attachToRecyclerView(rvMonday);
+        ItemTouchHelper itemTouchHelperTuesday = new ItemTouchHelper(simpleCallback);
+        itemTouchHelperTuesday.attachToRecyclerView(rvTuesday);
+        ItemTouchHelper itemTouchHelperWeednesday = new ItemTouchHelper(simpleCallback);
+        itemTouchHelperWeednesday.attachToRecyclerView(rvWednesday);
+        ItemTouchHelper itemTouchHelperThursday = new ItemTouchHelper(simpleCallback);
+        itemTouchHelperThursday.attachToRecyclerView(rvThursday);
+        ItemTouchHelper itemTouchHelperFriday = new ItemTouchHelper(simpleCallback);
+        itemTouchHelperFriday.attachToRecyclerView(rvFriday);
+        ItemTouchHelper itemTouchHelperSatuday = new ItemTouchHelper(simpleCallback);
+        itemTouchHelperSatuday.attachToRecyclerView(rvSaturday);
+        ItemTouchHelper itemTouchHelperSunday = new ItemTouchHelper(simpleCallback);
+        itemTouchHelperSunday.attachToRecyclerView(rvSunday);
+    }
 
+    private void guardarCambios() {
+        Day day = null;
+
+
+        //Save changes on tasks
+        for(Day d : daysList){
+            if (d.getDate().compareTo(dayDate) == 0) {
+                day = d;
+                break;
+            }
+        }
+
+        if (day != null){
+            day.setTaskList(taskList);
+        }else{
+            day = new Day();
+            day.setDate(dayDate);
+            day.setTaskList(taskList);
+            daysList.add(day);
+        }
+
+        vault.setDaysList(daysList);
+
+        Intent result = new Intent();
+        result.putExtra("vault", vault);
+        setResult(RESULT_OK, result);
+        finish();
     }
 
     private void ponerTema() {
@@ -330,24 +389,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * creation of the event to scroll laterally
      */
-    private void WeekChange(View v) {
-        DrawerLayout = findViewById(R.id.drawer_layout);
-        DrawerLayout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
-            @Override
-            public void onSwipeLeft() {
-                showingWeek += 1;
-                week = getWeekDateList(showingWeek);
-                setDaysOfWeekUI();
-                setRecyclersUp();
-            }
-            @Override
-            public void onSwipeRight() {
-                showingWeek -= 1;
-                week = getWeekDateList(showingWeek);
-                setDaysOfWeekUI();
-                setRecyclersUp();
-            }
-        });
+
         /**
         DrawerLayout = findViewById(R.id.drawer_layout);
         DrawerLayout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
@@ -368,7 +410,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         });**/
-    }
+
 
 
     /**
@@ -377,7 +419,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void setRecyclersUp() {
 
         ArrayList<String> list = new ArrayList<String>();
-        ArrayList<Task> taskList;
+
 
         vault = new Vault(getFilesDir());
         daysList = vault.getDaysList();
@@ -532,39 +574,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             openDayActivity(6);
         });
 
-        ItemTouchHelper iTH = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-            @Override
-            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                return false;
-            }
 
-            @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getAdapterPosition();
-                if (direction == ItemTouchHelper.RIGHT) {
-                    showingWeek -= 1;
-                    week = getWeekDateList(showingWeek);
-                    setDaysOfWeekUI();
-                    setRecyclersUp();
-                }
-                if (direction == ItemTouchHelper.LEFT) {
-                    showingWeek += 1;
-                    week = getWeekDateList(showingWeek);
-                    setDaysOfWeekUI();
-                    setRecyclersUp();
-
-                }
-
-            }
-        });
-
-        iTH.attachToRecyclerView(rvMonday);
-        iTH.attachToRecyclerView(rvTuesday);
-        iTH.attachToRecyclerView(rvWednesday);
-        iTH.attachToRecyclerView(rvThursday);
-        iTH.attachToRecyclerView(rvFriday);
-        iTH.attachToRecyclerView(rvSaturday);
-        iTH.attachToRecyclerView(rvSunday);
     }
 
 
