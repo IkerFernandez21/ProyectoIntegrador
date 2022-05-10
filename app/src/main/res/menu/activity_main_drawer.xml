@@ -15,6 +15,9 @@
         <item
             android:id="@+id/drawer_cloud"
             android:title="Cloud" />
+        <!--<item
+            android:id="@+id/Recycle_Bin"
+            android:title="@string/recycler_bin" />-->
 
     </group>
 

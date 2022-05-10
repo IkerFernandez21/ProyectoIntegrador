@@ -71,6 +71,7 @@
     <string name="note_description">Note description</string>
     <string name="add_photo">add Photo</string>
     <string name="pick_color">¡Pick a theme!</string>
+    <string name="recycler_bin">Recycle Bin</string>
     <string-array name="colores">
         <item>Verde</item>
         <item>Mostaza</item>

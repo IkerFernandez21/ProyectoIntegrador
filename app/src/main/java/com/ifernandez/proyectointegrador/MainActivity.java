@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -26,11 +28,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.Filter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
@@ -42,7 +48,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final int SWIPE_MIN_DISTANCE = 120;
+    private static final int SWIPE_MAX_OFF_PATH = 250;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
+    private GestureDetector gestureDetector;
+    View.OnTouchListener gestureListener;
     private NavigationView navView;
     private  Toolbar appbar;
     private SharedPreferences prefrencias,prefrenciasVectores;
@@ -69,8 +80,10 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint({"ResourceAsColor", "ResourceType"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         ponerTema();
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         appbar = (Toolbar)findViewById(R.id.toolbar);
 
@@ -78,12 +91,40 @@ public class MainActivity extends AppCompatActivity {
         week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
-        WeekChange();
+        //WeekChange(activity_main);
 
         setDrawerNavView();
         setActivityResultLauncher();
+        gestureDetector = new GestureDetector(this, new MyGestureDetector());
+        gestureListener = new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                return gestureDetector.onTouchEvent(event);
+            }
+        };
 
 
+        ConstraintLayout ly = findViewById(R.id.constrainPadre);
+        rvMonday = findViewById(R.id.rv_monday);
+        ly.setOnClickListener(MainActivity.this);
+        ly.setOnTouchListener(gestureListener);
+        /**
+        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,  ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                showingWeek += 1;
+                week = getWeekDateList(showingWeek);
+                setDaysOfWeekUI();
+                setRecyclersUp();
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(rvMonday);
+        **/
 
     }
 
@@ -289,8 +330,25 @@ public class MainActivity extends AppCompatActivity {
     /**
      * creation of the event to scroll laterally
      */
-    private void WeekChange() {
-
+    private void WeekChange(View v) {
+        DrawerLayout = findViewById(R.id.drawer_layout);
+        DrawerLayout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
+            @Override
+            public void onSwipeLeft() {
+                showingWeek += 1;
+                week = getWeekDateList(showingWeek);
+                setDaysOfWeekUI();
+                setRecyclersUp();
+            }
+            @Override
+            public void onSwipeRight() {
+                showingWeek -= 1;
+                week = getWeekDateList(showingWeek);
+                setDaysOfWeekUI();
+                setRecyclersUp();
+            }
+        });
+        /**
         DrawerLayout = findViewById(R.id.drawer_layout);
         DrawerLayout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
 
@@ -309,7 +367,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-        });
+        });**/
     }
 
 
@@ -664,4 +722,43 @@ public class MainActivity extends AppCompatActivity {
         activityResultLauncher.launch(i);
     }
 
+    @Override
+    public void onClick(View view) {
+
+
+    }
+
+
+    class MyGestureDetector extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            try {
+                if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH)
+                    return false;
+                // right to left swipe
+                if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    showingWeek += 1;
+                    week = getWeekDateList(showingWeek);
+                    setDaysOfWeekUI();
+                    setRecyclersUp();
+                    //Toast.makeText(SelectFilterActivity.this, "Left Swipe", Toast.LENGTH_SHORT).show();
+                } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    showingWeek -= 1;
+                    week = getWeekDateList(showingWeek);
+                    setDaysOfWeekUI();
+                    setRecyclersUp();
+                    //Toast.makeText(SelectFilterActivity.this, "Right Swipe", Toast.LENGTH_SHORT).show();
+                }
+            } catch (Exception e) {
+                // nothing
+            }
+            return false;
+        }
+
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return true;
+        }
+    }
 }
+
