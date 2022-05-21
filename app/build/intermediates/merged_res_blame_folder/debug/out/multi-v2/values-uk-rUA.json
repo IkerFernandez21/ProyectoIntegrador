@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-uk-rUA\\values-uk-rUA.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Alejandro\\.gradle\\caches\\transforms-3\\1674e60cdcf82f079e0a82aff1a25963\\transformed\\jetified-android.joda-2.10.12.2\\res\\values-uk-rUA\\values-uk-rUA.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        }
+    ]
+}

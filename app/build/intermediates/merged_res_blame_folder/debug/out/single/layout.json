@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\row_notes.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\row_notes.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_note.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_note.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_webtools.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\fragment_webtools.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_splash.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\content_main.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\content_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_loged.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_loged.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\list_item.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\nav_header.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\nav_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_tema.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\fragment_tema.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_config.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\fragment_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\row_tasks.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\row_tasks.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\app_bar_main.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_web.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\fragment_web.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_notes_screen.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_notes_screen.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_day.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_day.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\row.xml",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\row.xml"
+    }
+]

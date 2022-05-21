@@ -1,0 +1,330 @@
+[
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_home_24.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_baseline_home_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_iconoapp_foreground.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-hdpi\\ic_iconoapp_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_iconoapp_round.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-mdpi\\ic_iconoapp_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_add_photo_alternate_24.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_baseline_add_photo_alternate_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_imageiconovector.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable-v24\\imageiconovector.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_bin.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_bin.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_tema.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\fragment_tema.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_add.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_loged.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_loged.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_red_circle.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable-mdpi\\ic_red_circle.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_iconoapp_round.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xhdpi\\ic_iconoapp_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_iconoapp.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_iconoapp.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\anim_logoanimtext.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\anim\\logoanimtext.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_app_bar_main.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_webtools.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\fragment_webtools.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_camera_alt_24.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_baseline_camera_alt_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_launcher_noteapp.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_launcher_noteapp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_alex.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable-xxhdpi\\alex.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_config.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\fragment_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_iconoapp_foreground.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xhdpi\\ic_iconoapp_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_iker.jpg.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable-xxhdpi\\iker.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_ic_red_circle.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable-xxhdpi\\ic_red_circle.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_bordes_redondos.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\bordes_redondos.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_add_24.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_baseline_add_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_red_circle.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable-xhdpi\\ic_red_circle.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_iconoapp.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xhdpi\\ic_iconoapp.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_calendar_month_24.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_baseline_calendar_month_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_iconoapp.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_iconoapp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\menu_menu_notes_screen.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\menu\\menu_notes_screen.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_iconoapp.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_iconoapp.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_iconoapp_round.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_iconoapp_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_iconoapp_foreground.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-mdpi\\ic_iconoapp_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_iconoapp_foreground.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_iconoapp_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi_ic_red_circle.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable-anydpi\\ic_red_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_notes_screen.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_notes_screen.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_fingerprint_24.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_baseline_fingerprint_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_web.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\fragment_web.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_splash.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\menu_appbar_main.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\menu\\appbar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_row_notes.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\row_notes.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_nav_menu.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\font_fuente_splash.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\font\\fuente_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\menu_menu_notes.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\menu\\menu_notes.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\anim_logoanim.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\anim\\logoanim.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_list_item.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_fondosplash.jpg.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable-v24\\fondosplash.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_iconoapp.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-hdpi\\ic_iconoapp.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\menu_keyboard_menu.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\menu\\keyboard_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_sticky_note_2_24.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_baseline_sticky_note_2_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_enrique.jpg.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable-xxhdpi\\enrique.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_delete_24.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_baseline_delete_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_row_tasks.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\row_tasks.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_nav_header.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\nav_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_iconoppal.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\iconoppal.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_iconoapp_foreground.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_iconoapp_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_content_main.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\content_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_iconoapp_round.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-hdpi\\ic_iconoapp_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_outline_circle_24.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_outline_circle_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_row.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\row.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_iconoapp_background.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable\\ic_iconoapp_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\menu_activity_main_drawer.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_iconoapp_round.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_iconoapp_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_iconoapp.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-mdpi\\ic_iconoapp.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_ic_red_circle.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\drawable-hdpi\\ic_red_circle.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_iconoapp_round.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_iconoapp_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_note.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_note.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_day.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\layout\\activity_day.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Alejandro\\AndroidStudioProjects\\ProyectoIntegrador\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    }
+]
