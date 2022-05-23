@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RecyclerView rvFriday;
     private RecyclerView rvSaturday;
     private RecyclerView rvSunday;
-    private OnSwipeTouchListener onSwipeTouchListener;
+    
     private DrawerLayout DrawerLayout;
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private LinearLayoutManager mLayout;
