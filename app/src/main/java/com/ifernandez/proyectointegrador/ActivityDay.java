@@ -46,7 +46,7 @@ public class ActivityDay extends AppCompatActivity {
         tvDay = findViewById(R.id.tv_day);
         tvYear = findViewById(R.id.tv_year);
 
-        Bundle extras = getIntent().getExtras();
+        Bundle extras = this.getIntent().getExtras();
         dayDate = (Date) extras.get("dayDate");
 
         setTextviewsUI();
@@ -217,9 +217,9 @@ public class ActivityDay extends AppCompatActivity {
             day.setTaskList(taskList);
             daysList.add(day);
         }
-
         vault.setDaysList(daysList);
         vault.saveVaultToFile(getFilesDir());
+
     }
 
     /**

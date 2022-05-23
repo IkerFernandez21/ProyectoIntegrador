@@ -70,6 +70,17 @@
     <string name="note_tittle">Note tittle</string>
     <string name="note_description">Note description</string>
     <string name="add_photo">add Photo</string>
+    <string name="pick_color">¡Pick a theme!</string>
+    <string name="recycler_bin">Recycle Bin</string>
+    <string-array name="colores">
+        <item>Verde</item>
+        <item>Mostaza</item>
+        <item>Azul</item>
+        <item>Azul y naranja</item>
+        <item>Rosa</item>
+        <item>Gris</item>
+
+    </string-array>
     <string name="switch_to_fingerprint">Switch to fingerprint</string>
 
 </resources>

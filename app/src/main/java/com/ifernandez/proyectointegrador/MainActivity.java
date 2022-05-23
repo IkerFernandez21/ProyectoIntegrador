@@ -5,10 +5,13 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -20,16 +23,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.Filter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +52,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.Executor;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final int SWIPE_MIN_DISTANCE = 120;
+    private static final int SWIPE_MAX_OFF_PATH = 250;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
+    private GestureDetector gestureDetector;
+    View.OnTouchListener gestureListener;
     private NavigationView navView;
     private  Toolbar appbar;
     private SharedPreferences prefrencias,prefrenciasVectores;
@@ -53,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView img,img2;
     private ArrayList<Day> daysList;
     private ArrayList<Date> week;
+    private Date dayDate;
     private RecyclerView rvMonday;
     private RecyclerView rvTuesday;
     private RecyclerView rvWednesday;
@@ -70,11 +85,15 @@ public class MainActivity extends AppCompatActivity {
     private BiometricPrompt.PromptInfo promptInfo;
 
 
+    private ArrayList<Task> taskList;
+    private int rcvselection;
     @SuppressLint({"ResourceAsColor", "ResourceType"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         ponerTema();
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         appbar = (Toolbar)findViewById(R.id.toolbar);
 
@@ -82,14 +101,202 @@ public class MainActivity extends AppCompatActivity {
         week = getWeekDateList();
         setDaysOfWeekUI();
         setRecyclersUp();
-        WeekChange();
+
+        vault = new Vault(getFilesDir());
+        daysList = vault.getDaysList();
+
+
+
+
 
         setDrawerNavView();
         setActivityResultLauncher();
+        //Sistema de gestos para pasar entre semanas
+        gestureDetector = new GestureDetector(this, new MyGestureDetector());
+        gestureListener = new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                return gestureDetector.onTouchEvent(event);
+            }
+        };
+
+
+        ConstraintLayout ly = findViewById(R.id.constrainPadre);
+
+        ly.setOnClickListener(MainActivity.this);
+        ly.setOnTouchListener(gestureListener);
+        setItemTouchUp();
+
+
+
 
 
 
     }
+
+
+
+
+
+    /*
+    Metodo para poder eliminar una nota,deslizando sobre el titulo de la nota
+     */
+    private void setItemTouchUp() {
+        ItemTouchHelper.SimpleCallback MondayCallback = new ItemTouchHelper.SimpleCallback(0,  ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                week = getWeekDateList(showingWeek);
+
+                taskList = getTaskListFromDay(week.get(0));
+                taskList.remove(viewHolder.getAdapterPosition());
+
+                rvMonday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                guardarCambios();
+
+            }
+        };
+        ItemTouchHelper.SimpleCallback TuesdayCallback = new ItemTouchHelper.SimpleCallback(0,  ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                week = getWeekDateList(showingWeek);
+
+                taskList = getTaskListFromDay(week.get(1));
+                taskList.remove(viewHolder.getAdapterPosition());
+
+                rvTuesday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                guardarCambios();
+
+            }
+        };
+        ItemTouchHelper.SimpleCallback WeednedayCallback = new ItemTouchHelper.SimpleCallback(0,  ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                week = getWeekDateList(showingWeek);
+
+                taskList = getTaskListFromDay(week.get(2));
+                taskList.remove(viewHolder.getAdapterPosition());
+
+                rvWednesday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                guardarCambios();
+
+            }
+        };
+        ItemTouchHelper.SimpleCallback ThursdayCallback = new ItemTouchHelper.SimpleCallback(0,  ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                week = getWeekDateList(showingWeek);
+
+                taskList = getTaskListFromDay(week.get(3));
+                taskList.remove(viewHolder.getAdapterPosition());
+
+                rvThursday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                guardarCambios();
+
+            }
+        };
+        ItemTouchHelper.SimpleCallback FridayCallback = new ItemTouchHelper.SimpleCallback(0,  ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                week = getWeekDateList(showingWeek);
+
+                taskList = getTaskListFromDay(week.get(4));
+                taskList.remove(viewHolder.getAdapterPosition());
+
+                rvFriday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                guardarCambios();
+
+            }
+        };
+        ItemTouchHelper.SimpleCallback SaturdayCallback = new ItemTouchHelper.SimpleCallback(0,  ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                week = getWeekDateList(showingWeek);
+
+                taskList = getTaskListFromDay(week.get(5));
+                taskList.remove(viewHolder.getAdapterPosition());
+
+                rvSaturday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                guardarCambios();
+
+            }
+        };
+        ItemTouchHelper.SimpleCallback SundayCallback = new ItemTouchHelper.SimpleCallback(0,  ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                week = getWeekDateList(showingWeek);
+
+                taskList = getTaskListFromDay(week.get(6));
+                taskList.remove(viewHolder.getAdapterPosition());
+                daysList.add(new Day());
+
+                rvSunday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                guardarCambios();
+
+            }
+        };
+        ItemTouchHelper itemTouchHelperMonday = new ItemTouchHelper(MondayCallback);
+        itemTouchHelperMonday.attachToRecyclerView(rvMonday);
+        ItemTouchHelper itemTouchHelperTuesday = new ItemTouchHelper(TuesdayCallback);
+        itemTouchHelperTuesday.attachToRecyclerView(rvTuesday);
+        ItemTouchHelper itemTouchHelperWeednesday = new ItemTouchHelper(WeednedayCallback);
+        itemTouchHelperWeednesday.attachToRecyclerView(rvWednesday);
+        ItemTouchHelper itemTouchHelperThursday = new ItemTouchHelper(ThursdayCallback);
+        itemTouchHelperThursday.attachToRecyclerView(rvThursday);
+        ItemTouchHelper itemTouchHelperFriday = new ItemTouchHelper(FridayCallback);
+        itemTouchHelperFriday.attachToRecyclerView(rvFriday);
+        ItemTouchHelper itemTouchHelperSatuday = new ItemTouchHelper(SaturdayCallback);
+        itemTouchHelperSatuday.attachToRecyclerView(rvSaturday);
+        ItemTouchHelper itemTouchHelperSunday = new ItemTouchHelper(SundayCallback);
+        itemTouchHelperSunday.attachToRecyclerView(rvSunday);
+    }
+    public void guardarCambios(){
+
+        vault.setDaysList(daysList);
+        vault.saveVaultToFile(getFilesDir());
+        setRecyclersUp();
+    }
+
 
     private void ponerTema() {
         prefrencias = getSharedPreferences("MisPrefrencias", Context.MODE_PRIVATE);
@@ -119,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setDrawerNavView() {
-
+        String[] colores = getResources().getStringArray(R.array.colores);
         setSupportActionBar(appbar);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_nav_menu);
@@ -145,8 +352,25 @@ public class MainActivity extends AppCompatActivity {
                                 break;
 
                             case R.id.nav_web_tools:
-                                fragment = new temaFragment();
-                                fragmentTransaction = true;
+
+
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+                                builder.setTitle(R.string.pick_color)
+                                        .setItems(R.array.colores, new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                SharedPreferences.Editor editor = prefrencias.edit();
+                                                editor.putString("tema",colores[which]);
+                                                editor.commit();
+                                                Intent intent1 = new Intent(MainActivity.this, MainActivity.class);
+                                                intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                startActivity(intent1);
+                                            }
+                                        });
+                                Dialog dialog = builder.create();
+                                dialog.show();
                                 break;
 
                             case R.id.drawer_cloud:
@@ -314,8 +538,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * creation of the event to scroll laterally
      */
-    private void WeekChange() {
 
+        /**
         DrawerLayout = findViewById(R.id.drawer_layout);
         DrawerLayout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
 
@@ -334,8 +558,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-        });
-    }
+        });**/
+
 
 
     /**
@@ -344,7 +568,7 @@ public class MainActivity extends AppCompatActivity {
     public void setRecyclersUp() {
 
         ArrayList<String> list = new ArrayList<String>();
-        ArrayList<Task> taskList;
+
 
         vault = new Vault(getFilesDir());
         daysList = vault.getDaysList();
@@ -467,26 +691,31 @@ public class MainActivity extends AppCompatActivity {
         rvMonday.setOnTouchListener(new RVClickHandler(rvMonday));
         rvMonday.setOnClickListener((v) -> {
             openDayActivity(0);
+
         });
 
         rvTuesday.setOnTouchListener(new RVClickHandler(rvTuesday));
         rvTuesday.setOnClickListener((v) -> {
             openDayActivity(1);
+
         });
 
         rvWednesday.setOnTouchListener(new RVClickHandler(rvWednesday));
         rvWednesday.setOnClickListener((v) -> {
             openDayActivity(2);
+
         });
 
         rvThursday.setOnTouchListener(new RVClickHandler(rvThursday));
         rvThursday.setOnClickListener((v) -> {
             openDayActivity(3);
+
         });
 
         rvFriday.setOnTouchListener(new RVClickHandler(rvFriday));
         rvFriday.setOnClickListener((v) -> {
             openDayActivity(4);
+
         });
 
         rvSaturday.setOnTouchListener(new RVClickHandler(rvSaturday));
@@ -499,39 +728,7 @@ public class MainActivity extends AppCompatActivity {
             openDayActivity(6);
         });
 
-        ItemTouchHelper iTH = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-            @Override
-            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                return false;
-            }
 
-            @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getAdapterPosition();
-                if (direction == ItemTouchHelper.RIGHT) {
-                    showingWeek -= 1;
-                    week = getWeekDateList(showingWeek);
-                    setDaysOfWeekUI();
-                    setRecyclersUp();
-                }
-                if (direction == ItemTouchHelper.LEFT) {
-                    showingWeek += 1;
-                    week = getWeekDateList(showingWeek);
-                    setDaysOfWeekUI();
-                    setRecyclersUp();
-
-                }
-
-            }
-        });
-
-        iTH.attachToRecyclerView(rvMonday);
-        iTH.attachToRecyclerView(rvTuesday);
-        iTH.attachToRecyclerView(rvWednesday);
-        iTH.attachToRecyclerView(rvThursday);
-        iTH.attachToRecyclerView(rvFriday);
-        iTH.attachToRecyclerView(rvSaturday);
-        iTH.attachToRecyclerView(rvSunday);
     }
 
 
@@ -689,4 +886,42 @@ public class MainActivity extends AppCompatActivity {
         activityResultLauncher.launch(i);
     }
 
+    @Override
+    public void onClick(View view) {
+
+
+    }
+
+
+    class MyGestureDetector extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            try {
+                if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH)
+                    return false;
+                // right to left swipe
+                if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    showingWeek += 1;
+                    week = getWeekDateList(showingWeek);
+                    setDaysOfWeekUI();
+                    setRecyclersUp();
+                    //Toast.makeText(SelectFilterActivity.this, "Left Swipe", Toast.LENGTH_SHORT).show();
+                } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    showingWeek -= 1;
+                    week = getWeekDateList(showingWeek);
+                    setDaysOfWeekUI();
+                    setRecyclersUp();
+                    //Toast.makeText(SelectFilterActivity.this, "Right Swipe", Toast.LENGTH_SHORT).show();
+                }
+            } catch (Exception e) {
+                // nothing
+            }
+            return false;
+        }
+
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return true;
+        }
+    }
 }
