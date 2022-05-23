@@ -217,9 +217,9 @@ public class ActivityDay extends AppCompatActivity {
             day.setTaskList(taskList);
             daysList.add(day);
         }
-
         vault.setDaysList(daysList);
         vault.saveVaultToFile(getFilesDir());
+
     }
 
     /**
