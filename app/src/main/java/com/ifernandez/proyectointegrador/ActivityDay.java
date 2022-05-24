@@ -1,5 +1,6 @@
 package com.ifernandez.proyectointegrador;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,12 +9,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -250,9 +254,19 @@ public class ActivityDay extends AppCompatActivity {
      */
     public void addTaskButton(View view) {
         Task newTask = new Task();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            newTask.setDate(convertToLocalDateViaInstant(dayDate));
+        }
 
         taskList.add(newTask);
         rvDay.getAdapter().notifyItemInserted(rvDay.getAdapter().getItemCount()+1);
         //setUpRecycler();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public LocalDate convertToLocalDateViaInstant(Date dateToConvert) {
+        return dateToConvert.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
     }
 }

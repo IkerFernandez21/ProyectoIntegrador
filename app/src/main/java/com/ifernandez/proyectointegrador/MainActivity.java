@@ -144,6 +144,11 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 break;
 
+                            case R.id.nav_all_tasks:
+                                fragment = new AllTasksFragment();
+                                fragmentTransaction = true;
+                                break;
+
                             case R.id.nav_web_tools:
                                 fragment = new temaFragment();
                                 fragmentTransaction = true;

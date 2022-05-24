@@ -71,5 +71,6 @@
     <string name="note_description">Note description</string>
     <string name="add_photo">add Photo</string>
     <string name="switch_to_fingerprint">Switch to fingerprint</string>
+    <string name="view_all_tasks">View all tasks</string>
 
 </resources>
