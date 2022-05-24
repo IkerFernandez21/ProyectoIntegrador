@@ -67,6 +67,8 @@
     <string name="pink">Rosa</string>
     <string name="gray">Gris</string>
     <string name="blue">Azul</string>
+    <string name="switch_to_fingerprint">Modo huella</string>
+    <string name="view_all_tasks">Todas las tareas</string>
     <string name="pick_color">¡Selecciona un tema!</string>
     <string name="note_tittle">Titulo de nota</string>
 

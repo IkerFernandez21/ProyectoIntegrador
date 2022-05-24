@@ -1,12 +1,14 @@
 package com.ifernandez.proyectointegrador;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class Task implements Serializable {
 
     private String tittle;
     private String description;
     private boolean completed;
+    private LocalDate date;
     private int color;
 
     //Constructors
@@ -59,6 +61,14 @@ public class Task implements Serializable {
 
     public void setColor(int color) {
         this.color = color;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     @Override

@@ -351,6 +351,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 startActivity(intent);
                                 break;
 
+                            case R.id.nav_all_tasks:
+                                fragment = new AllTasksFragment();
+                                fragmentTransaction = true;
+                                break;
+
                             case R.id.nav_web_tools:
 
 
