@@ -69,7 +69,7 @@
     <string name="blue">Azul</string>
     <string name="pick_color">¡Selecciona un tema!</string>
     <string name="note_tittle">Titulo de nota</string>
-
+    <string name="Taskslist">Tareas</string>
     <string name="note_description">Descripcion de nota</string>
     <string name="add_photo">añadir foto</string>
     <string name="recycler_bin">Papelera de reciclaje</string>

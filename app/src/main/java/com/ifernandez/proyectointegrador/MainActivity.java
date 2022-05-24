@@ -377,6 +377,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 intent= new Intent (MainActivity.this, LoginActivity.class);
                                 activityResultLauncher.launch(intent);
                                 break;
+                            case R.id.TaskList:
+                                fragment = new ListaTasks();
+                                fragmentTransaction = true;
+                                break;
 
                             case R.id.nav_settings:
                                 fragment = new configFragment();

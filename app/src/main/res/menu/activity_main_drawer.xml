@@ -18,6 +18,9 @@
         <item
             android:id="@+id/Recycle_Bin"
             android:title="@string/recycler_bin" />
+        <item
+            android:id="@+id/TaskList"
+            android:title="@string/Taskslist" />
 
     </group>
 
