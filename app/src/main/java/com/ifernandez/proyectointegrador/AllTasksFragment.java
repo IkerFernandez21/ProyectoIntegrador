@@ -37,6 +37,12 @@ public class AllTasksFragment extends Fragment {
         setUpRecycler();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setUpRecycler();
+    }
+
     private void setUpRecycler() {
 
         vault = new Vault(getActivity().getFilesDir());
