@@ -72,6 +72,9 @@
     <string name="add_photo">add Photo</string>
     <string name="pick_color">¡Pick a theme!</string>
     <string name="recycler_bin">Recycle Bin</string>
+    <string name="TutorialText">Hello, Welcome to NoteApp.\n\n
+To switch to the next week just swipe left on the text.\n\n
+If you want to delete a note you can try swiping right on it and left to mark it as completed</string>
     <string-array name="colores">
         <item>Verde</item>
         <item>Mostaza</item>

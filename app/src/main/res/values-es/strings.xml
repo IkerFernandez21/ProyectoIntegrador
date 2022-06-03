@@ -71,6 +71,7 @@
     <string name="view_all_tasks">Todas las tareas</string>
     <string name="pick_color">¡Selecciona un tema!</string>
     <string name="note_tittle">Titulo de nota</string>
+    <string name="TutorialText">Hola, Bienvenido a NoteApp.\n\nPara cambiar a la siguiente semana solo tienes que deslizar hacia la izquierda sobre el texto.\n\nsi deseas eliminar una nota puedes probar a deslizar hacia la derecha sobre ella y hacia la izquierda para marcarla como completada</string>
 
     <string name="note_description">Descripcion de nota</string>
     <string name="add_photo">añadir foto</string>

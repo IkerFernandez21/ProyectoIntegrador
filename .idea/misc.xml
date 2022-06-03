@@ -40,15 +40,13 @@
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_splash.xml" value="0.5208333333333334" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/app_bar_main.xml" value="0.5208333333333334" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/content_main.xml" value="0.5208333333333334" />
-        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/fragment_all_tasks.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/fragment_config.xml" value="0.5208333333333334" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/fragment_tema.xml" value="0.5208333333333334" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/fragment_web.xml" value="0.28020833333333334" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/fragment_webtools.xml" value="0.28020833333333334" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/list_item.xml" value="0.3509963768115942" />
-        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/nav_header.xml" value="0.264" />
+        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/nav_header.xml" value="0.5208333333333334" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row.xml" value="0.2828125" />
-        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row_all_tasks.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row_notes.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row_tasks.xml" value="0.2828125" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/menu/activity_main_drawer.xml" value="0.28020833333333334" />
@@ -74,9 +72,14 @@
         <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/layout/activity_note.xml" value="0.3605072463768116" />
         <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/layout/activity_recicler_bin.xml" value="0.3605072463768116" />
         <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/layout/content_main.xml" value="0.3605072463768116" />
+        <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/layout/fragment_lista_tasks.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/layout/fragment_tema.xml" value="0.3605072463768116" />
         <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/layout/fragment_webtools.xml" value="0.3605072463768116" />
         <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/layout/list_item.xml" value="0.3605072463768116" />
+        <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/layout/row.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/layout/row_tasks.xml" value="0.28306159420289856" />
+        <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/layout/rowtasklist.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/layout/tutorialdesing.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/menu/appbar_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/iker/AndroidStudioProjects/ProyectoIntegradorTFG/app/src/main/res/menu/menu_notes.xml" value="0.36666666666666664" />

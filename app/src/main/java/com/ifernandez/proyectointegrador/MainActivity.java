@@ -35,6 +35,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.Filter;
 import android.widget.ImageView;
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RecyclerView rvFriday;
     private RecyclerView rvSaturday;
     private RecyclerView rvSunday;
-    
+    Dialog customDialog = null;
     private DrawerLayout DrawerLayout;
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private LinearLayoutManager mLayout;
@@ -87,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ArrayList<Task> taskList;
     private int rcvselection;
+    SharedPreferences prefs = null;
+
     @SuppressLint({"ResourceAsColor", "ResourceType"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         daysList = vault.getDaysList();
 
 
-
+        prefs = getSharedPreferences("isFirst", MODE_PRIVATE);
 
 
         setDrawerNavView();
@@ -134,6 +137,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (prefs.getBoolean("firstrun", true)) {
+            customDialog = new Dialog(this);
+            //deshabilitamos el título por defecto
+            customDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+            //establecemos el contenido de nuestro dialog
+            customDialog.setContentView(R.layout.tutorialdesing);
+
+            customDialog.show();
+
+            prefs.edit().putBoolean("firstrun", false).commit();
+        }
+    }
 
 
 
@@ -151,12 +171,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
                 week = getWeekDateList(showingWeek);
-
                 taskList = getTaskListFromDay(week.get(0));
-                taskList.remove(viewHolder.getAdapterPosition());
 
-                rvMonday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
-                guardarCambios();
+                if (direction == ItemTouchHelper.LEFT){
+                    if(taskList.get(viewHolder.getAdapterPosition()).isCompleted()){
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(false);
+                    }else{
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(true);
+                    }
+
+                    guardarCambios();
+                }else{
+
+                    taskList.remove(viewHolder.getAdapterPosition());
+
+                    rvMonday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                    guardarCambios();
+                }
+
 
             }
         };
@@ -170,12 +202,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
                 week = getWeekDateList(showingWeek);
-
                 taskList = getTaskListFromDay(week.get(1));
-                taskList.remove(viewHolder.getAdapterPosition());
 
-                rvTuesday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
-                guardarCambios();
+                if (direction == ItemTouchHelper.LEFT){
+                    if(taskList.get(viewHolder.getAdapterPosition()).isCompleted()){
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(false);
+                    }else{
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(true);
+                    }
+
+                    guardarCambios();
+                }else{
+
+                    taskList.remove(viewHolder.getAdapterPosition());
+
+                    rvMonday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                    guardarCambios();
+                }
 
             }
         };
@@ -189,12 +232,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
                 week = getWeekDateList(showingWeek);
-
                 taskList = getTaskListFromDay(week.get(2));
-                taskList.remove(viewHolder.getAdapterPosition());
 
-                rvWednesday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
-                guardarCambios();
+                if (direction == ItemTouchHelper.LEFT){
+                    if(taskList.get(viewHolder.getAdapterPosition()).isCompleted()){
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(false);
+                    }else{
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(true);
+                    }
+
+                    guardarCambios();
+                }else{
+
+                    taskList.remove(viewHolder.getAdapterPosition());
+
+                    rvMonday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                    guardarCambios();
+                }
 
             }
         };
@@ -208,12 +262,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
                 week = getWeekDateList(showingWeek);
-
                 taskList = getTaskListFromDay(week.get(3));
-                taskList.remove(viewHolder.getAdapterPosition());
 
-                rvThursday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
-                guardarCambios();
+                if (direction == ItemTouchHelper.LEFT){
+                    if(taskList.get(viewHolder.getAdapterPosition()).isCompleted()){
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(false);
+                    }else{
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(true);
+                    }
+
+                    guardarCambios();
+                }else{
+
+                    taskList.remove(viewHolder.getAdapterPosition());
+
+                    rvMonday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                    guardarCambios();
+                }
 
             }
         };
@@ -227,12 +292,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
                 week = getWeekDateList(showingWeek);
-
                 taskList = getTaskListFromDay(week.get(4));
-                taskList.remove(viewHolder.getAdapterPosition());
 
-                rvFriday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
-                guardarCambios();
+                if (direction == ItemTouchHelper.LEFT){
+                    if(taskList.get(viewHolder.getAdapterPosition()).isCompleted()){
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(false);
+                    }else{
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(true);
+                    }
+
+                    guardarCambios();
+                }else{
+
+                    taskList.remove(viewHolder.getAdapterPosition());
+
+                    rvMonday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                    guardarCambios();
+                }
 
             }
         };
@@ -246,12 +322,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
                 week = getWeekDateList(showingWeek);
-
                 taskList = getTaskListFromDay(week.get(5));
-                taskList.remove(viewHolder.getAdapterPosition());
 
-                rvSaturday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
-                guardarCambios();
+                if (direction == ItemTouchHelper.LEFT){
+                    if(taskList.get(viewHolder.getAdapterPosition()).isCompleted()){
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(false);
+                    }else{
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(true);
+                    }
+
+                    guardarCambios();
+                }else{
+
+                    taskList.remove(viewHolder.getAdapterPosition());
+
+                    rvMonday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                    guardarCambios();
+                }
 
             }
         };
@@ -265,13 +352,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
                 week = getWeekDateList(showingWeek);
-
                 taskList = getTaskListFromDay(week.get(6));
-                taskList.remove(viewHolder.getAdapterPosition());
-                daysList.add(new Day());
 
-                rvSunday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
-                guardarCambios();
+                if (direction == ItemTouchHelper.LEFT){
+                    if(taskList.get(viewHolder.getAdapterPosition()).isCompleted()){
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(false);
+                    }else{
+                        taskList.get(viewHolder.getAdapterPosition()).setCompleted(true);
+                    }
+
+                    guardarCambios();
+                }else{
+
+                    taskList.remove(viewHolder.getAdapterPosition());
+
+                    rvMonday.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
+                    guardarCambios();
+                }
 
             }
         };
