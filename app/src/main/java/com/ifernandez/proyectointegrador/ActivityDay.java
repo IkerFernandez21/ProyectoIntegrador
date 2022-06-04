@@ -177,7 +177,9 @@ public class ActivityDay extends AppCompatActivity {
 
         //Save changes on tasks
         for(Day d : daysList){
-            if (d.getDate().compareTo(dayDate) == 0) {
+            String a = ""+d.getDate().getDate()+d.getDate().getMonth();
+            String b = ""+dayDate.getDate()+dayDate.getMonth();
+            if (a.equals(b)) {
                 day = d;
                 break;
             }
@@ -207,7 +209,9 @@ public class ActivityDay extends AppCompatActivity {
 
         //Save changes on tasks
         for(Day d : daysList){
-            if (d.getDate().compareTo(dayDate) == 0) {
+            String a = ""+d.getDate().getDate()+d.getDate().getMonth()+d.getDate().getYear();
+            String b = ""+dayDate.getDate()+dayDate.getMonth()+dayDate.getYear();
+            if (a.equals(b)) {
                 day = d;
                 break;
             }
