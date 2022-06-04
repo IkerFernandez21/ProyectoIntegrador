@@ -29,6 +29,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.Menu;
@@ -36,6 +37,8 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.Filter;
 import android.widget.ImageView;
@@ -65,10 +68,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int showingWeek;
     private Vault vault;
     private String temas;
+    private Button btnTutorial;
     private ImageView img,img2;
     private ArrayList<Day> daysList;
     private ArrayList<Date> week;
     private Date dayDate;
+    private CheckBox chbTutorial;
     private RecyclerView rvMonday;
     private RecyclerView rvTuesday;
     private RecyclerView rvWednesday;
@@ -142,16 +147,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
 
         if (prefs.getBoolean("firstrun", true)) {
+
+
+
+
+
+
             customDialog = new Dialog(this);
             //deshabilitamos el título por defecto
             customDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
+            customDialog.setCancelable(false);
+            customDialog.setFeatureDrawableAlpha(0,2);
             //establecemos el contenido de nuestro dialog
+
             customDialog.setContentView(R.layout.tutorialdesing);
 
             customDialog.show();
 
-            prefs.edit().putBoolean("firstrun", false).commit();
+            btnTutorial = customDialog.findViewById(R.id.buttonTutorial);
+            chbTutorial = customDialog.findViewById(R.id.chkbTutorial);
+            btnTutorial.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(chbTutorial.isChecked()){
+                        prefs.edit().putBoolean("firstrun", false).commit();
+                        customDialog.dismiss();
+                    }
+                    customDialog.dismiss();
+
+                }
+            });
+
+
         }
     }
 
