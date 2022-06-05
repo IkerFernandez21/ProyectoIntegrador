@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
     id("io.objectbox")
+    id 'io.franzbecker.gradle-lombok' version '5.0.0'
 }
 
 android {
@@ -63,4 +64,6 @@ dependencies {
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
     implementation "com.github.bumptech.glide:glide:4.11.0"
     implementation "androidx.biometric:biometric:1.0.1"
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }

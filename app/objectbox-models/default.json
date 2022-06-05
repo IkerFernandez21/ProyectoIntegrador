@@ -50,9 +50,43 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "3:4062579180358461697",
+      "lastPropertyId": "5:7558164559771546057",
+      "name": "ScheduleItem",
+      "properties": [
+        {
+          "id": "1:8429456699436288229",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:3432581147700875086",
+          "name": "time",
+          "type": 9
+        },
+        {
+          "id": "3:1928238482302266246",
+          "name": "text",
+          "type": 9
+        },
+        {
+          "id": "4:3505637840804935702",
+          "name": "day",
+          "type": 9
+        },
+        {
+          "id": "5:7558164559771546057",
+          "name": "pos",
+          "type": 5
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "2:6672229228671018989",
+  "lastEntityId": "3:4062579180358461697",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",

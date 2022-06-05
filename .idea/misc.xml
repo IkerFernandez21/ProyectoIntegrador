@@ -31,12 +31,17 @@
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.3195" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.3195" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.4155" />
+        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.3195" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/drawable/ic_bin.xml" value="0.4155" />
+        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/drawable/ic_nav_menu.xml" value="0.3195" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout-v26/content_main.xml" value="0.5208333333333334" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_day.xml" value="0.5208333333333334" />
+        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_loged.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_login.xml" value="0.31354166666666666" />
+        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_note.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_notes_screen.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_schedule.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/activity_splash.xml" value="0.5208333333333334" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/app_bar_main.xml" value="0.5208333333333334" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/content_main.xml" value="0.5208333333333334" />
@@ -50,6 +55,7 @@
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row.xml" value="0.2828125" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row_all_tasks.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row_notes.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row_schedule.xml" value="0.4" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/layout/row_tasks.xml" value="0.2828125" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/menu/activity_main_drawer.xml" value="0.28020833333333334" />
         <entry key="..\:/Users/Alejandro/AndroidStudioProjects/ProyectoIntegrador/app/src/main/res/menu/appbar_main.xml" value="0.5208333333333334" />

@@ -13,15 +13,19 @@
             android:id="@+id/nav_all_tasks"
             android:title="@string/view_all_tasks" />
         <item
-        android:id="@+id/nav_web_tools"
-        android:title="@string/change_theme" />
+            android:id="@+id/nav_web_tools"
+            android:title="@string/change_theme" />
 
         <item
             android:id="@+id/drawer_cloud"
-            android:title="Cloud" />
+            android:title="@string/cloud" />
         <item
             android:id="@+id/Recycle_Bin"
             android:title="@string/recycler_bin" />
+
+        <item
+            android:id="@+id/schedule"
+            android:title="@string/Schedule" />
 
     </group>
 

@@ -83,5 +83,9 @@
     </string-array>
     <string name="switch_to_fingerprint">Switch to fingerprint</string>
     <string name="view_all_tasks">View all tasks</string>
+    <string name="schedule_time">Schedule time</string>
+    <string name="schedule_text">Schedule Text</string>
+    <string name="cloud">Cloud</string>
+    <string name="Schedule">Schedule</string>
 
 </resources>

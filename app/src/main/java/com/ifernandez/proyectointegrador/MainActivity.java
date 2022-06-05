@@ -383,6 +383,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 activityResultLauncher.launch(intent);
                                 break;
 
+                            case R.id.schedule:
+                                intent = new Intent(MainActivity.this, Schedule.class);
+                                startActivity(intent);
+                                break;
+
                             case R.id.nav_settings:
                                 fragment = new configFragment();
                                 fragmentTransaction = true;
