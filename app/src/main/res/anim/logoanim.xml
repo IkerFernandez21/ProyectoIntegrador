@@ -5,9 +5,13 @@
     android:fillAfter="true">
 
 
-   <translate
-       android:fromXDelta="100%"
-       android:toXDelta="0%"></translate>
+   <alpha
+       android:duration="400"
+       android:fromAlpha="0.0"
+       android:interpolator="@android:anim/accelerate_interpolator"
+       android:repeatCount="infinite"
+       android:repeatMode="reverse"
+       android:toAlpha="1.0" />
 
 
 

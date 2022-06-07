@@ -85,5 +85,6 @@
     </string-array>
     <string name="switch_to_fingerprint">Switch to fingerprint</string>
     <string name="view_all_tasks">View all tasks</string>
+    <string name="dont_view_message">Do not show this message again</string>
 
 </resources>

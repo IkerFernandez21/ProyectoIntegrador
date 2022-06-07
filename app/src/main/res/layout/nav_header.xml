@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fitsSystemWindows="true"
-    android:background="?attr/colorPrimary">
+    android:background="@drawable/nav_background">
 
     <TextView
         android:id="@+id/header_title"
@@ -20,17 +20,7 @@
         app:drawableStartCompat="@mipmap/ic_iconoapp_foreground"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:paddingTop="15dp"
-        android:paddingBottom="5dp"
-        android:text="@string/your_best_weekly_agenda"
-        android:textColor="@color/white"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
-        app:layout_constraintEnd_toEndOf="@+id/header_title"
-        app:layout_constraintStart_toStartOf="@+id/header_title"
-        app:layout_constraintTop_toBottomOf="@+id/header_title" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

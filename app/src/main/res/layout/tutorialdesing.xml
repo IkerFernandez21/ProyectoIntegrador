@@ -60,34 +60,32 @@
                 android:gravity="center_horizontal">
 
             </TextView>
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
-                <CheckBox
-                    android:id="@+id/chkbTutorial"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".6"
-                    android:text="No volver a mostrar este mensaje"
-                    android:textSize="12dp"
-                    android:gravity="center_vertical"
-                    >
+                android:layout_height="180dp"
+                android:layout_gravity="center">
 
-                </CheckBox>
                 <Button
                     android:id="@+id/buttonTutorial"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".4"
-                    android:text="Aceptar"
-                    android:textSize="13dp"
-                    android:gravity="center"
-                    android:outlineSpotShadowColor="@color/black"
-                    android:textAlignment="center"
-                    android:background="@color/transparent"
-                    android:outlineAmbientShadowColor="@color/black"></Button>
+                    android:layout_width="117dp"
+                    android:layout_height="61dp"
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:outlineSpotShadowColor="@color/black"
+                    android:text="Aceptar"
+                    android:textAlignment="center"
+
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"></Button>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

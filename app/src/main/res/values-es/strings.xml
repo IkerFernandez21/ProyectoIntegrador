@@ -76,5 +76,5 @@
     <string name="note_description">Descripcion de nota</string>
     <string name="add_photo">añadir foto</string>
     <string name="recycler_bin">Papelera de reciclaje</string>
-
+    <string name="dont_view_message">No volver a mostrar este mensaje</string>
 </resources>

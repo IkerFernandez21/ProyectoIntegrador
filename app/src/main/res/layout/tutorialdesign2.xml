@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:cardBackgroundColor="@color/transparent"
+        android:outlineAmbientShadowColor="@color/transparent"
+        android:outlineSpotShadowColor="@color/transparent">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:text="¡Tambien puedes deslizar hacia la derecha para eliminar la tarea o a la izquierda para completarla!"
+                android:textSize="25dp"
+                android:textColorHighlight="@color/black"
+                android:textColor="@color/black"
+
+                android:gravity="bottom"
+                android:textAlignment="center">
+
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                >
+
+            </TextView>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="140dp"
+                    android:layout_height="60dp"
+
+
+                    android:src="@drawable/swipe_right"></pl.droidsonroids.gif.GifImageView>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="140dp"
+                    android:layout_height="60dp"
+
+
+                    android:src="@drawable/swipe_left"></pl.droidsonroids.gif.GifImageView>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_gravity="center">
+
+                <CheckBox
+                    android:id="@+id/chckTutorial"
+                    android:layout_width="249dp"
+                    android:layout_height="73dp"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/dont_view_message"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.49" />
+
+                <Button
+                    android:id="@+id/buttonTutorial2"
+                    android:layout_width="73dp"
+                    android:layout_height="67dp"
+
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:outlineSpotShadowColor="@color/black"
+                    android:text="Aceptar"
+                    android:textAlignment="center"
+
+                    android:textColor="@color/black"
+                    android:textSize="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.989"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.509"></Button>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                >
+
+            </TextView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int showingWeek;
     private Vault vault;
     private String temas;
-    private Button btnTutorial;
+    private Button btnTutorial,btTutorial2;
     private ImageView img,img2;
     private ArrayList<Day> daysList;
     private ArrayList<Date> week;
@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RecyclerView rvSaturday;
     private RecyclerView rvSunday;
     Dialog customDialog = null;
+    Dialog customDialog2 = null;
     private DrawerLayout DrawerLayout;
     private ActivityResultLauncher<Intent> activityResultLauncher;
     private LinearLayoutManager mLayout;
@@ -163,19 +164,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //establecemos el contenido de nuestro dialog
 
             customDialog.setContentView(R.layout.tutorialdesing);
+            customDialog2 = new Dialog(this);
+
+            customDialog2.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            customDialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+            customDialog2.setCancelable(false);
+            customDialog2.setFeatureDrawableAlpha(0,2);
+
+
+            customDialog2.setContentView(R.layout.tutorialdesign2);
 
             customDialog.show();
 
             btnTutorial = customDialog.findViewById(R.id.buttonTutorial);
-            chbTutorial = customDialog.findViewById(R.id.chkbTutorial);
+            btTutorial2 = customDialog2.findViewById(R.id.buttonTutorial2);
+            chbTutorial = customDialog2.findViewById(R.id.chckTutorial);
+            //chbTutorial = customDialog.findViewById(R.id.chkbTutorial);
             btnTutorial.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(chbTutorial.isChecked()){
+                    /**if(chbTutorial.isChecked()){
                         prefs.edit().putBoolean("firstrun", false).commit();
                         customDialog.dismiss();
-                    }
+                    }**/
                     customDialog.dismiss();
+                    customDialog2.show();
+                    btTutorial2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(chbTutorial.isChecked()){
+                                prefs.edit().putBoolean("firstrun", false).commit();
+                                customDialog2.dismiss();
+                            }
+                            customDialog2.dismiss();
+                        }
+                    });
+
+
+
+
 
                 }
             });
