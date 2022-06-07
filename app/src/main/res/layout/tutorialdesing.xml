@@ -78,7 +78,7 @@
                     android:textAlignment="center"
 
                     android:textColor="@color/black"
-                    android:textSize="18dp"
+                    android:textSize="15dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"

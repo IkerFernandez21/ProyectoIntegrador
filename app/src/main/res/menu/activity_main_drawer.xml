@@ -7,18 +7,22 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="@string/home" />
+            android:title="@string/home"
+            android:icon="@drawable/ic_baseline_home_24"/>
 
         <item
             android:id="@+id/nav_all_tasks"
-            android:title="@string/view_all_tasks" />
+            android:title="@string/view_all_tasks"
+            android:icon="@drawable/ic_baseline_format_list"/>
         <item
         android:id="@+id/nav_web_tools"
-        android:title="@string/change_theme" />
+        android:title="@string/change_theme"
+            android:icon="@drawable/ic_baseline_palette_24"/>
 
         <item
             android:id="@+id/drawer_cloud"
-            android:title="Cloud" />
+            android:title="Cloud"
+            android:icon="@drawable/ic_baseline_cloud_sync_24"/>
 
 
     </group>
@@ -30,7 +34,8 @@
         <item
             android:id="@+id/nav_settings"
 
-            android:title="@string/our_team" />
+            android:title="@string/our_team"
+            android:icon="@drawable/ic_baseline_info_24"/>
     </group>
 
 </menu>

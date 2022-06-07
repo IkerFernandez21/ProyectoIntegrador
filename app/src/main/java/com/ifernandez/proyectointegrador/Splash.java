@@ -39,6 +39,6 @@ public class Splash extends AppCompatActivity {
                 intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent1);
             }
-        },3400);
+        },2800);
     }
     }
